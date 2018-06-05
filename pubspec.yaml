@@ -36,10 +36,40 @@ flutter:
     - images/pic2.jpg
     - images/pic3.jpg
     - images/pavlova.jpg
-    - images/container_pic1.jpg
-    - images/container_pic2.jpg
-    - images/container_pic3.jpg
-    - images/container_pic4.jpg
+    - images/container/pic1.jpg
+    - images/container/pic2.jpg
+    - images/container/pic3.jpg
+    - images/container/pic4.jpg
+    - images/grid/pic1.jpg
+    - images/grid/pic2.jpg
+    - images/grid/pic3.jpg
+    - images/grid/pic4.jpg
+    - images/grid/pic5.jpg
+    - images/grid/pic6.jpg
+    - images/grid/pic7.jpg
+    - images/grid/pic8.jpg
+    - images/grid/pic9.jpg
+    - images/grid/pic10.jpg
+    - images/grid/pic11.jpg
+    - images/grid/pic12.jpg
+    - images/grid/pic13.jpg
+    - images/grid/pic14.jpg
+    - images/grid/pic15.jpg
+    - images/grid/pic16.jpg
+    - images/grid/pic17.jpg
+    - images/grid/pic18.jpg
+    - images/grid/pic19.jpg
+    - images/grid/pic20.jpg
+    - images/grid/pic21.jpg
+    - images/grid/pic22.jpg
+    - images/grid/pic23.jpg
+    - images/grid/pic24.jpg
+    - images/grid/pic25.jpg
+    - images/grid/pic26.jpg
+    - images/grid/pic27.jpg
+    - images/grid/pic28.jpg
+    - images/grid/pic29.jpg
+    - images/grid/pic30.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.io/assets-and-images/#resolution-aware.
