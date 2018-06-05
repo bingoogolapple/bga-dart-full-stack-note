@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-// StatelessWidget 无状态
-// StatelessWidget 有状态
+// https://flutterchina.club/tutorials/layout
+
 class LayoutOneApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
