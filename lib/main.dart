@@ -6,6 +6,7 @@ import 'material_components.dart';
 import 'shopping.dart';
 import 'layout_one.dart';
 import 'layout_two.dart';
+import 'layout_three.dart';
 
 
 //void main() => runApp(FirstApp());
@@ -15,5 +16,6 @@ import 'layout_two.dart';
 void main(){
 //  debugPaintSizeEnabled=true;
 //  runApp(LayoutOneApp());
-  runApp(LayoutTwoApp());
+//  runApp(LayoutTwoApp());
+  runApp(LayoutThreeApp());
 }
