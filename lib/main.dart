@@ -11,6 +11,7 @@ import 'layout_four.dart';
 import 'layout_five.dart';
 import 'layout_six.dart';
 import 'navigation_passing_data.dart';
+import 'package:flutter_note/list/list.dart';
 
 
 //void main() => runApp(FirstApp());
@@ -25,5 +26,6 @@ void main(){
 //  runApp(LayoutFourApp());
 //  runApp(LayoutFiveApp());
 //  runApp(LayoutSixApp());
-  runApp(NavigationPassingDataApp());
+//  runApp(NavigationPassingDataApp());
+  runApp(ListApp());
 }
