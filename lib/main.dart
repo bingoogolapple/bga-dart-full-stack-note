@@ -10,6 +10,7 @@ import 'layout_three.dart';
 import 'layout_four.dart';
 import 'layout_five.dart';
 import 'layout_six.dart';
+import 'navigation_passing_data.dart';
 
 
 //void main() => runApp(FirstApp());
@@ -23,5 +24,6 @@ void main(){
 //  runApp(LayoutThreeApp());
 //  runApp(LayoutFourApp());
 //  runApp(LayoutFiveApp());
-  runApp(LayoutSixApp());
+//  runApp(LayoutSixApp());
+  runApp(NavigationPassingDataApp());
 }
