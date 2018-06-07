@@ -3,6 +3,7 @@ import 'horizontal_list_page.dart';
 import 'long_list_page.dart';
 import 'multi_type_list_page.dart';
 import 'grid_list_page.dart';
+import 'expansion_list_page.dart';
 
 class ListApp extends StatelessWidget {
   @override
@@ -67,6 +68,18 @@ class VerticalList extends StatelessWidget {
               context,
               new MaterialPageRoute(
                 builder: (context) => new GridListPage(),
+              ),
+            );
+          },
+        ),
+        new ListTile(
+          leading: new Icon(Icons.phone),
+          title: new Text('ExpansionTileList'),
+          onTap: () {
+            Navigator.push(
+              context,
+              new MaterialPageRoute(
+                builder: (context) => new ExpansionTileListPage(),
               ),
             );
           },
