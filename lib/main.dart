@@ -13,6 +13,7 @@ import 'layout_six.dart';
 import 'navigation_passing_data.dart';
 import 'package:flutter_note/list/list.dart';
 import 'image.dart';
+import 'gesture_detector.dart';
 
 //void main() => runApp(BasicWidgetsApp());
 //void main() => runApp(MaterialComponentsApp());
@@ -87,6 +88,17 @@ class FlutterNoteList extends StatelessWidget {
               context,
               MaterialPageRoute(
                 builder: (context) => new ImageApp(),
+              ),
+            );
+          },
+        ),
+        ListTile(
+          title: Text('处理手势'),
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => new GestureDetectorApp(),
               ),
             );
           },
