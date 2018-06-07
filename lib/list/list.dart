@@ -8,13 +8,11 @@ import 'expansion_list_page.dart';
 class ListApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text('垂直列表'),
-        ),
-        body: new VerticalList(),
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('垂直列表'),
       ),
+      body: new VerticalList(),
     );
   }
 }

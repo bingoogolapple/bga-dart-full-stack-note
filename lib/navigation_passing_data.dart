@@ -5,19 +5,17 @@ import 'package:flutter/material.dart';
 class NavigationPassingDataApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text('FirstPage'),
-        ),
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('FirstPage'),
+      ),
 //        body: new TodoListScreen(),
-        body: new ListView(
-          children: [
-            new FirstButton(),
-            new Divider(),
-            new SelectionButton(),
-          ],
-        ),
+      body: new ListView(
+        children: [
+          new FirstButton(),
+          new Divider(),
+          new SelectionButton(),
+        ],
       ),
     );
   }
