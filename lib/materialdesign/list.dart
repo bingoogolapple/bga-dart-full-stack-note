@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'appbar_actions.dart';
 import 'appbar_bottom.dart';
+import 'appbar_indicator.dart';
 
 class MaterialComponentApp extends StatelessWidget {
   @override
@@ -20,7 +21,6 @@ class ContentList extends StatelessWidget {
     return new ListView(
       children: [
         new ListTile(
-          leading: new Icon(Icons.map),
           title: new Text('AppBarActionsApp'),
           onTap: () {
             Navigator.push(
@@ -32,13 +32,23 @@ class ContentList extends StatelessWidget {
           },
         ),
         new ListTile(
-          leading: new Icon(Icons.photo),
           title: new Text('AppBarBottomApp'),
           onTap: () {
             Navigator.push(
               context,
               new MaterialPageRoute(
                 builder: (context) => new AppBarBottomApp(),
+              ),
+            );
+          },
+        ),
+        new ListTile(
+          title: new Text('AppBarIndicatorApp'),
+          onTap: () {
+            Navigator.push(
+              context,
+              new MaterialPageRoute(
+                builder: (context) => new AppBarIndicatorApp(),
               ),
             );
           },
