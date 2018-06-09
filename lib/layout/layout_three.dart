@@ -74,13 +74,11 @@ class LayoutThreeApp extends StatelessWidget {
       ),
     );
 
-    return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text('Top Lakes'),
-        ),
-        body: Center(child: container),
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Top Lakes'),
       ),
+      body: Center(child: container),
     );
   }
 }

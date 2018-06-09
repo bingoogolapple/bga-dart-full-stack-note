@@ -5,13 +5,11 @@ import 'package:flutter/material.dart';
 class LayoutFourApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text('Top Lakes'),
-        ),
-        body: Center(child: buildGrid()),
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Top Lakes'),
       ),
+      body: Center(child: buildGrid()),
     );
   }
 

@@ -3,7 +3,7 @@ import 'common.dart';
 
 class AppBarActionsApp extends StatefulWidget {
   @override
-  _AppBarActionsAppStage createState() => new _AppBarActionsAppStage();
+  createState() => new _AppBarActionsAppStage();
 }
 
 class _AppBarActionsAppStage extends State<AppBarActionsApp> {

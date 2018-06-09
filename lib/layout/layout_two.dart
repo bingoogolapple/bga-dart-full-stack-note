@@ -118,26 +118,24 @@ Pavlova is a meringue-based dessert named after the Russian ballerina Anna Pavlo
       fit: BoxFit.cover,
     );
 
-    return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text('Top Lakes'),
-        ),
-        body: Center(
-          child: Container(
-            margin: EdgeInsets.fromLTRB(0.0, 40.0, 0.0, 30.0),
-            height: 600.0,
-            child: Card(
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Container(
-                    width: 440.0,
-                    child: leftColumn,
-                  ),
-                  mainImage,
-                ],
-              ),
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Top Lakes'),
+      ),
+      body: Center(
+        child: Container(
+          margin: EdgeInsets.fromLTRB(0.0, 40.0, 0.0, 30.0),
+          height: 600.0,
+          child: Card(
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Container(
+                  width: 440.0,
+                  child: leftColumn,
+                ),
+                mainImage,
+              ],
             ),
           ),
         ),

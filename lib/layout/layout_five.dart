@@ -5,16 +5,15 @@ import 'package:flutter/material.dart';
 class LayoutFiveApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-          appBar: AppBar(
-            title: Text('Top Lakes'),
-          ),
-          body: new Column(children: [
-            buildStack(),
-            buildCard(),
-            ParentWidget(),
-          ])),
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Top Lakes'),
+      ),
+      body: new Column(children: [
+        buildStack(),
+        buildCard(),
+        ParentWidget(),
+      ]),
     );
   }
 

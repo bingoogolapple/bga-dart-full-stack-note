@@ -3,32 +3,18 @@ import 'package:flutter/rendering.dart';
 import 'firstapp.dart';
 import 'basic_widgets.dart';
 
-//import 'material_components.dart';
 import 'shopping.dart';
-import 'layout_one.dart';
-import 'layout_two.dart';
-import 'layout_three.dart';
-import 'layout_four.dart';
-import 'layout_five.dart';
-import 'layout_six.dart';
 import 'navigation_passing_data.dart';
 import 'package:flutter_note/list/list.dart';
 import 'image.dart';
 import 'gesture_detector.dart';
 import 'net.dart';
 import 'package:flutter_note/materialdesign/list.dart';
+import 'package:flutter_note/layout/list.dart';
 
-//void main() => runApp(BasicWidgetsApp());
-//void main() => runApp(MaterialComponentsApp());
-//void main() => runApp(ShoppingApp());
 void main() {
 //  debugPaintSizeEnabled=true;
-//  runApp(LayoutOneApp());
-//  runApp(LayoutTwoApp());
-//  runApp(LayoutThreeApp());
-//  runApp(LayoutFourApp());
-//  runApp(LayoutFiveApp());
-//  runApp(LayoutSixApp());
+
   runApp(FlutterNoteApp());
 }
 
@@ -58,6 +44,17 @@ class FlutterNoteList extends StatelessWidget {
               context,
               MaterialPageRoute(
                 builder: (context) => new FirstApp(),
+              ),
+            );
+          },
+        ),
+        ListTile(
+          title: Text('ShoppingApp'),
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => new ShoppingApp(),
               ),
             );
           },
@@ -124,6 +121,17 @@ class FlutterNoteList extends StatelessWidget {
               context,
               MaterialPageRoute(
                 builder: (context) => new MaterialComponentApp(),
+              ),
+            );
+          },
+        ),
+        ListTile(
+          title: Text('LayoutApp'),
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => new LayoutApp(),
               ),
             );
           },

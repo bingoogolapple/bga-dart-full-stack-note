@@ -1,28 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:english_words/english_words.dart';
 
-
-// StatelessWidget 无状态
-// StatelessWidget 有状态
-class FirstApp extends StatelessWidget {
+class FirstApp extends StatefulWidget {
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Startup Name Generator',
-      theme: ThemeData(
-        primaryColor: Colors.white,
-      ),
-      home: RandomWords(),
-    );
-  }
+  createState() => FirstAppState();
 }
 
-class RandomWords extends StatefulWidget {
-  @override
-  createState() => RandomWordsState();
-}
-
-class RandomWordsState extends State<RandomWords> {
+class FirstAppState extends State<FirstApp> {
   final _suggestions = <WordPair>[];
   final _saved = Set<WordPair>();
   final _biggerFont = const TextStyle(fontSize: 18.0);
