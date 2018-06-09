@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'firstapp.dart';
 import 'basic_widgets.dart';
-import 'material_components.dart';
+
+//import 'material_components.dart';
 import 'shopping.dart';
 import 'layout_one.dart';
 import 'layout_two.dart';
@@ -15,6 +16,7 @@ import 'package:flutter_note/list/list.dart';
 import 'image.dart';
 import 'gesture_detector.dart';
 import 'net.dart';
+import 'package:flutter_note/materialdesign/list.dart';
 
 //void main() => runApp(BasicWidgetsApp());
 //void main() => runApp(MaterialComponentsApp());
@@ -111,6 +113,17 @@ class FlutterNoteList extends StatelessWidget {
               context,
               MaterialPageRoute(
                 builder: (context) => new NetApp(),
+              ),
+            );
+          },
+        ),
+        ListTile(
+          title: Text('MaterialComponent'),
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => new MaterialComponentApp(),
               ),
             );
           },
