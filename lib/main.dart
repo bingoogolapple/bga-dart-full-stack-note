@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/rendering.dart';
 import 'firstapp.dart';
 import 'basic_widgets.dart';
@@ -22,12 +23,19 @@ class FlutterNoteApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+//      debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
           title: Text('FlutterNote'),
+          backgroundColor: defaultTargetPlatform == TargetPlatform.iOS
+              ? Colors.lightBlue
+              : Colors.lightGreen, // 判断平台类型需要使用 foundation 包
         ),
         body: new FlutterNoteList(),
       ),
+      routes: <String, WidgetBuilder>{
+        '/firstapp': (BuildContext context) => new FirstApp(),
+      },
     );
   }
 }
@@ -40,12 +48,13 @@ class FlutterNoteList extends StatelessWidget {
         ListTile(
           title: Text('FirstApp'),
           onTap: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => new FirstApp(),
-              ),
-            );
+            Navigator.pushNamed(context, '/firstapp');
+//            Navigator.push(
+//              context,
+//              MaterialPageRoute(
+//                builder: (context) => new FirstApp(),
+//              ),
+//            );
           },
         ),
         ListTile(
@@ -76,7 +85,7 @@ class FlutterNoteList extends StatelessWidget {
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => new NavigationPassingDataApp(),
+                builder: (context) => new NavigationApp(),
               ),
             );
           },

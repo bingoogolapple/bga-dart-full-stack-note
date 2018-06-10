@@ -2,74 +2,70 @@ import 'package:flutter/material.dart';
 
 // https://flutterchina.club/cookbook/navigation/passing-data
 
-class NavigationPassingDataApp extends StatelessWidget {
+class NavigationApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('FirstPage'),
+        title: Text('第一个页面'),
       ),
-//        body: new TodoListScreen(),
-      body: new ListView(
-        children: [
-          new FirstButton(),
-          new Divider(),
-          new SelectionButton(),
-        ],
-      ),
+      body: new NavigationList(),
     );
   }
 }
 
-class FirstButton extends StatelessWidget {
+class NavigationList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return new RaisedButton(
-      onPressed: () {
-        Navigator.push(
-          context,
-          new MaterialPageRoute(builder: (context) => new SecondScreen()),
-        );
-      },
-      child: new Text('Launch new screen'),
+    return ListView(
+      children: [
+        ListTile(title: Text('打开新页面'), onTap: () => Navigator.push(context, new MaterialPageRoute(builder: (context) => new SecondScreen(param: '打开新页面')))),
+        ListTile(
+            title: Text('动画打开新页面'),
+            onTap: () {
+              Navigator.of(context).push(new PageRouteBuilder(
+                  opaque: false,
+                  transitionDuration: const Duration(milliseconds: 500),
+                  pageBuilder: (BuildContext context, _, __) {
+                    return new SecondScreen(param: '动画打开新页面');
+                  },
+                  transitionsBuilder: (_, Animation<double> animation, __, Widget child) {
+                    return new FadeTransition(
+                      opacity: animation,
+                      child: new RotationTransition(
+                        turns: new Tween<double>(begin: 0.5, end: 1.0).animate(animation),
+                        child: child,
+                      ),
+                    );
+                  }));
+            }),
+        ListTile(title: Text('await获取返回值'), onTap: () => _asyncAwaitResult(context)),
+        ListTile(
+          title: Text('then获取返回值'),
+          onTap: () {
+            Navigator.push(context, new MaterialPageRoute<String>(builder: (context) => new SelectionScreen())).then((result) {
+              Scaffold.of(context).showSnackBar(new SnackBar(content: new Text("$result")));
+            });
+          },
+        ),
+      ],
     );
+  }
+
+  _asyncAwaitResult(BuildContext context) async {
+    final String result = await Navigator.push(context, new MaterialPageRoute<String>(builder: (context) => new SelectionScreen()));
+    Scaffold.of(context).showSnackBar(new SnackBar(content: new Text("$result")));
+    print("类型为：" + result);
   }
 }
 
-class SelectionButton extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return new RaisedButton(
-      onPressed: () {
-        _navigateAndDisplaySelection(context);
-      },
-      child: new Text('Pick an option, any option!'),
-    );
-  }
-
-  // A method that launches the SelectionScreen and awaits the result from
-  // Navigator.pop
-  _navigateAndDisplaySelection(BuildContext context) async {
-    // Navigator.push returns a Future that will complete after we call
-    // Navigator.pop on the Selection Screen!
-    final result = await Navigator.push(
-      context,
-      // We'll create the SelectionScreen in the next step!
-      new MaterialPageRoute(builder: (context) => new SelectionScreen()),
-    );
-
-    Scaffold
-        .of(context)
-        .showSnackBar(new SnackBar(content: new Text("$result")));
-  }
-}
-
+// Navigator.pop接受一个可选的(第二个)参数result。如果我们返回结果，它将返回到一个Future到前一个页面
 class SelectionScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: new AppBar(
-        title: new Text('Pick an option'),
+        title: new Text('选择一个选项'),
       ),
       body: new Center(
         child: new Column(
@@ -77,22 +73,11 @@ class SelectionScreen extends StatelessWidget {
           children: <Widget>[
             new Padding(
               padding: const EdgeInsets.all(8.0),
-              child: new RaisedButton(
-                onPressed: () {
-                  // Navigator.pop接受一个可选的(第二个)参数result。如果我们返回结果，它将返回到一个Future到前一个页面
-                  Navigator.pop(context, 'Yep!');
-                },
-                child: new Text('Yep!'),
-              ),
+              child: new RaisedButton(onPressed: () => Navigator.pop(context, 'Yep!'), child: new Text('Yep!')),
             ),
             new Padding(
               padding: const EdgeInsets.all(8.0),
-              child: new RaisedButton(
-                onPressed: () {
-                  Navigator.pop(context, 'Nope!');
-                },
-                child: new Text('Nope.'),
-              ),
+              child: new RaisedButton(onPressed: () => Navigator.pop(context, 'Nope!'), child: new Text('Nope.')),
             )
           ],
         ),
@@ -102,77 +87,20 @@ class SelectionScreen extends StatelessWidget {
 }
 
 class SecondScreen extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return new Scaffold(
-      appBar: new AppBar(
-        title: new Text("Second Screen"),
-      ),
-      body: new Center(
-        child: new RaisedButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          child: new Text('Go back!'),
-        ),
-      ),
-    );
-  }
-}
+  final String param;
 
-class TodoListScreen extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    final todos = new List<Todo>.generate(
-      40,
-      (i) => new Todo(
-            'Todo $i',
-            'A description of what needs to be done for Todo $i',
-          ),
-    );
-
-    return new ListView.builder(
-      itemCount: todos.length,
-      itemBuilder: (context, index) {
-        return new ListTile(
-          title: new Text(todos[index].title),
-          onTap: () {
-            Navigator.push(
-              context,
-              new MaterialPageRoute(
-                builder: (context) => new TodoDetailPage(todo: todos[index]),
-              ),
-            );
-          },
-        );
-      },
-    );
-  }
-}
-
-class TodoDetailPage extends StatelessWidget {
-  final Todo todo;
-
-  // In the constructor, require a Todo
-  TodoDetailPage({Key key, @required this.todo}) : super(key: key);
+  SecondScreen({Key key, @required this.param}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-      appBar: new AppBar(
-        title: new Text("TodoDetail"),
-      ),
-      body: new Padding(
-        padding: new EdgeInsets.all(16.0),
-        child: new Text('${todo.description}'),
+      appBar: new AppBar(title: new Text("第二个页面")),
+      body: new Column(
+        children: [
+          new Text("参数为:$param"),
+          new RaisedButton(onPressed: () => Navigator.pop(context), child: new Text('返回')),
+        ],
       ),
     );
   }
-}
-
-class Todo {
-  final String title;
-  final String description;
-
-  Todo(this.title, this.description);
 }
