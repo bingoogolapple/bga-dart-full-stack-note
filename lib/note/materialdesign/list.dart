@@ -3,6 +3,7 @@ import 'appbar_actions.dart';
 import 'appbar_bottom.dart';
 import 'appbar_indicator.dart';
 import 'bottomnavigationbar.dart';
+import 'scaffold_drawer.dart';
 
 class MaterialComponentApp extends StatelessWidget {
   @override
@@ -28,9 +29,9 @@ class ContentList extends StatelessWidget {
         new ListTile(
             title: new Text('AppBarIndicatorApp'), onTap: () => Navigator.push(context, new MaterialPageRoute(builder: (context) => new AppBarIndicatorApp()))),
         new ListTile(
-            title: new Text('BottomNavigationBarApp'), onTap: () => Navigator.push(context, new MaterialPageRoute(builder: (context) => new BottomNavigationBarApp()))),
-        new ListTile(
-            title: new Text('DrawerApp'), onTap: () => Navigator.push(context, new MaterialPageRoute(builder: (context) => new BottomNavigationBarApp()))),
+            title: new Text('BottomNavigationBarApp'),
+            onTap: () => Navigator.push(context, new MaterialPageRoute(builder: (context) => new BottomNavigationBarApp()))),
+        new ListTile(title: new Text('DrawerApp'), onTap: () => Navigator.push(context, new MaterialPageRoute(builder: (context) => new DrawerApp()))),
       ],
     );
   }

@@ -6,17 +6,6 @@ class BottomNavigationBarApp extends StatefulWidget {
   createState() => new _BottomNavigationAppStage();
 }
 
-const List<Choice> choices = const <Choice>[
-  const Choice(title: 'Car', icon: Icons.directions_car),
-  const Choice(title: 'Bicycle', icon: Icons.directions_bike),
-  const Choice(title: 'Boat', icon: Icons.directions_boat),
-  const Choice(title: 'Bus', icon: Icons.directions_bus),
-  const Choice(title: 'Train', icon: Icons.directions_railway),
-  const Choice(title: 'Run', icon: Icons.directions_run),
-  const Choice(title: 'Subway', icon: Icons.directions_subway),
-  const Choice(title: 'Transit', icon: Icons.directions_transit),
-];
-
 class _BottomNavigationAppStage extends State<BottomNavigationBarApp> {
   int _curIndex = 0;
 
@@ -24,7 +13,7 @@ class _BottomNavigationAppStage extends State<BottomNavigationBarApp> {
   Widget build(BuildContext context) {
     List<BottomNavigationBarItem> bottomNavigationBarItemList = choices
         .map((choice) => new BottomNavigationBarItem(
-            backgroundColor: Colors.orange,
+            backgroundColor: Colors.orange, // shifting 时才会生效
             icon: new Icon(choice.icon, color: Colors.indigoAccent),
             title: new Text(
               choice.title,
