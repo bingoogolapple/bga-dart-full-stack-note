@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-// 分类阅读页面
+// 搜索页面
 class SearchPage extends StatefulWidget {
   static const String title = '搜索';
   static const Color color = Colors.blue;

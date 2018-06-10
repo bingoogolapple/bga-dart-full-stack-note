@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-// 分类阅读页面
+// 匠心写作页面
 class WritingPage extends StatefulWidget {
   static const String title = '匠心写作';
   static const Color color = Colors.purple;
