@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/rendering.dart';
-import 'firstapp.dart';
-import 'basic_widgets.dart';
 
-import 'shopping.dart';
-import 'navigation_passing_data.dart';
-import 'package:flutter_note/list/list.dart';
-import 'image.dart';
-import 'gesture_detector.dart';
-import 'net.dart';
-import 'package:flutter_note/materialdesign/list.dart';
-import 'package:flutter_note/layout/list.dart';
+import 'package:flutter_note/note/firstapp.dart';
+import 'package:flutter_note/note/basic_widgets.dart';
+import 'package:flutter_note/note/shopping.dart';
+import 'package:flutter_note/note/navigation_passing_data.dart';
+import 'package:flutter_note/note/list/list.dart';
+import 'package:flutter_note/note/image.dart';
+import 'package:flutter_note/note/gesture_detector.dart';
+import 'package:flutter_note/note/net.dart';
+import 'package:flutter_note/note/materialdesign/list.dart';
+import 'package:flutter_note/note/layout/list.dart';
 
 void main() {
 //  debugPaintSizeEnabled=true;
@@ -27,9 +27,7 @@ class FlutterNoteApp extends StatelessWidget {
       home: Scaffold(
         appBar: AppBar(
           title: Text('FlutterNote'),
-          backgroundColor: defaultTargetPlatform == TargetPlatform.iOS
-              ? Colors.lightBlue
-              : Colors.lightGreen, // 判断平台类型需要使用 foundation 包
+          backgroundColor: defaultTargetPlatform == TargetPlatform.iOS ? Colors.lightBlue : Colors.lightGreen, // 判断平台类型需要使用 foundation 包
         ),
         body: new FlutterNoteList(),
       ),
@@ -46,105 +44,19 @@ class FlutterNoteList extends StatelessWidget {
     return ListView(
       children: [
         ListTile(
-          title: Text('FirstApp'),
-          onTap: () {
-            Navigator.pushNamed(context, '/firstapp');
-//            Navigator.push(
-//              context,
-//              MaterialPageRoute(
-//                builder: (context) => new FirstApp(),
-//              ),
-//            );
-          },
-        ),
-        ListTile(
-          title: Text('ShoppingApp'),
-          onTap: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => new ShoppingApp(),
-              ),
-            );
-          },
-        ),
-        ListTile(
-          title: Text('列表'),
-          onTap: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => new ListApp(),
-              ),
-            );
-          },
-        ),
-        ListTile(
-          title: Text('界面跳转与传参'),
-          onTap: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => new NavigationApp(),
-              ),
-            );
-          },
-        ),
-        ListTile(
-          title: Text('图片'),
-          onTap: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => new ImageApp(),
-              ),
-            );
-          },
-        ),
-        ListTile(
-          title: Text('处理手势'),
-          onTap: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => new GestureDetectorApp(),
-              ),
-            );
-          },
-        ),
-        ListTile(
-          title: Text('网络'),
-          onTap: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => new NetApp(),
-              ),
-            );
-          },
-        ),
-        ListTile(
-          title: Text('MaterialComponent'),
-          onTap: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => new MaterialComponentApp(),
-              ),
-            );
-          },
-        ),
-        ListTile(
-          title: Text('LayoutApp'),
-          onTap: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => new LayoutApp(),
-              ),
-            );
-          },
-        ),
+            title: Text('FirstApp'),
+            onTap: () {
+              Navigator.pushNamed(context, '/firstapp');
+//              Navigator.push(context, MaterialPageRoute(builder: (context) => new FirstApp()));
+            }),
+        ListTile(title: Text('ShoppingApp'), onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => new ShoppingApp()))),
+        ListTile(title: Text('列表'), onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => new ListApp()))),
+        ListTile(title: Text('界面跳转与传参'), onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => new NavigationApp()))),
+        ListTile(title: Text('图片'), onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => new ImageApp()))),
+        ListTile(title: Text('处理手势'), onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => new GestureDetectorApp()))),
+        ListTile(title: Text('网络'), onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => new NetApp()))),
+        ListTile(title: Text('MaterialComponent'), onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => new MaterialComponentApp()))),
+        ListTile(title: Text('LayoutApp'), onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => new LayoutApp()))),
       ],
     );
   }
