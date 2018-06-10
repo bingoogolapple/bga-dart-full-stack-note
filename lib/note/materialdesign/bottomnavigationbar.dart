@@ -27,7 +27,7 @@ class _BottomNavigationAppStage extends State<BottomNavigationBarApp> {
         items: bottomNavigationBarItemList,
         currentIndex: _curIndex,
         type: BottomNavigationBarType.fixed,
-        // 默认为 shifting，只有选中的才有文字
+        // 大于3个时默认为 shifting，只有选中的才有文字
         fixedColor: Colors.lightGreen,
         // 为 fixed 时，如果没有给 BottomNavigationBarItem 的 title 设置文字颜色，那么文字颜色为这里设置的
         onTap: (index) {

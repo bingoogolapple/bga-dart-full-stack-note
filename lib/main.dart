@@ -12,6 +12,7 @@ import 'package:flutter_note/note/gesture_detector.dart';
 import 'package:flutter_note/note/net.dart';
 import 'package:flutter_note/note/materialdesign/list.dart';
 import 'package:flutter_note/note/layout/list.dart';
+import 'package:flutter_note/gank/gank.dart';
 
 void main() {
 //  debugPaintSizeEnabled=true;
@@ -43,6 +44,7 @@ class FlutterNoteList extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListView(
       children: [
+        ListTile(title: Text('干活集中营'), onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => new GankApp()))),
         ListTile(
             title: Text('FirstApp'),
             onTap: () {
