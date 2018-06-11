@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'data.dart';
-import 'post_page.dart';
+import 'webview_page.dart';
 
 class GankItem extends StatelessWidget {
   final PostData postData;
@@ -38,7 +38,7 @@ class _DataItem extends StatelessWidget {
     return new InkWell(
         onTap: () {
           Navigator.push(context, new MaterialPageRoute(builder: (BuildContext context) {
-            return new PostPage(postData.toJson());
+            return new WebViewPage(postData.toJson());
           }));
         },
         child: new Card(
@@ -125,7 +125,7 @@ class _MeiZhiItem extends StatelessWidget {
     return InkWell(
         onTap: () {
           Navigator.push(context, new MaterialPageRoute(builder: (BuildContext context) {
-            return new PostPage(postData.toJson());
+            return new WebViewPage(postData.toJson());
           }));
         },
         child: new Card(
