@@ -108,7 +108,7 @@ class DailyListState extends State<DailyList> {
     DailyResponse response = DailyResponse.fromJson(jsonDecode(snapshot.data));
 
     if (response.error) {
-      return EmptyWidget('网络请求错误');
+      return EmptyWidget('网络请求失败');
     } else {
       if (response.category.length == 0) {
         return EmptyWidget('暂无数据');
