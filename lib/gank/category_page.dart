@@ -144,7 +144,6 @@ class _GankListState extends State<_GankList> {
   }
 
   Widget _buildListView(BuildContext context, List results) {
-    print(results);
     switch (results.length) {
       case 1:
         return EmptyWidget('暂无数据');

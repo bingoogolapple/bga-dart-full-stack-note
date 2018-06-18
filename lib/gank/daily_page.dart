@@ -61,11 +61,18 @@ class _DailyPageState extends State<DailyPage> {
   _selectDate(BuildContext context) {
     showDatePicker(context: context, initialDate: _selectedDate, firstDate: DateTime(2015, 8), lastDate: DateTime.now()).then((picked) {
       if (picked != null && picked != _selectedDate) {
+        if (_selectedDate.weekday == 6 || _selectedDate.weekday == 7) {
+          _showSnackBar('周六和周天没有干货');
+        }
         setState(() {
           _selectedDate = picked;
         });
       }
     });
+  }
+
+  void _showSnackBar(message) {
+    Scaffold.of(context).showSnackBar(SnackBar(content: Text(message)));
   }
 }
 
