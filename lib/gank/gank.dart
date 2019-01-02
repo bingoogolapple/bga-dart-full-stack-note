@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'constant.dart';
 import 'daily_page.dart';
 import 'category_page.dart';
-import 'writing_page.dart';
+//import 'writing_page.dart';
 import 'search_page.dart';
 
 class GankApp extends StatefulWidget {
@@ -20,7 +20,7 @@ class _GankAppState extends State<GankApp> {
         children: [
           DailyPage(onClickSearch: _onClickSearch),
           CategoryPage(),
-          WritingPage(),
+//          WritingPage(),
           SearchPage(),
         ],
         index: _currentIndex,
@@ -29,7 +29,7 @@ class _GankAppState extends State<GankApp> {
         items: [
           BottomNavigationBarItem(icon: Icon(Icons.calendar_today), title: Text(DailyPage.title), backgroundColor: DailyPage.color),
           BottomNavigationBarItem(icon: Icon(Icons.category), title: Text(CategoryPage.title), backgroundColor: CategoryPage.color),
-          BottomNavigationBarItem(icon: Icon(Icons.content_paste), title: Text(WritingPage.title), backgroundColor: WritingPage.color),
+//          BottomNavigationBarItem(icon: Icon(Icons.content_paste), title: Text(WritingPage.title), backgroundColor: WritingPage.color),
           BottomNavigationBarItem(icon: Icon(Icons.search), title: Text(SearchPage.title), backgroundColor: SearchPage.color)
         ],
         currentIndex: _currentIndex,

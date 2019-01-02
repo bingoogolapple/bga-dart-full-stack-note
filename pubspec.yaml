@@ -1,20 +1,22 @@
 name: flutter_note
-description: A new Flutter application.
+description: Flutter Note
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.0.0-dev.68.0 <3.0.0"
 
 dependencies:
   flutter:
     sdk: flutter
 
-  # The following adds the Cupertino Icons font to your application.
-  # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.2
-  english_words: ^3.1.0
+  english_words: ^3.1.5
   transparent_image: ^0.1.0
-  cached_network_image: ^0.4.1+1
-  http: ^0.11.3+16
-  css_colors: ^1.0.0
-  url_launcher: ^0.4.1
-  flutter_webview_plugin: ^0.1.6
+  cached_network_image: ^0.5.1
+  http: ^0.12.0
+  css_colors: ^1.0.2
+  url_launcher: ^4.0.3
+  flutter_webview_plugin: ^0.3.0+2
 
 dev_dependencies:
   flutter_test:
