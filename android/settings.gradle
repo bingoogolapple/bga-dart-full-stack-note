@@ -1,14 +1,21 @@
 include ':app'
 
+// Flutter 工程（非 Android 工程）路径
 def flutterProjectRoot = rootProject.projectDir.parentFile.toPath()
 
 def plugins = new Properties()
+// 解析 Flutter 工程依赖的插件。【Flutter 工程目录/.flutter-plugins】以键值对方式描述了该工程依赖了哪些插件
 def pluginsFile = new File(flutterProjectRoot.toFile(), '.flutter-plugins')
 if (pluginsFile.exists()) {
     pluginsFile.withReader('UTF-8') { reader -> plugins.load(reader) }
 }
 
+// 添加 Flutter 工程依赖的插件里的 android 工程作为当前 android 工程的 module
 plugins.each { name, path ->
+    /**
+     * url_launcher=/Applications/develop/flutter/.pub-cache/hosted/pub.flutter-io.cn/url_launcher-4.0.3/
+     * path 下有一个叫「android」的目录，也就是插件对应的 android 工程
+     */
     def pluginDirectory = flutterProjectRoot.resolve(path).resolve('android').toFile()
     include ":$name"
     project(":$name").projectDir = pluginDirectory

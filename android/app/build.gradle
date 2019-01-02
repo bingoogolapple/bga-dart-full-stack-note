@@ -1,3 +1,4 @@
+// 获取 Flutter 相关配置：「flutter.sdk」Flutter SDK 路径、「flutter.buildMode」Flutter 构建模式（debug、release）、「flutter.versionName」版本名称、「flutter.versionCode」版本号
 def localProperties = new Properties()
 def localPropertiesFile = rootProject.file('local.properties')
 if (localPropertiesFile.exists()) {

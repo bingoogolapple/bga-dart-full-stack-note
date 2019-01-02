@@ -6,7 +6,7 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.0.1'
+        classpath 'com.android.tools.build:gradle:3.2.1'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
 }
@@ -18,8 +18,10 @@ allprojects {
     }
 }
 
+// 配置 android 项目的输出目录为 Flutter 项目下的「build」目录
 rootProject.buildDir = '../build'
 subprojects {
+    // 配置 android 模块的输出目录为 Flutter 项目下的「build/模块名称」目录
     project.buildDir = "${rootProject.buildDir}/${project.name}"
 }
 subprojects {
