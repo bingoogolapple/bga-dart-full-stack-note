@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'data.dart';
+import 'package:flutter_note/gank/dto/post_data.dart';
 import 'webview_page.dart';
 
 class GankItem extends StatelessWidget {

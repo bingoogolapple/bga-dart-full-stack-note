@@ -3,7 +3,8 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'http_util.dart';
-import 'data.dart';
+import 'package:flutter_note/gank/dto/post_data.dart';
+import 'package:flutter_note/gank/dto/search_response.dart';
 import 'gank_item.dart';
 import 'base_widget.dart';
 
