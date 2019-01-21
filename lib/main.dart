@@ -13,6 +13,7 @@ import 'package:flutter_note/note/net.dart';
 import 'package:flutter_note/note/materialdesign/list.dart';
 import 'package:flutter_note/note/layout/list.dart';
 import 'package:flutter_note/gank/gank.dart';
+import 'package:flutter_note/note/input.dart';
 
 void main() {
 //  debugPaintSizeEnabled=true;
@@ -59,6 +60,7 @@ class FlutterNoteList extends StatelessWidget {
         ListTile(title: Text('网络'), onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => new NetApp()))),
         ListTile(title: Text('MaterialComponent'), onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => new MaterialComponentApp()))),
         ListTile(title: Text('LayoutApp'), onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => new LayoutApp()))),
+        ListTile(title: Text('InputApp'), onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => new InputApp()))),
       ],
     );
   }
