@@ -58,7 +58,7 @@ class FlutterNoteList extends StatelessWidget {
         ListTile(title: Text('列表'), onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => new ListApp()))),
         ListTile(title: Text('界面跳转与传参'), onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => new NavigationApp()))),
         ListTile(title: Text('图片'), onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => new ImageApp()))),
-        ListTile(title: Text('处理手势'), onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => new GestureDetectorApp()))),
+        ListTile(title: Text('处理手势'), onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => new GestureEventApp()))),
         ListTile(title: Text('网络'), onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => new NetApp()))),
         ListTile(title: Text('MaterialComponent'), onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => new MaterialComponentApp()))),
         ListTile(title: Text('LayoutApp'), onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => new LayoutApp()))),
