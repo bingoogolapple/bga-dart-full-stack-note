@@ -21,8 +21,7 @@ class ImageApp extends StatelessWidget {
             height: 120.0,
             child: new FadeInImage.memoryNetwork(
               placeholder: kTransparentImage,
-              image:
-                  'https://github.com/flutter/website/blob/master/_includes/code/layout/lakes/images/lake.jpg?raw=true',
+              image: 'https://github.com/flutter/website/blob/master/_includes/code/layout/lakes/images/lake.jpg?raw=true',
             ),
           ),
           new Container(
@@ -33,8 +32,7 @@ class ImageApp extends StatelessWidget {
                 new Center(
                   child: new FadeInImage.memoryNetwork(
                     placeholder: kTransparentImage,
-                    image:
-                        'https://github.com/flutter/website/blob/master/_includes/code/layout/lakes/images/lake.jpg?raw=true',
+                    image: 'https://github.com/flutter/website/blob/master/_includes/code/layout/lakes/images/lake.jpg?raw=true',
                   ),
                 ),
               ],
@@ -43,10 +41,24 @@ class ImageApp extends StatelessWidget {
           new Container(
             height: 120.0,
             child: new CachedNetworkImage(
-              placeholder: new CircularProgressIndicator(),
-              errorWidget: new Text('加载失败'),
-              imageUrl:
-                  'https://github.com/flutter/website/blob/master/_includes/code/layout/lakes/images/lake.jpg?raw=true',
+              imageUrl: 'https://github.com/flutter/website/blob/master/_includes/code/layout/lakes/images/lake.jpg?raw=true',
+              placeholder: (context, url) => CircularProgressIndicator(),
+              errorWidget: (context, url, error) => Text('加载失败'),
+            ),
+          ),
+          new Container(
+            height: 120.0,
+            child: new CachedNetworkImage(
+              imageUrl: 'https://github.com/flutter/website/blob/master/_includes/code/layout/lakes/images/lake.jpg?raw=true',
+              imageBuilder: (context, imageProvider) {
+                return Container(
+                  decoration: BoxDecoration(
+                    image: DecorationImage(image: imageProvider, fit: BoxFit.cover, colorFilter: ColorFilter.mode(Colors.red, BlendMode.colorBurn)),
+                  ),
+                );
+              },
+              placeholder: (context, url) => CircularProgressIndicator(),
+              errorWidget: (context, url, error) => Text('加载失败'),
             ),
           ),
         ],

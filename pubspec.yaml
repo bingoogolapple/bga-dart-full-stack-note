@@ -3,26 +3,26 @@ description: Flutter Note
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.0.0-dev.68.0 <3.0.0"
+  sdk: ">=2.1.0 <3.0.0"
 
 dependencies:
   flutter:
     sdk: flutter
 
   cupertino_icons: ^0.1.2
-  json_annotation: ^2.0.0
+  json_annotation: ^3.0.0
   english_words: ^3.1.5
-  transparent_image: ^0.1.0
-  cached_network_image: ^0.5.1
-  http: ^0.12.0
+  transparent_image: ^1.0.0
+  cached_network_image: ^1.1.1
+  http: ^0.12.0+2
   css_colors: ^1.0.2
-  url_launcher: ^4.0.3
-  flutter_webview_plugin: ^0.3.0+2
+  url_launcher: ^5.1.6
+  flutter_webview_plugin: ^0.3.8
 
 dev_dependencies:
-  # flutter packages pub run build_runner build   可以配置别名 alias genjson="flutter packages pub run build_runner build"
-  build_runner: ^1.1.2
-  json_serializable: ^2.0.1
+  # flutter packages pub run build_runner build --delete-conflicting-outputs  可以配置别名 alias genjson="flutter packages pub run build_runner build --delete-conflicting-outputs"
+  build_runner: ^1.7.1
+  json_serializable: ^3.2.3
   flutter_test:
     sdk: flutter
 

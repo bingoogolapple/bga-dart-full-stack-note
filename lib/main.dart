@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter_note/note/animated.dart';
 
 import 'package:flutter_note/note/firstapp.dart';
 import 'package:flutter_note/note/basic_widgets.dart';
@@ -24,6 +25,7 @@ void main() {
 class FlutterNoteApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    // 跳转到其他页面后如果不想展示返回按钮，可以把 MaterialApp 再作为他页面的根 Widget
     return MaterialApp(
 //      debugShowCheckedModeBanner: false,
       home: Scaffold(
@@ -45,7 +47,7 @@ class FlutterNoteList extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListView(
       children: [
-        ListTile(title: Text('干活集中营'), onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => new GankApp()))),
+        ListTile(title: Text('干货集中营'), onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => new GankApp()))),
         ListTile(
             title: Text('FirstApp'),
             onTap: () {
@@ -61,6 +63,7 @@ class FlutterNoteList extends StatelessWidget {
         ListTile(title: Text('MaterialComponent'), onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => new MaterialComponentApp()))),
         ListTile(title: Text('LayoutApp'), onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => new LayoutApp()))),
         ListTile(title: Text('InputApp'), onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => new InputApp()))),
+        ListTile(title: Text('AnimDemo'), onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => new AnimApp()))),
       ],
     );
   }

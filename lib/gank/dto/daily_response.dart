@@ -8,7 +8,7 @@ class DailyResponse {
   bool error;
   Map<String, dynamic> results;
 
-  DailyResponse(this.category, this.error, this.results);
+  DailyResponse();
 
   factory DailyResponse.fromJson(Map<String, dynamic> json) =>
       _$DailyResponseFromJson(json);

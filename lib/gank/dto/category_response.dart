@@ -7,7 +7,7 @@ class CategoryResponse {
   bool error;
   List<dynamic> results;
 
-  CategoryResponse(this.error, this.results);
+  CategoryResponse();
 
   factory CategoryResponse.fromJson(Map<String, dynamic> json) =>
       _$CategoryResponseFromJson(json);

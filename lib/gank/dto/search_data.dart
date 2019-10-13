@@ -12,8 +12,7 @@ class SearchData {
   String url;
   String who;
 
-  SearchData(this.ganhuo_id, this.desc, this.publishedAt, this.readability,
-      this.type, this.url, this.who);
+  SearchData();
 
   factory SearchData.fromJson(Map<String, dynamic> json) =>
       _$SearchDataFromJson(json);

@@ -7,8 +7,13 @@ part of 'category_response.dart';
 // **************************************************************************
 
 CategoryResponse _$CategoryResponseFromJson(Map<String, dynamic> json) {
-  return CategoryResponse(json['error'] as bool, json['results'] as List);
+  return CategoryResponse()
+    ..error = json['error'] as bool
+    ..results = json['results'] as List;
 }
 
 Map<String, dynamic> _$CategoryResponseToJson(CategoryResponse instance) =>
-    <String, dynamic>{'error': instance.error, 'results': instance.results};
+    <String, dynamic>{
+      'error': instance.error,
+      'results': instance.results,
+    };

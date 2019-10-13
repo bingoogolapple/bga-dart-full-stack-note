@@ -8,7 +8,7 @@ class SearchResponse {
   bool error;
   List<dynamic> results;
 
-  SearchResponse(this.count, this.error, this.results);
+  SearchResponse();
 
   factory SearchResponse.fromJson(Map<String, dynamic> json) =>
       _$SearchResponseFromJson(json);

@@ -7,13 +7,15 @@ part of 'search_response.dart';
 // **************************************************************************
 
 SearchResponse _$SearchResponseFromJson(Map<String, dynamic> json) {
-  return SearchResponse(
-      json['count'] as int, json['error'] as bool, json['results'] as List);
+  return SearchResponse()
+    ..count = json['count'] as int
+    ..error = json['error'] as bool
+    ..results = json['results'] as List;
 }
 
 Map<String, dynamic> _$SearchResponseToJson(SearchResponse instance) =>
     <String, dynamic>{
       'count': instance.count,
       'error': instance.error,
-      'results': instance.results
+      'results': instance.results,
     };

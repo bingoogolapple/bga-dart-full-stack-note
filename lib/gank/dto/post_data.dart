@@ -16,8 +16,7 @@ class PostData {
   bool used;
   String who;
 
-  PostData(this.id, this.createdAt, this.desc, this.images, this.publishedAt,
-      this.source, this.type, this.url, this.used, this.who);
+  PostData();
 
   factory PostData.fromJson(Map<String, dynamic> json) =>
       _$PostDataFromJson(json);

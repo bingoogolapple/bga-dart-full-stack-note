@@ -7,14 +7,14 @@ part of 'search_data.dart';
 // **************************************************************************
 
 SearchData _$SearchDataFromJson(Map<String, dynamic> json) {
-  return SearchData(
-      json['ganhuo_id'] as String,
-      json['desc'] as String,
-      json['publishedAt'] as String,
-      json['readability'] as String,
-      json['type'] as String,
-      json['url'] as String,
-      json['who'] as String);
+  return SearchData()
+    ..ganhuo_id = json['ganhuo_id'] as String
+    ..desc = json['desc'] as String
+    ..publishedAt = json['publishedAt'] as String
+    ..readability = json['readability'] as String
+    ..type = json['type'] as String
+    ..url = json['url'] as String
+    ..who = json['who'] as String;
 }
 
 Map<String, dynamic> _$SearchDataToJson(SearchData instance) =>
@@ -25,5 +25,5 @@ Map<String, dynamic> _$SearchDataToJson(SearchData instance) =>
       'readability': instance.readability,
       'type': instance.type,
       'url': instance.url,
-      'who': instance.who
+      'who': instance.who,
     };
