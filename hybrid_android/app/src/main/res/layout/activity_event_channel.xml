@@ -5,30 +5,30 @@
     android:orientation="vertical">
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/android_use_flutter_two_mode"
+        android:id="@+id/send_data"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Android 中调用 Flutter 的两种模式"
+        android:text="send data"
         android:textAllCaps="false" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/event_channel_demo"
+        android:id="@+id/send_error"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="event_channel_demo"
+        android:text="send error"
         android:textAllCaps="false" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/method_channel_demo"
+        android:id="@+id/send_done"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="method_channel_demo"
+        android:text="send done"
         android:textAllCaps="false" />
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/basic_message_channel_demo"
+    <LinearLayout
+        android:id="@+id/flutter_container"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="basic_message_channel_demo"
-        android:textAllCaps="false" />
+        android:layout_height="match_parent"
+        android:orientation="vertical" />
+
 </LinearLayout>

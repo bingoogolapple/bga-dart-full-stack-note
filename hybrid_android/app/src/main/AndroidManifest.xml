@@ -20,6 +20,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".AndroidUseFlutterTwoModeActivity" />
+        <activity android:name=".EventChannelActivity" />
+        <activity android:name=".MethodChannelActivity" />
+        <activity android:name=".BasicMessageChannelActivity" />
     </application>
 
 </manifest>

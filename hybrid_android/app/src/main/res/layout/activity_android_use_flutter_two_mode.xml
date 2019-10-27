@@ -8,13 +8,15 @@
         android:id="@+id/flutter_create_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="通过 Flutter.createView 集成 Flutter" />
+        android:text="通过 Flutter.createView 集成 Flutter"
+        android:textAllCaps="false" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/flutter_create_fragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="通过 Flutter.createFragment 集成 Flutter" />
+        android:text="通过 Flutter.createFragment 集成 Flutter"
+        android:textAllCaps="false" />
 
     <LinearLayout
         android:layout_width="match_parent"

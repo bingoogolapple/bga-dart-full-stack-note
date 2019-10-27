@@ -13,5 +13,14 @@ class MainActivity : AppCompatActivity() {
         android_use_flutter_two_mode.setOnClickListener {
             startActivity(Intent(this, AndroidUseFlutterTwoModeActivity::class.java))
         }
+        event_channel_demo.setOnClickListener {
+            startActivity(Intent(this, EventChannelActivity::class.java))
+        }
+        method_channel_demo.setOnClickListener {
+            startActivity(Intent(this, MethodChannelActivity::class.java))
+        }
+        basic_message_channel_demo.setOnClickListener {
+            startActivity(Intent(this, BasicMessageChannelActivity::class.java))
+        }
     }
 }

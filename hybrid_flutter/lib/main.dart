@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:hybrid_flutter/basic_message_channel.dart';
 import 'dart:convert';
 import 'dart:ui';
+
+import 'package:hybrid_flutter/event_channel.dart';
+import 'package:hybrid_flutter/method_channel.dart';
 
 void main() => runApp(HybridApp());
 
@@ -52,6 +56,12 @@ class _HomePageState extends State<HomePage> {
             child: Text(routeMap['arguments']),
           ),
         );
+      } else if (path == 'event_channel_demo') {
+        return EventChannelDemo();
+      } else if (path == 'method_channel_demo') {
+        return MethodChannelDemo();
+      } else if (path == 'basic_message_channel_demo') {
+        return BasicMessageChannelDemo();
       } else {
         return Container(
           color: Colors.yellow,

@@ -133,3 +133,15 @@ pod install
 ```
 Build Settings -> Build Options -> Enable Bitcode 设置为 No
 ```
+
+## 平台通信
+
+https://flutter.cn/docs/development/platform-integration/platform-channels
+https://yq.aliyun.com/articles/630105?utm_content=m_1000014408
+
+Android 与 Flutter 之间的通信共有四种实现方式：
+
+* 在初始化 Flutter 页面时会传递一个字符串参数 initialRoute，可以通过该参数传递自己想要传递的数据，该方式仅支持单向数据传递且数据类型只能为字符串，无返回值
+* EventChannel：用于数据流的通信，native 向 flutter 发送数据的单向通信方式，无返回值。监听电量、网络状态变化等
+* MethodChannel：用于传递方法调用，支持数据双向传递，有返回值。图片选择、拍照
+* BasicMessageChannel：用于传递字符串和半结构化的信息，支持数据双向传递，有返回值。持续通信
