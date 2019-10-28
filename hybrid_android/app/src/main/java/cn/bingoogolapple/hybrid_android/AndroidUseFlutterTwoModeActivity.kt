@@ -11,7 +11,7 @@ class AndroidUseFlutterTwoModeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_android_use_flutter_two_mode)
-        title = "Android 中调用 Flutter 的两种模式"
+        title = "Android 中接入 Flutter 的两种方式"
 
         flutter_create_view.setOnClickListener {
             val routeMap = Gson().toJson(mapOf("path" to "flutter_create_view", "arguments" to "Android 通过 Flutter.createView 集成 Flutter"))

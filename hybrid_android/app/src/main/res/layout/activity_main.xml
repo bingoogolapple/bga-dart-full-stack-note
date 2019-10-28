@@ -8,7 +8,7 @@
         android:id="@+id/android_use_flutter_two_mode"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Android 中调用 Flutter 的两种模式"
+        android:text="Android 中接入 Flutter 的两种方式"
         android:textAllCaps="false" />
 
     <androidx.appcompat.widget.AppCompatButton

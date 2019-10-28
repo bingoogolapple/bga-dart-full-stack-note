@@ -12,19 +12,52 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor.white
-        let ios_use_flutter_two_mode = UIButton.init(type: UIButton.ButtonType.system)
-        ios_use_flutter_two_mode.frame = CGRect(x:10, y:100, width:UIScreen.main.bounds.width - 10, height:30)
-        ios_use_flutter_two_mode.setTitle("iOS 中调用 Flutter 的两种模式", for: .normal)
-        ios_use_flutter_two_mode.addTarget(self, action:#selector(openTwoModeViewController), for: .touchUpInside)
-        self.view.addSubview(ios_use_flutter_two_mode)
+        self.title = "HybridDemo"
+    
+        addTwoModeBtn()
+        addEventChannelDemoBtn()
+        addMethodChannelDemoBtn()
+        addBasicMessageChannelDemoBtn()
+    }
+    
+    func addTwoModeBtn() {
+        let twoModeBtn = UIButton(type:UIButton.ButtonType.custom)
+        twoModeBtn.backgroundColor = UIColor.lightGray
+        twoModeBtn.frame = CGRect(x:10, y:100, width:UIScreen.main.bounds.width - 20, height:40)
+        twoModeBtn.setTitle("iOS 中接入 Flutter 的两种方式", for: .normal)
+        twoModeBtn.addTarget(self, action:#selector(openTwoModeViewController), for: .touchUpInside)
+        self.view.addSubview(twoModeBtn)
+    }
+    
+    func addEventChannelDemoBtn() {
+        let twoModeBtn = UIButton(type:UIButton.ButtonType.custom)
+        twoModeBtn.backgroundColor = UIColor.lightGray
+        twoModeBtn.frame = CGRect(x:10, y:150, width:UIScreen.main.bounds.width - 20, height:40)
+        twoModeBtn.setTitle("event_channel_demo", for: .normal)
+        twoModeBtn.addTarget(self, action:#selector(openTwoModeViewController), for: .touchUpInside)
+        self.view.addSubview(twoModeBtn)
+    }
+    
+    func addMethodChannelDemoBtn() {
+        let twoModeBtn = UIButton(type:UIButton.ButtonType.custom)
+        twoModeBtn.backgroundColor = UIColor.lightGray
+        twoModeBtn.frame = CGRect(x:10, y:200, width:UIScreen.main.bounds.width - 20, height:40)
+        twoModeBtn.setTitle("method_channel_demo", for: .normal)
+        twoModeBtn.addTarget(self, action:#selector(openTwoModeViewController), for: .touchUpInside)
+        self.view.addSubview(twoModeBtn)
+    }
+    
+    func addBasicMessageChannelDemoBtn() {
+        let twoModeBtn = UIButton(type:UIButton.ButtonType.custom)
+        twoModeBtn.backgroundColor = UIColor.lightGray
+        twoModeBtn.frame = CGRect(x:10, y:250, width:UIScreen.main.bounds.width - 20, height:40)
+        twoModeBtn.setTitle("basic_message_channel_demo", for: .normal)
+        twoModeBtn.addTarget(self, action:#selector(openTwoModeViewController), for: .touchUpInside)
+        self.view.addSubview(twoModeBtn)
     }
     
     @objc
     func openTwoModeViewController() {
-        present(TwoModeViewController(), animated: true, completion: nil)
+        self.navigationController?.pushViewController(TwoModeViewController(), animated: true)
     }
-
-
 }
-

@@ -56,6 +56,20 @@ class _HomePageState extends State<HomePage> {
             child: Text(routeMap['arguments']),
           ),
         );
+      } else if (path == 'flutter_create_controller_without_engine') {
+        return Container(
+          color: Colors.orange,
+          child: Center(
+            child: Text(routeMap['arguments']),
+          ),
+        );
+      } else if (path == 'flutter_create_controller_with_engine') {
+        return Container(
+          color: Colors.deepPurple,
+          child: Center(
+            child: Text(routeMap['arguments']),
+          ),
+        );
       } else if (path == 'event_channel_demo') {
         return EventChannelDemo();
       } else if (path == 'method_channel_demo') {

@@ -105,7 +105,7 @@ target 'hybrid_ios' do
 end
 ```
 
-4、老版本需要在「Build phase」中配置下面的代码，「Flutter 1.8.4-pre.21」之后不需要再配置下面的脚本，而且必须删除
+4、老版本(Flutter 1.8.4-pre.21)之前需要在「Build phase」中配置下面的代码，「Flutter 1.8.4-pre.21」之后不需要再配置下面的脚本，而且必须删除
 
 ```groovy
 "$FLUTTER_ROOT/packages/flutter_tools/bin/xcode_backend.sh" build
@@ -117,6 +117,10 @@ end
 ```bash
 rm .ios/Flutter/podhelper.rb
 flutter build ios
+
+# 已知 bug，在 hybrid_ios 中编译时提示「Flutter.framework: Permission denied」，关闭签名就可以了
+# 如果没有签名证书，也可以关闭签名，正式上线时才开启，不过测试了关闭签名没生效
+# flutter build ios --no-codesign
 ```
 6、安装 Flutter 依赖
 
@@ -132,6 +136,21 @@ pod install
 
 ```
 Build Settings -> Build Options -> Enable Bitcode 设置为 No
+```
+10、打开 Flutter 页面
+
+```
+@objc
+func createControllerWithoutEngine() {
+    let routeDict = ["path":"flutter_create_controller_without_engine", "arguments":"iOS 不使用 FlutterEngine 的情况下创建 FlutterViewController 集成 Flutter"]
+    if let jsonData = try? JSONEncoder().encode(routeDict) {
+        if let initialRoute = String(data: jsonData, encoding: .utf8) {
+            let flutterViewController = FlutterViewController()
+            flutterViewController.setInitialRoute(initialRoute)
+            self.present(flutterViewController, animated: false, completion: nil)
+        }
+    }
+}
 ```
 
 ## 平台通信
