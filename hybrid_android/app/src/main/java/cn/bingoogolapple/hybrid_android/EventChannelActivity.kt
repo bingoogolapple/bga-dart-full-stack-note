@@ -34,6 +34,7 @@ class EventChannelActivity : AppCompatActivity(), EventChannel.StreamHandler {
                     "Android 发送 error",
                     Gson().toJson(mapOf("key1" to "value1", "key2" to "value2"))
                 )
+//                mEventSink!!.endOfStream()
             }
         }
         send_done.setOnClickListener {

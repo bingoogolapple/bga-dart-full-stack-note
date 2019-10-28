@@ -14,6 +14,9 @@
 		D204E7552365D1700073B506 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D204E7542365D1700073B506 /* Assets.xcassets */; };
 		D204E7582365D1700073B506 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D204E7562365D1700073B506 /* LaunchScreen.storyboard */; };
 		D204E7622365D8940073B506 /* TwoModeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D204E7612365D8940073B506 /* TwoModeViewController.swift */; };
+		D264FAC3236730E9003417B4 /* BasicMessageChannelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D264FAC0236730E8003417B4 /* BasicMessageChannelViewController.swift */; };
+		D264FAC4236730E9003417B4 /* EventChannelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D264FAC1236730E9003417B4 /* EventChannelViewController.swift */; };
+		D264FAC5236730E9003417B4 /* MethodChannelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D264FAC2236730E9003417B4 /* MethodChannelViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +31,9 @@
 		D204E7572365D1700073B506 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D204E7592365D1700073B506 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D204E7612365D8940073B506 /* TwoModeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoModeViewController.swift; sourceTree = "<group>"; };
+		D264FAC0236730E8003417B4 /* BasicMessageChannelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicMessageChannelViewController.swift; sourceTree = "<group>"; };
+		D264FAC1236730E9003417B4 /* EventChannelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventChannelViewController.swift; sourceTree = "<group>"; };
+		D264FAC2236730E9003417B4 /* MethodChannelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MethodChannelViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +77,9 @@
 		D204E74C2365D16F0073B506 /* hybrid_ios */ = {
 			isa = PBXGroup;
 			children = (
+				D264FAC0236730E8003417B4 /* BasicMessageChannelViewController.swift */,
+				D264FAC1236730E9003417B4 /* EventChannelViewController.swift */,
+				D264FAC2236730E9003417B4 /* MethodChannelViewController.swift */,
 				D204E74D2365D16F0073B506 /* AppDelegate.swift */,
 				D204E74F2365D16F0073B506 /* ViewController.swift */,
 				D204E7512365D16F0073B506 /* Main.storyboard */,
@@ -224,6 +233,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				D204E7502365D16F0073B506 /* ViewController.swift in Sources */,
+				D264FAC5236730E9003417B4 /* MethodChannelViewController.swift in Sources */,
+				D264FAC3236730E9003417B4 /* BasicMessageChannelViewController.swift in Sources */,
+				D264FAC4236730E9003417B4 /* EventChannelViewController.swift in Sources */,
 				D204E74E2365D16F0073B506 /* AppDelegate.swift in Sources */,
 				D204E7622365D8940073B506 /* TwoModeViewController.swift in Sources */,
 			);

@@ -37,6 +37,7 @@ class _EventChannelDemoState extends State<EventChannelDemo> {
     });
   }
 
+  // error 和 success 可以有多次，一定发送了 done 后就不会再收到 error 或 success 了
   void _onDone() {
     setState(() {
       _contentSb.writeln('_onDone');

@@ -7,9 +7,6 @@ import io.flutter.facade.Flutter
 import io.flutter.plugin.common.BasicMessageChannel
 import io.flutter.plugin.common.StringCodec
 import kotlinx.android.synthetic.main.activity_basic_message_channel.*
-import kotlinx.android.synthetic.main.activity_event_channel.flutter_container
-import kotlinx.android.synthetic.main.activity_method_channel.*
-import kotlinx.android.synthetic.main.activity_method_channel.log_panel
 
 class BasicMessageChannelActivity : AppCompatActivity(),
     BasicMessageChannel.MessageHandler<String> {

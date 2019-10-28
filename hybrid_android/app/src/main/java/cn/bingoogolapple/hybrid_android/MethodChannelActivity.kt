@@ -7,7 +7,6 @@ import io.flutter.facade.Flutter
 import io.flutter.plugin.common.MethodCall
 import io.flutter.plugin.common.MethodChannel
 import io.flutter.plugin.common.MethodChannel.Result
-import kotlinx.android.synthetic.main.activity_event_channel.flutter_container
 import kotlinx.android.synthetic.main.activity_method_channel.*
 import kotlin.random.Random
 
@@ -61,7 +60,7 @@ class MethodChannelActivity : AppCompatActivity(), MethodChannel.MethodCallHandl
             } else {
                 result.error(
                     "我是错误码",
-                    "我是错误消息",
+                    "Android 返回错误消息",
                     Gson().toJson(mapOf("key1" to "value1", "key2" to "value2"))
                 )
             }

@@ -34,7 +34,7 @@ class ViewController: UIViewController {
         twoModeBtn.backgroundColor = UIColor.lightGray
         twoModeBtn.frame = CGRect(x:10, y:150, width:UIScreen.main.bounds.width - 20, height:40)
         twoModeBtn.setTitle("event_channel_demo", for: .normal)
-        twoModeBtn.addTarget(self, action:#selector(openTwoModeViewController), for: .touchUpInside)
+        twoModeBtn.addTarget(self, action:#selector(openEventChannelViewController), for: .touchUpInside)
         self.view.addSubview(twoModeBtn)
     }
     
@@ -43,7 +43,7 @@ class ViewController: UIViewController {
         twoModeBtn.backgroundColor = UIColor.lightGray
         twoModeBtn.frame = CGRect(x:10, y:200, width:UIScreen.main.bounds.width - 20, height:40)
         twoModeBtn.setTitle("method_channel_demo", for: .normal)
-        twoModeBtn.addTarget(self, action:#selector(openTwoModeViewController), for: .touchUpInside)
+        twoModeBtn.addTarget(self, action:#selector(openMethodChannelViewController), for: .touchUpInside)
         self.view.addSubview(twoModeBtn)
     }
     
@@ -52,12 +52,27 @@ class ViewController: UIViewController {
         twoModeBtn.backgroundColor = UIColor.lightGray
         twoModeBtn.frame = CGRect(x:10, y:250, width:UIScreen.main.bounds.width - 20, height:40)
         twoModeBtn.setTitle("basic_message_channel_demo", for: .normal)
-        twoModeBtn.addTarget(self, action:#selector(openTwoModeViewController), for: .touchUpInside)
+        twoModeBtn.addTarget(self, action:#selector(openBasicMessageChannelViewController), for: .touchUpInside)
         self.view.addSubview(twoModeBtn)
     }
     
     @objc
     func openTwoModeViewController() {
         self.navigationController?.pushViewController(TwoModeViewController(), animated: true)
+    }
+    
+    @objc
+    func openEventChannelViewController() {
+        self.navigationController?.pushViewController(EventChannelViewController(), animated: true)
+    }
+    
+    @objc
+    func openMethodChannelViewController() {
+        self.navigationController?.pushViewController(MethodChannelViewController(), animated: true)
+    }
+    
+    @objc
+    func openBasicMessageChannelViewController() {
+        self.navigationController?.pushViewController(BasicMessageChannelViewController(), animated: true)
     }
 }
