@@ -1,0 +1,20 @@
+name: bga_flutter_package
+description: Flutter Package 学习笔记
+version: 0.0.1
+author: bingoogolapple <bingoogolapple@gmail.com>
+homepage: https://github.com/bingoogolapple/flutter-note
+
+environment:
+  sdk: ">=2.1.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  assets:
+    - images/BGA.png
