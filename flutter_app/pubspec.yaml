@@ -12,6 +12,7 @@ dependencies:
   cupertino_icons: ^0.1.2
 
   bga_flutter_package: ^0.0.2
+  transparent_image: ^1.0.0 # https://pub.flutter-io.cn/packages/transparent_image
 
 dev_dependencies:
   flutter_test:
