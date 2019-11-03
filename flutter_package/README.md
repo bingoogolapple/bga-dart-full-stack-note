@@ -2,6 +2,9 @@
 
 A new Flutter package.
 
+[![Pub](https://img.shields.io/pub/v/bga_flutter_package.svg)](https://pub.dev/packages/bga_flutter_package)
+[![Support](https://img.shields.io/badge/Platform-Flutter%7CFlutter%20Web%7CDart%20VM-aa69b4.svg)](https://github.com/bingoogolapple/flutter-note)
+
 ## Getting Started
 
 This project is a starting point for a Dart
