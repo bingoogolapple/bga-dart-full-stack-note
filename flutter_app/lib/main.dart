@@ -1,3 +1,4 @@
+import 'package:bga_flutter_package/bga_flutter_package.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());
@@ -20,7 +21,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: MyHomePage(title: Calculator().addOne(5).toString()),
     );
   }
 }
@@ -91,9 +92,7 @@ class _MyHomePageState extends State<MyHomePage> {
           // horizontal).
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text(
-              'You have pushed the button this many times:',
-            ),
+            BGALogoWidget(),
             Text(
               '$_counter',
               style: Theme.of(context).textTheme.display1,
@@ -109,3 +108,14 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
+
+//class BGALogoWidget2 extends StatelessWidget {
+//  @override
+//  Widget build(BuildContext context) {
+//    return Container(
+//      width: 100,
+//      height: 100,
+//      child: Image.asset('packages/bga_flutter_package/images/BGA.png'),
+//    );
+//  }
+//}

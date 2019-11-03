@@ -6,7 +6,7 @@ class BGALogoWidget extends StatelessWidget {
     return Container(
       width: 100,
       height: 100,
-      child: Image.asset('images/BGA.png'),
+      child: Image.asset('packages/bga_flutter_package/images/BGA.png'),
     );
   }
 }
