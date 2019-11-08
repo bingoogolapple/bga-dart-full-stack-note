@@ -14,6 +14,9 @@ dependencies:
   bga_flutter_package: ^0.0.2
   transparent_image: ^1.0.0 # https://pub.flutter-io.cn/packages/transparent_image
 
+  shelf_router: ^0.7.1 # https://pub.flutter-io.cn/packages/shelf_router
+  dio: ^3.0.3 # https://github.com/flutterchina/dio
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
