@@ -88,14 +88,16 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
 
   /// 只会初始化当前选中页，后续切换页码时会重新初始化
   Widget _buildPageViewBody() {
-    return PageView(
-      children: _pageList,
-      controller: _pageController,
-      onPageChanged: (index) {
-        print('onPageChanged $index');
-        _handlePageChanged(index);
-      },
-    );
+    return ScrollConfiguration(
+        behavior: NoScrollRippleBehavior(),
+        child: PageView(
+          children: _pageList,
+          controller: _pageController,
+          onPageChanged: (index) {
+            print('onPageChanged $index');
+            _handlePageChanged(index);
+          },
+        ));
   }
 
   _handlePageChanged(int index) {
@@ -106,5 +108,13 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
     setState(() {
       _currentIndex = index;
     });
+  }
+}
+
+/// 去除滚动到边缘时的水波纹效果
+class NoScrollRippleBehavior extends ScrollBehavior {
+  @override
+  Widget buildViewportChrome(BuildContext context, Widget child, AxisDirection axisDirection) {
+    return child;
   }
 }
