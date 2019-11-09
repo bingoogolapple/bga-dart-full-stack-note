@@ -4,26 +4,35 @@ import 'package:flutter_app/page/home_page.dart';
 import 'package:flutter_app/page/me_page.dart';
 import 'package:flutter_app/page/shopping_cart_page.dart';
 
-class MainPage extends StatefulWidget {
+class MainPageBackup extends StatefulWidget {
   @override
-  _MainPageState createState() => _MainPageState();
+  _MainPageBackupState createState() => _MainPageBackupState();
 }
 
-class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
+class _MainPageBackupState extends State<MainPageBackup> with TickerProviderStateMixin {
   List<Widget> _pageList = [HomePage(), CategoryPage(), ShoppingCartPage(), MePage()];
   int _currentIndex = 0;
   PageController _pageController;
+  TabController _tabController;
 
   @override
   void initState() {
     super.initState();
     print('initState => _MainPageState');
     _pageController = PageController(initialPage: _currentIndex);
+
+    _tabController = TabController(initialIndex: 0, length: _pageList.length, vsync: this)
+      ..addListener(() {
+        setState(() {
+          _currentIndex = _tabController.index;
+        });
+      });
   }
 
   @override
   void dispose() {
     _pageController.dispose();
+    _tabController.dispose();
     super.dispose();
   }
 
@@ -95,6 +104,29 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
         print('onPageChanged $index');
         _handlePageChanged(index);
       },
+    );
+
+    // 可以通过 builder 来做无线轮播
+//    return PageView.builder(
+//        itemCount: 9223372036854775807,
+//        controller: _pageController,
+//        onPageChanged: (index) {
+//          print('onPageChanged $index');
+//          _handlePageChanged(index % _pageList.length);
+//        },
+//        itemBuilder: (context, index) {
+//          return _pageList[index % _pageList.length];
+//        });
+  }
+
+  /// 只会初始化当前选中页，后续切换页码时会重新初始化
+  /// 内部包裹的是 PageView
+  /// 只能通过 TabController.addListener 来监听变化，与 BottomNavigationBar 结合使用效果不好
+  /// 建议与 TabBar 或 TabPageSelector 结合使用
+  Widget _buildTabBarViewBody() {
+    return TabBarView(
+      controller: _tabController,
+      children: _pageList,
     );
   }
 
