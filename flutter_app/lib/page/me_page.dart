@@ -4,6 +4,7 @@ import 'package:flutter_app/page/animated_page.dart';
 import 'package:flutter_app/page/gesture_page.dart';
 import 'package:flutter_app/page/http_page.dart';
 import 'package:flutter_app/page/input_page.dart';
+import 'package:flutter_app/widget/banner_widget.dart';
 
 class MePage extends StatefulWidget {
   @override
@@ -51,6 +52,15 @@ class _MePageState extends State<MePage> {
               child: Text('HTTP'),
               onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => HttpPage())),
             ),
+            Container(
+              height: 80,
+              child: BannerWidget(
+                List.generate(4, (index) {
+                  return 'http://bgashare.bingoogolapple.cn/banner/imgs/${index + 1}.png';
+                }),
+                Colors.deepOrange,
+              ),
+            )
           ],
         ),
       ),

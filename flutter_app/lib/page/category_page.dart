@@ -66,7 +66,11 @@ class _CategoryPageState extends State<CategoryPage> {
             margin: EdgeInsets.all(10),
             child: ClipRRect(
               borderRadius: BorderRadius.circular(10),
-              child: FadeInImage.memoryNetwork(width: 70, height: 70, placeholder: kTransparentImage, image: listItem.url),
+              child: FadeInImage.memoryNetwork(
+                fit: BoxFit.cover,
+                placeholder: kTransparentImage,
+                image: listItem.url,
+              ),
             ),
           );
         } else if (listItem is ChildCategoryItem) {
