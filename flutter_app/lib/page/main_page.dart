@@ -89,7 +89,7 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
   /// 只会初始化当前选中页，后续切换页码时会重新初始化
   Widget _buildPageViewBody() {
     return ScrollConfiguration(
-        behavior: NoScrollRippleBehavior(),
+        behavior: NoOverScrollBehavior(),
         child: PageView(
           children: _pageList,
           controller: _pageController,
@@ -111,10 +111,16 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
   }
 }
 
-/// 去除滚动到边缘时的水波纹效果
-class NoScrollRippleBehavior extends ScrollBehavior {
+class NoOverScrollBehavior extends ScrollBehavior {
   @override
   Widget buildViewportChrome(BuildContext context, Widget child, AxisDirection axisDirection) {
+    // 去除 Android 滚动到边缘时的水波纹效果，对嵌套在其内部的子控件也生效，除非内部子控件自定义
     return child;
+  }
+
+  @override
+  ScrollPhysics getScrollPhysics(BuildContext context) {
+    // 去除 iOS 滚动到边缘时出现空白效果，对嵌套在其内部的子控件也生效
+    return ClampingScrollPhysics();
   }
 }

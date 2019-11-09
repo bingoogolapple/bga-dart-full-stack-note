@@ -60,7 +60,7 @@ class _MePageState extends State<MePage> {
                 }),
                 Colors.deepOrange,
               ),
-            )
+            ),
           ],
         ),
       ),
