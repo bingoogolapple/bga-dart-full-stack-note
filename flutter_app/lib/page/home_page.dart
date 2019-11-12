@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_app/page/text_page.dart';
 import 'package:flutter_app/widget/banner_widget.dart';
 
 class HomePage extends StatefulWidget {
@@ -59,6 +60,11 @@ class _HomePageState extends State<HomePage> {
                 }),
                 Colors.deepPurple,
               ),
+            ),
+            MaterialButton(
+              color: Colors.yellow,
+              child: Text('Text'),
+              onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => TextPage())),
             ),
             Container(height: 150, color: Colors.green[100]),
             Container(height: 150, color: Colors.green[200]),

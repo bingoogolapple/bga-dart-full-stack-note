@@ -4,6 +4,7 @@ import 'package:flutter_app/page/animated_page.dart';
 import 'package:flutter_app/page/gesture_page.dart';
 import 'package:flutter_app/page/http_page.dart';
 import 'package:flutter_app/page/input_page.dart';
+import 'package:flutter_app/page/text_page.dart';
 import 'package:flutter_app/widget/banner_widget.dart';
 
 class MePage extends StatefulWidget {
@@ -32,6 +33,11 @@ class _MePageState extends State<MePage> {
           children: [
             Text(Calculator().addOne(5).toString()),
             BGALogoWidget(),
+            MaterialButton(
+              color: Colors.yellow,
+              child: Text('Text'),
+              onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => TextPage())),
+            ),
             MaterialButton(
               color: Colors.yellow,
               child: Text('手势识别'),
