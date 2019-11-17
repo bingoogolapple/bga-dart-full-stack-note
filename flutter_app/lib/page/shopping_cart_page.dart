@@ -5,7 +5,7 @@ class ShoppingCartPage extends StatefulWidget {
   _ShoppingCartPageState createState() => _ShoppingCartPageState();
 }
 
-class _ShoppingCartPageState extends State<ShoppingCartPage> with TickerProviderStateMixin {
+class _ShoppingCartPageState extends State<ShoppingCartPage> with TickerProviderStateMixin, AutomaticKeepAliveClientMixin {
   static const _tabList = [
     Tab(icon: const Icon(Icons.open_in_new), text: 'One'), // child 和 text 只能指定一个
     Tab(icon: const Icon(Icons.looks_two), text: 'Two'),
@@ -24,6 +24,12 @@ class _ShoppingCartPageState extends State<ShoppingCartPage> with TickerProvider
   TabController _tabController;
 
   @override
+  bool get wantKeepAlive {
+    print('wantKeepAlive _ShoppingCartPageState');
+    return true;
+  }
+
+  @override
   void initState() {
     super.initState();
     print('initState => _ShoppingCartPageState');
@@ -39,6 +45,7 @@ class _ShoppingCartPageState extends State<ShoppingCartPage> with TickerProvider
 
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     return DefaultTabController(
       length: _tabList.length,
       child: _buildScaffold(false),

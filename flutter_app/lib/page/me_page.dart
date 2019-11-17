@@ -12,7 +12,14 @@ class MePage extends StatefulWidget {
   _MePageState createState() => _MePageState();
 }
 
-class _MePageState extends State<MePage> {
+class _MePageState extends State<MePage> with AutomaticKeepAliveClientMixin {
+
+  @override
+  bool get wantKeepAlive {
+    print('wantKeepAlive _MePageState');
+    return true;
+  }
+
   @override
   void initState() {
     super.initState();
@@ -21,6 +28,7 @@ class _MePageState extends State<MePage> {
 
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     return Scaffold(
       appBar: AppBar(
         title: Text('我的'),

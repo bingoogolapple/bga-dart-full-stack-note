@@ -8,13 +8,19 @@ class CategoryPage extends StatefulWidget {
   _CategoryPageState createState() => _CategoryPageState();
 }
 
-class _CategoryPageState extends State<CategoryPage> {
+class _CategoryPageState extends State<CategoryPage> with AutomaticKeepAliveClientMixin {
   static const _categoryItemHeight = 50.0;
   List<CategoryItem> _categoryItemList = List.generate(18, (index) => CategoryItem(index, '分类$index'));
   CategoryItem _currentCategoryItem;
   int _currentCategoryIndex = 0;
   ScrollController _categoryScrollController;
   ScrollController _categoryDetailScrollController;
+
+  @override
+  bool get wantKeepAlive {
+    print('wantKeepAlive _CategoryPageState');
+    return true;
+  }
 
   @override
   void initState() {
@@ -34,6 +40,7 @@ class _CategoryPageState extends State<CategoryPage> {
 
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     return Scaffold(
       appBar: AppBar(
         title: Text('分类'),

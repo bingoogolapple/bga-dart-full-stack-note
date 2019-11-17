@@ -79,8 +79,10 @@ class _MainPageBackupState extends State<MainPageBackup> with TickerProviderStat
         // 结合 IndexedStack 使用时调用 _handlePageChanged
 //          _handlePageChanged(index);
 
-        // 结合 PageView 使用时不用再调用 _handlePageChanged，由 animateToPage => PageView.onPageChanged => _handlePageChanged
-        _pageController.animateToPage(index, duration: kTabScrollDuration, curve: Curves.ease);
+        // 结合 PageView 使用时不用再调用 _handlePageChanged，由 animateToPage => PageView.onPageChanged => _handlePageChanged，会触发多次 PageView.onPageChanged
+//        _pageController.animateToPage(index, duration: kTabScrollDuration, curve: Curves.ease);
+        // 只会触发一次 PageView.onPageChanged
+        _pageController.jumpToPage(index);
 
 //        _tabController.animateTo(index);
       },
@@ -95,7 +97,7 @@ class _MainPageBackupState extends State<MainPageBackup> with TickerProviderStat
     );
   }
 
-  /// 只会初始化当前选中页，后续切换页码时会重新初始化
+  /// 只会初始化当前选中页，后续切换页码时会重新初始化（可以通过 AutomaticKeepAliveClientMixin 来解决）
   Widget _buildPageViewBody() {
     return PageView(
       children: _pageList,

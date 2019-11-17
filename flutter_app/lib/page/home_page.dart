@@ -9,9 +9,15 @@ class HomePage extends StatefulWidget {
   _HomePageState createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _HomePageState extends State<HomePage> with AutomaticKeepAliveClientMixin {
   static const int APPBAR_MAX_SCROLL_OFFSET = 100;
   double _appBarAlpha = 0;
+
+  @override
+  bool get wantKeepAlive {
+    print('wantKeepAlive _HomePageState');
+    return true;
+  }
 
   @override
   void initState() {
@@ -21,6 +27,8 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    // 使用 AutomaticKeepAliveClientMixin 保持页面状态时，必须调用 super.build(context)
+    super.build(context);
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: PreferredSize(

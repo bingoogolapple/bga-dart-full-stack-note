@@ -9,7 +9,7 @@ class MainPage extends StatefulWidget {
   _MainPageState createState() => _MainPageState();
 }
 
-class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
+class _MainPageState extends State<MainPage> {
   List<Widget> _pageList = [HomePage(), CategoryPage(), ShoppingCartPage(), MePage()];
   int _currentIndex = 0;
   PageController _pageController;
@@ -70,27 +70,22 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
         // 结合 IndexedStack 使用时调用 _handlePageChanged
 //          _handlePageChanged(index);
 
-        // 结合 PageView 使用时不用再调用 _handlePageChanged，由 animateToPage => PageView.onPageChanged => _handlePageChanged
-        _pageController.animateToPage(index, duration: kTabScrollDuration, curve: Curves.ease);
+        // 结合 PageView 使用时不用再调用 _handlePageChanged，由 animateToPage => PageView.onPageChanged => _handlePageChanged，会触发多次 PageView.onPageChanged
+//        _pageController.animateToPage(index, duration: kTabScrollDuration, curve: Curves.ease);
+        // 只会触发一次 PageView.onPageChanged
+        _pageController.jumpToPage(index);
 
 //        _tabController.animateTo(index);
       },
     );
   }
 
-  /// 打开主界面时所有子 Page 都会被初始化一遍，后续切换页码时不会再重新初始化
-  Widget _buildIndexedStackBody() {
-    return IndexedStack(
-      index: _currentIndex,
-      children: _pageList,
-    );
-  }
-
-  /// 只会初始化当前选中页，后续切换页码时会重新初始化
+  /// 只会初始化当前选中页，后续切换页码时会重新初始化（可以通过 AutomaticKeepAliveClientMixin 来解决）
   Widget _buildPageViewBody() {
     return ScrollConfiguration(
         behavior: NoOverScrollBehavior(),
         child: PageView(
+//          physics: NeverScrollableScrollPhysics(), // 禁用滚动翻页
           children: _pageList,
           controller: _pageController,
           onPageChanged: (index) {

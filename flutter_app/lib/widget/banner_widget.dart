@@ -72,7 +72,7 @@ class _BannerWidgetState extends State<BannerWidget> with TickerProviderStateMix
               itemCount: _getItemCount(),
               controller: _pageController,
               onPageChanged: (index) {
-                print('当前页 $index');
+//                print('当前页 $index');
                 if (index == 0) {
                   index = _getZeroIndex();
                   print('跳转到 $index 兼容无限轮播');
