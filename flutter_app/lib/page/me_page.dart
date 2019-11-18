@@ -1,6 +1,7 @@
 import 'package:bga_flutter_package/bga_flutter_package.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app/page/animated_page.dart';
+import 'package:flutter_app/page/button_page.dart';
 import 'package:flutter_app/page/gesture_page.dart';
 import 'package:flutter_app/page/http_page.dart';
 import 'package:flutter_app/page/input_page.dart';
@@ -41,6 +42,11 @@ class _MePageState extends State<MePage> with AutomaticKeepAliveClientMixin {
           children: [
             Text(Calculator().addOne(5).toString()),
             BGALogoWidget(),
+            MaterialButton(
+              color: Colors.yellow,
+              child: Text('Button'),
+              onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => ButtonPage())),
+            ),
             MaterialButton(
               color: Colors.yellow,
               child: Text('Text'),
