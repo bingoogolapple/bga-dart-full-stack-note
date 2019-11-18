@@ -1,7 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_app/page/button_page.dart';
+import 'package:flutter_app/page/checkbox_page.dart';
 import 'package:flutter_app/widget/banner_widget.dart';
 
 class HomePage extends StatefulWidget {
@@ -71,8 +71,8 @@ class _HomePageState extends State<HomePage> with AutomaticKeepAliveClientMixin 
             ),
             MaterialButton(
               color: Colors.yellow,
-              child: Text('Button'),
-              onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => ButtonPage())),
+              child: Text('Checkbox'),
+              onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => CheckboxPage())),
             ),
             Container(height: 150, color: Colors.green[100]),
             Container(height: 150, color: Colors.green[200]),
