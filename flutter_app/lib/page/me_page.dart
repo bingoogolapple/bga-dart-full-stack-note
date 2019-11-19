@@ -6,6 +6,7 @@ import 'package:flutter_app/page/checkbox_page.dart';
 import 'package:flutter_app/page/gesture_page.dart';
 import 'package:flutter_app/page/http_page.dart';
 import 'package:flutter_app/page/input_page.dart';
+import 'package:flutter_app/page/switch_page.dart';
 import 'package:flutter_app/page/text_page.dart';
 import 'package:flutter_app/widget/banner_widget.dart';
 
@@ -43,6 +44,11 @@ class _MePageState extends State<MePage> with AutomaticKeepAliveClientMixin {
           children: [
             Text(Calculator().addOne(5).toString()),
             BGALogoWidget(),
+            MaterialButton(
+              color: Colors.yellow,
+              child: Text('Switch'),
+              onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => SwitchPage())),
+            ),
             MaterialButton(
               color: Colors.yellow,
               child: Text('Checkbox'),

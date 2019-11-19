@@ -134,9 +134,9 @@ class _CheckboxPageState extends State<CheckboxPage> {
                     }
                   : null,
               value: _value,
-              // 可用&&选中时的背景色和 selected 为 true 时的标题、图标颜色，默认是 ThemeData.toggleableActiveColor；不可用&&选中时默认为灰色，TODO 怎样修改？
+              // 可用 && 选中时的背景色和 selected 为 true 时的标题、图标颜色，默认是 ThemeData.toggleableActiveColor；不可用&&选中时默认为灰色，TODO 怎样修改？
               activeColor: Colors.green,
-              // 可用||不可用选中时勾勾的颜色，默认为白色
+              // (可用 || 不可用)&&选中时勾勾的颜色，默认为白色
               checkColor: Colors.cyanAccent,
               // 是否展示的密集一些，为 true 时标题文字会变小，触摸区域也会变小
               dense: true,
