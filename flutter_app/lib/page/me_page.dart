@@ -7,6 +7,7 @@ import 'package:flutter_app/page/gesture_page.dart';
 import 'package:flutter_app/page/http_page.dart';
 import 'package:flutter_app/page/input_page.dart';
 import 'package:flutter_app/page/radio_page.dart';
+import 'package:flutter_app/page/row_column_page.dart';
 import 'package:flutter_app/page/switch_page.dart';
 import 'package:flutter_app/page/text_page.dart';
 import 'package:flutter_app/widget/banner_widget.dart';
@@ -45,6 +46,11 @@ class _MePageState extends State<MePage> with AutomaticKeepAliveClientMixin {
           children: [
             Text(Calculator().addOne(5).toString()),
             BGALogoWidget(),
+            MaterialButton(
+              color: Colors.yellow,
+              child: Text('RowColumn'),
+              onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => RowColumnPage())),
+            ),
             MaterialButton(
               color: Colors.yellow,
               child: Text('Radio'),

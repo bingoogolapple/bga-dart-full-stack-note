@@ -202,6 +202,7 @@ class _ButtonPageState extends State<ButtonPage> {
               // 默认是跟当前控件的左上角对齐
               offset: Offset(0, 200),
               tooltip: '移动设备和浏览器长按后的提示文本，或浏览器鼠标悬浮时的文本',
+              // 浮窗背景色
               color: Colors.deepOrangeAccent,
               initialValue: '添加朋友',
               // 默认是 ...
