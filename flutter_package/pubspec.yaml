@@ -1,11 +1,12 @@
+# https://dart.dev/tools/pub/pubspec
 name: bga_flutter_package
 description: Flutter Package 学习笔记
-version: 0.0.2
-author: bingoogolapple <bingoogolapple@gmail.com>
+version: 0.0.3
 homepage: https://github.com/bingoogolapple/flutter-note
 
 environment:
-  sdk: ">=2.1.0 <3.0.0"
+  sdk: ">=2.17.6 <3.0.0"
+  flutter: ">=1.17.0"
 
 dependencies:
   flutter:
@@ -14,7 +15,8 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  flutter_lints: ^2.0.0
 
 flutter:
   assets:
-    - images/BGA.png
+    - assets/images/
