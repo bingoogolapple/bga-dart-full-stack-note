@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_app/mock/net_images.dart';
 import 'package:transparent_image/transparent_image.dart';
 
 class CategoryPage extends StatefulWidget {
@@ -8,13 +9,15 @@ class CategoryPage extends StatefulWidget {
   _CategoryPageState createState() => _CategoryPageState();
 }
 
-class _CategoryPageState extends State<CategoryPage> with AutomaticKeepAliveClientMixin {
+class _CategoryPageState extends State<CategoryPage>
+    with AutomaticKeepAliveClientMixin {
   static const _categoryItemHeight = 50.0;
-  List<CategoryItem> _categoryItemList = List.generate(18, (index) => CategoryItem(index, '分类$index'));
-  CategoryItem _currentCategoryItem;
+  List<CategoryItem> _categoryItemList =
+      List.generate(18, (index) => CategoryItem(index, '分类$index'));
+  late CategoryItem _currentCategoryItem;
   int _currentCategoryIndex = 0;
-  ScrollController _categoryScrollController;
-  ScrollController _categoryDetailScrollController;
+  late ScrollController _categoryScrollController;
+  late ScrollController _categoryDetailScrollController;
 
   @override
   bool get wantKeepAlive {
@@ -102,7 +105,11 @@ class _CategoryPageState extends State<CategoryPage> with AutomaticKeepAliveClie
                 itemCount: listItem.goodsItemList.length,
                 itemBuilder: (context, goodsPosition) {
                   return Column(
-                    children: [Icon(Icons.filter), SizedBox(height: 5), Text(listItem.goodsItemList[goodsPosition].title)],
+                    children: [
+                      Icon(Icons.filter),
+                      SizedBox(height: 5),
+                      Text(listItem.goodsItemList[goodsPosition].title)
+                    ],
                   );
                 },
               ),
@@ -140,8 +147,10 @@ class _CategoryPageState extends State<CategoryPage> with AutomaticKeepAliveClie
               _currentCategoryIndex = position;
               _currentCategoryItem = _categoryItemList[_currentCategoryIndex];
 
-              _categoryScrollController.animateTo(_categoryItemHeight * max(0, _currentCategoryIndex - 5),
-                  duration: Duration(milliseconds: 300), curve: Curves.ease);
+              _categoryScrollController.animateTo(
+                  _categoryItemHeight * max(0, _currentCategoryIndex - 5),
+                  duration: Duration(milliseconds: 300),
+                  curve: Curves.ease);
 
               // _categoryDetailScrollController.animateTo(0, duration: Duration(milliseconds: 200), curve: Curves.ease);
               _categoryDetailScrollController.jumpTo(0);
@@ -162,7 +171,7 @@ class CategoryItem implements ListItem {
   CategoryItem(categoryIndex, this.name)
       : dataList = List.generate(10, (index) {
           if (index == 0) {
-            return BannerItem('http://bgashare.bingoogolapple.cn/banner/imgs/${categoryIndex + 1}.png');
+            return BannerItem(NET_IMAGES[categoryIndex % 10]);
           } else {
             return ChildCategoryItem('子分类${categoryIndex + 1}-${index + 1}');
           }
@@ -179,7 +188,9 @@ class ChildCategoryItem implements ListItem {
   final String title;
   final List<GoodsItem> goodsItemList;
 
-  ChildCategoryItem(this.title) : goodsItemList = List.generate(10, (index) => GoodsItem('商品${index + 1}'));
+  ChildCategoryItem(this.title)
+      : goodsItemList =
+            List.generate(10, (index) => GoodsItem('商品${index + 1}'));
 }
 
 class GoodsItem implements ListItem {

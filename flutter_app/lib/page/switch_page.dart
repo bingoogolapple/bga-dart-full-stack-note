@@ -26,7 +26,7 @@ class _SwitchPageState extends State<SwitchPage> {
               value: _isEnable,
               onChanged: (isEnable) {
                 setState(() {
-                  _isEnable = isEnable;
+                  _isEnable = isEnable ?? false;
                 });
               },
             ),

@@ -94,6 +94,7 @@ class _EventDispatchWidgetState extends State<EventDispatchWidget> {
                 instance.onLongPressMoveUpdate = (LongPressMoveUpdateDetails details) => print('父容器2 onLongPressMoveUpdate');
                 instance.onLongPressEnd = (LongPressEndDetails details) => print('父容器2 onLongPressEnd');
                 instance.onLongPressUp = () => print('父容器2 onLongPressUp');
+                // ignore: todo
                 // TODO 为什么长按是没有触发父容器的 onTapCancel，触发了 onTapUp 和 onTap？
               },
             )
@@ -208,14 +209,14 @@ class PointerEventWidget extends StatelessWidget {
             // 鼠标滚动
             print('onPointerSignal：$event');
           },
-          onPointerEnter: (PointerEnterEvent event) {
-            // 鼠标从浏览器内部的非按钮区域->移入按钮区域 | 鼠标第一次从浏览器外->移入按钮区域
-            print('onPointerEnter：$event');
-          },
-          onPointerExit: (PointerExitEvent event) {
-            // 鼠标从按钮区域->移到浏览器内部的非按钮区域（直接从按钮区域移到浏览器外部时不会触发该事件）
-            print('PointerExitEvent：$event');
-          },
+          // onPointerEnter: (PointerEnterEvent event) {
+          //   // 鼠标从浏览器内部的非按钮区域->移入按钮区域 | 鼠标第一次从浏览器外->移入按钮区域
+          //   print('onPointerEnter：$event');
+          // },
+          // onPointerExit: (PointerExitEvent event) {
+          //   // 鼠标从按钮区域->移到浏览器内部的非按钮区域（直接从按钮区域移到浏览器外部时不会触发该事件）
+          //   print('PointerExitEvent：$event');
+          // },
           onPointerHover: (PointerHoverEvent event) {
             // 鼠标在按钮区域移动
             print('PointerHoverEvent：$event');
@@ -329,6 +330,7 @@ class _GestureDetectorWidgetState extends State<GestureDetectorWidget> {
                   onLongPressEnd: (LongPressEndDetails details) {
                     print('onLongPressEnd $details');
                     setState(() {
+                      // ignore: todo
                       // TODO 按菜单或 home 键后不会触发 onLongPressEnd、onLongPressUp，如何恢复状态？
                       _longPressed = false;
                     });

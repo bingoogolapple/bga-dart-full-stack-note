@@ -2,13 +2,14 @@ import 'dart:async';
 
 class EventBus {
   // 保存单例
-  static EventBus _instance;
+  static EventBus? _instance;
 
   // 工厂构造函数
-  factory EventBus({bool sync = false, StreamController controller}) => _getInstance(sync: sync, controller: controller);
+  factory EventBus({bool sync = false, StreamController? controller}) =>
+      _getInstance(sync: sync, controller: controller);
 
   // 私有构造函数
-  EventBus._({bool sync = false, StreamController controller}) {
+  EventBus._({bool sync = false, StreamController? controller}) {
     if (controller != null) {
       _streamController = controller;
       return;
@@ -16,20 +17,21 @@ class EventBus {
     _streamController = StreamController.broadcast(sync: sync);
   }
 
-  static EventBus _getInstance({bool sync = false, StreamController controller}) {
+  static EventBus _getInstance(
+      {bool sync = false, StreamController? controller}) {
     if (_instance == null) {
       _instance = new EventBus._(sync: sync, controller: controller);
     }
-    return _instance;
+    return _instance!;
   }
 
-  StreamController _streamController;
+  late StreamController _streamController;
 
   StreamController get streamController => _streamController;
 
   Stream<T> on<T>() {
     if (T == dynamic) {
-      return streamController.stream;
+      return streamController.stream as Stream<T>;
     } else {
       return streamController.stream.where((event) => event is T).cast<T>();
     }

@@ -9,11 +9,17 @@ class MainPageBackup extends StatefulWidget {
   _MainPageBackupState createState() => _MainPageBackupState();
 }
 
-class _MainPageBackupState extends State<MainPageBackup> with TickerProviderStateMixin {
-  List<Widget> _pageList = [HomePage(), CategoryPage(), ShoppingCartPage(), MePage()];
+class _MainPageBackupState extends State<MainPageBackup>
+    with TickerProviderStateMixin {
+  List<Widget> _pageList = [
+    HomePage(),
+    CategoryPage(),
+    ShoppingCartPage(),
+    MePage()
+  ];
   int _currentIndex = 0;
-  PageController _pageController;
-  TabController _tabController;
+  late PageController _pageController;
+  late TabController _tabController;
 
   @override
   void initState() {
@@ -21,12 +27,13 @@ class _MainPageBackupState extends State<MainPageBackup> with TickerProviderStat
     print('initState => _MainPageState');
     _pageController = PageController(initialPage: _currentIndex);
 
-    _tabController = TabController(initialIndex: 0, length: _pageList.length, vsync: this)
-      ..addListener(() {
-        setState(() {
-          _currentIndex = _tabController.index;
-        });
-      });
+    _tabController =
+        TabController(initialIndex: 0, length: _pageList.length, vsync: this)
+          ..addListener(() {
+            setState(() {
+              _currentIndex = _tabController.index;
+            });
+          });
   }
 
   @override
@@ -49,23 +56,23 @@ class _MainPageBackupState extends State<MainPageBackup> with TickerProviderStat
       items: [
         BottomNavigationBarItem(
           icon: const Icon(Icons.home),
-          title: Text('首页'),
+          label: '首页',
           backgroundColor: Colors.deepPurple,
         ),
         BottomNavigationBarItem(
           icon: const Icon(Icons.category),
-          title: Text('分类'),
+          label: '分类',
           backgroundColor: Colors.teal,
         ),
         BottomNavigationBarItem(
           icon: const Icon(Icons.shopping_cart),
-          title: Text('购物车'),
+          label: '购物车',
           backgroundColor: Colors.indigo,
         ),
         BottomNavigationBarItem(
           activeIcon: const Icon(Icons.person),
           icon: const Icon(Icons.person_outline),
-          title: Text('我的'),
+          label: '我的',
           backgroundColor: Colors.deepOrange,
         )
       ],
@@ -90,6 +97,7 @@ class _MainPageBackupState extends State<MainPageBackup> with TickerProviderStat
   }
 
   /// 打开主界面时所有子 Page 都会被初始化一遍，后续切换页码时不会再重新初始化
+  // ignore: unused_element
   Widget _buildIndexedStackBody() {
     return IndexedStack(
       index: _currentIndex,
@@ -125,6 +133,7 @@ class _MainPageBackupState extends State<MainPageBackup> with TickerProviderStat
   /// 内部包裹的是 PageView
   /// 只能通过 TabController.addListener 来监听变化，与 BottomNavigationBar 结合使用效果不好
   /// 建议与 TabBar 或 TabPageSelector 结合使用
+  // ignore: unused_element
   Widget _buildTabBarViewBody() {
     return TabBarView(
       controller: _tabController,

@@ -21,7 +21,7 @@ class _ShoppingCartPageState extends State<ShoppingCartPage> with TickerProvider
     Tab(icon: const Icon(Icons.transfer_within_a_station), text: 'Twelve'),
   ];
 
-  TabController _tabController;
+  late TabController _tabController;
 
   @override
   bool get wantKeepAlive {
@@ -64,7 +64,7 @@ class _ShoppingCartPageState extends State<ShoppingCartPage> with TickerProvider
       ),
       body: TabBarView(
         controller: _tabController,
-        children: _tabList.map((tab) => Center(child: Text(tab.text))).toList(),
+        children: _tabList.map((tab) => Center(child: Text(tab.text!))).toList(),
       ),
     );
   }

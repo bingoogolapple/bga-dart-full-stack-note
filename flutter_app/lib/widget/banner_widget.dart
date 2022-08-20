@@ -13,10 +13,11 @@ class BannerWidget extends StatefulWidget {
   _BannerWidgetState createState() => _BannerWidgetState();
 }
 
-class _BannerWidgetState extends State<BannerWidget> with TickerProviderStateMixin {
-  PageController _pageController;
-  TabController _tabController;
-  Timer _timer;
+class _BannerWidgetState extends State<BannerWidget>
+    with TickerProviderStateMixin {
+  PageController? _pageController;
+  TabController? _tabController;
+  Timer? _timer;
 
   @override
   void initState() {
@@ -28,26 +29,21 @@ class _BannerWidgetState extends State<BannerWidget> with TickerProviderStateMix
 
   @override
   void dispose() {
-    if (_pageController != null) {
-      _pageController.dispose();
-    }
-    if (_tabController != null) {
-      _tabController.dispose();
-    }
+    _pageController?.dispose();
+    _tabController?.dispose();
     _stopAutoScroll();
     super.dispose();
   }
 
   _startAutoScroll() {
     _timer = Timer.periodic(const Duration(seconds: 2), (timer) {
-      _pageController.nextPage(duration: kTabScrollDuration, curve: Curves.ease);
+      _pageController?.nextPage(
+          duration: kTabScrollDuration, curve: Curves.ease);
     });
   }
 
   _stopAutoScroll() {
-    if (_timer != null) {
-      _timer.cancel();
-    }
+    _timer?.cancel();
     _timer = null;
   }
 
@@ -76,14 +72,14 @@ class _BannerWidgetState extends State<BannerWidget> with TickerProviderStateMix
                 if (index == 0) {
                   index = _getZeroIndex();
                   print('跳转到 $index 兼容无限轮播');
-                  _pageController.jumpToPage(index);
+                  _pageController?.jumpToPage(index);
                 } else if (index == _getItemCount() - 1) {
                   index = _getZeroIndex() - 1;
                   print('跳转到 $index 兼容无限轮播');
-                  _pageController.jumpToPage(index);
+                  _pageController?.jumpToPage(index);
                 }
 
-                _tabController.animateTo(_convertIndex(index));
+                _tabController?.animateTo(_convertIndex(index));
               },
               itemBuilder: (context, index) {
                 return FadeInImage.memoryNetwork(

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
 class InputPage extends StatefulWidget {
   @override
@@ -12,8 +11,10 @@ class _InputPageState extends State<InputPage> {
   final _controller = new TextEditingController();
   final _formKey = GlobalKey<FormState>();
   final _focusNode = FocusNode();
-  String _password;
-  String _username;
+  // ignore: unused_field
+  String? _password;
+  // ignore: unused_field
+  String? _username;
 
   @override
   void dispose() {
@@ -50,8 +51,8 @@ class _InputPageState extends State<InputPage> {
               hintText: 'hintText',
               // 只要不为 null，就会展示
 //                errorText: 'errorText',
-              // 聚焦时是否展示浮动的 labelText，默认为 false
-              hasFloatingPlaceholder: true,
+              // 「新版已废弃」聚焦时是否展示浮动的 labelText，默认为 false
+              // hasFloatingPlaceholder: true,
               // 是否密集，默认为 false，子控件是否暂用更少的空间
               isDense: true,
               contentPadding: EdgeInsets.all(20),
@@ -120,7 +121,6 @@ class _InputPageState extends State<InputPage> {
                 ),
               ),
               enabled: true,
-              // TODO?
               semanticCounterText: 'semanticCounterText',
             ),
             // 获取内容、赋值、添加监听等
@@ -154,7 +154,7 @@ class _InputPageState extends State<InputPage> {
             cursorRadius: Radius.circular(8),
             cursorWidth: 16,
           ),
-          RaisedButton(
+          ElevatedButton(
             onPressed: () {
               debugPrint('结果为：${_controller.text}');
               // 主动获取焦点
@@ -173,13 +173,14 @@ class _InputPageState extends State<InputPage> {
 //                  decoration: InputDecoration(labelText: '用户名'),
                   focusNode: _focusNode,
                   initialValue: 'BGA',
-                  // 校验不通过时自动展示错误信息
-                  autovalidate: true,
+                  // 「新版已废弃」校验不通过时自动展示错误信息
+                  // autovalidate: true,
                   validator: (value) {
-                    if (value.length < 3) {
+                    if (value != null && value.length < 3) {
                       // 校验不通过时返回提示文本
                       return '用户名长度不能小于3';
                     }
+                    return null;
                   },
                   onSaved: (username) {
                     debugPrint('onSaved username：$username');
@@ -197,15 +198,19 @@ class _InputPageState extends State<InputPage> {
                 SizedBox(height: 20),
                 Container(
                   width: double.infinity,
-                  child: RaisedButton(
+                  child: ElevatedButton(
                     onPressed: () {
-                      _formKey.currentState.save();
-                      if (_formKey.currentState.validate()) {
+                      var formState = _formKey.currentState;
+                      if (formState == null) {
+                        return;
+                      }
+                      formState.save();
+                      if (formState.validate()) {
                         debugPrint('注册');
                       }
                     },
-                    color: Theme.of(context).accentColor,
-                    elevation: 0,
+                    // color: Theme.of(context).accentColor,
+                    // elevation: 0,
                     child: Text(
                       '注册',
                       style: TextStyle(color: Colors.white),

@@ -10,9 +10,14 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
-  List<Widget> _pageList = [HomePage(), CategoryPage(), ShoppingCartPage(), MePage()];
+  List<Widget> _pageList = [
+    HomePage(),
+    CategoryPage(),
+    ShoppingCartPage(),
+    MePage()
+  ];
   int _currentIndex = 0;
-  PageController _pageController;
+  late PageController _pageController;
 
   @override
   void initState() {
@@ -40,23 +45,23 @@ class _MainPageState extends State<MainPage> {
       items: [
         BottomNavigationBarItem(
           icon: const Icon(Icons.home),
-          title: Text('首页'),
+          label: '首页',
           backgroundColor: Colors.deepPurple,
         ),
         BottomNavigationBarItem(
           icon: const Icon(Icons.category),
-          title: Text('分类'),
+          label: '分类',
           backgroundColor: Colors.teal,
         ),
         BottomNavigationBarItem(
           icon: const Icon(Icons.shopping_cart),
-          title: Text('购物车'),
+          label: '购物车',
           backgroundColor: Colors.indigo,
         ),
         BottomNavigationBarItem(
           activeIcon: const Icon(Icons.person),
           icon: const Icon(Icons.person_outline),
-          title: Text('我的'),
+          label: '我的',
           backgroundColor: Colors.deepOrange,
         )
       ],
@@ -108,7 +113,8 @@ class _MainPageState extends State<MainPage> {
 
 class NoOverScrollBehavior extends ScrollBehavior {
   @override
-  Widget buildViewportChrome(BuildContext context, Widget child, AxisDirection axisDirection) {
+  Widget buildViewportChrome(
+      BuildContext context, Widget child, AxisDirection axisDirection) {
     // 去除 Android 滚动到边缘时的水波纹效果，对嵌套在其内部的子控件也生效，除非内部子控件自定义
     return child;
   }

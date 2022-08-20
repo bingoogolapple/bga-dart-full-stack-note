@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 
 import 'package:shelf/shelf.dart' as shelf;
 import 'package:shelf/shelf_io.dart' as shelf_io;
-import 'package:shelf_router/shelf_router.dart';
+import 'package:shelf_router/shelf_router.dart' as shelf_router;
 
 class HttpServerWidget extends StatefulWidget {
   @override
@@ -17,8 +17,8 @@ class _HttpServerWidgetState extends State<HttpServerWidget> {
   StringBuffer _logSb = StringBuffer();
   int _currentMaxId = 1;
 
-  HttpServer _httpServer;
-  shelf.Handler _handler;
+  HttpServer? _httpServer;
+  late shelf.Handler _handler;
 
   @override
   void initState() {
@@ -74,30 +74,40 @@ class _HttpServerWidgetState extends State<HttpServerWidget> {
   }
 
   _initDefaultBlogList() {
-    _blogMap['$_currentMaxId'] = {'id': _currentMaxId, 'title': '标题$_currentMaxId', 'content': '内容$_currentMaxId'};
+    _blogMap['$_currentMaxId'] = {
+      'id': _currentMaxId,
+      'title': '标题$_currentMaxId',
+      'content': '内容$_currentMaxId'
+    };
     _currentMaxId++;
-    _blogMap['$_currentMaxId'] = {'id': _currentMaxId, 'title': '标题$_currentMaxId', 'content': '内容$_currentMaxId'};
+    _blogMap['$_currentMaxId'] = {
+      'id': _currentMaxId,
+      'title': '标题$_currentMaxId',
+      'content': '内容$_currentMaxId'
+    };
   }
 
   _initHandler() {
-    Router router = Router();
+    shelf_router.Router router = shelf_router.Router();
     _initAuthHandler(router);
     _initBlogHandler(router);
-    _handler = shelf.Pipeline().addMiddleware(shelf.logRequests()).addHandler(router.handler);
+    _handler =
+        shelf.Pipeline().addMiddleware(shelf.logRequests()).addHandler(router);
   }
 
-  _initAuthHandler(Router router) {
+  _initAuthHandler(shelf_router.Router router) {
     router.get('/token', (shelf.Request request) {
       appendLog('请求了 get /token');
       return responseJson({'code': 0, 'msg': '获取token成功', 'data': 'TODO'});
     });
   }
 
-  _initBlogHandler(Router router) {
+  _initBlogHandler(shelf_router.Router router) {
     router
       ..get('/blogs', (shelf.Request request) {
         appendLog('请求了 get /blogs');
-        return responseJson({'code': 0, 'msg': '获取博客列表成功', 'data': _blogMap.values.toList()});
+        return responseJson(
+            {'code': 0, 'msg': '获取博客列表成功', 'data': _blogMap.values.toList()});
       })
       ..post('/blogs', (shelf.Request request) {
         appendLog('请求了 post /blogs');
@@ -137,7 +147,8 @@ class _HttpServerWidgetState extends State<HttpServerWidget> {
       ..get('/blogs/<blogId>', (shelf.Request request, String blogId) {
         appendLog('请求了 get /blogs/$blogId');
         if (_blogMap.containsKey('$blogId')) {
-          return responseJson({'code': 0, 'msg': '获取博客成功', 'data': _blogMap['$blogId']});
+          return responseJson(
+              {'code': 0, 'msg': '获取博客成功', 'data': _blogMap['$blogId']});
         } else {
           return responseJson({'code': 1, 'msg': '不存在id为$blogId的博客'});
         }
@@ -148,9 +159,11 @@ class _HttpServerWidgetState extends State<HttpServerWidget> {
     if (_httpServer != null) {
       return;
     }
-    shelf_io.serve(_handler, InternetAddress.loopbackIPv4, 8888).then((httpServer) {
+    shelf_io
+        .serve(_handler, InternetAddress.loopbackIPv4, 8888)
+        .then((httpServer) {
       _httpServer = httpServer;
-      appendLog('启动服务成功：${_httpServer.port}');
+      appendLog('启动服务成功：${_httpServer?.port}');
     }).catchError((e) {
       appendLog('启动服务失败：$e');
     });
@@ -160,7 +173,7 @@ class _HttpServerWidgetState extends State<HttpServerWidget> {
     if (_httpServer == null) {
       return;
     }
-    _httpServer.close(force: true).then((serverSocket) {
+    _httpServer?.close(force: true).then((serverSocket) {
       appendLog('停止服务成功：$serverSocket');
       _httpServer = null;
     }).catchError((e) {
@@ -170,7 +183,8 @@ class _HttpServerWidgetState extends State<HttpServerWidget> {
 
   responseJson(Map body) {
 //  sleep(Duration(seconds: 4));
-    return shelf.Response.ok(json.encode(body), headers: {'content-type': 'application/json; charset=utf-8'});
+    return shelf.Response.ok(json.encode(body),
+        headers: {'content-type': 'application/json; charset=utf-8'});
   }
 
   appendLog(msg) {

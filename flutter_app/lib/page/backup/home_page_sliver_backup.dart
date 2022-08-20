@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/mock/net_images.dart';
 import 'package:flutter_app/widget/banner_widget.dart';
 import 'package:transparent_image/transparent_image.dart';
 
@@ -25,7 +26,7 @@ class _HomePageSliverBackupState extends State<HomePageSliverBackup> {
   _buildNestedScrollViewSliver() {
     return Scaffold(
       body: NestedScrollView(
-        // innerBoxIsScrolled 内部嵌套的可滚动列表是否在滚动
+          // innerBoxIsScrolled 内部嵌套的可滚动列表是否在滚动
           headerSliverBuilder: (context, innerBoxIsScrolled) {
             return <Widget>[_buildSliverAppBar()];
           },
@@ -33,6 +34,7 @@ class _HomePageSliverBackupState extends State<HomePageSliverBackup> {
     );
   }
 
+  // ignore: unused_element
   _buildCustomScrollViewSliver() {
     return CustomScrollView(slivers: <Widget>[
       _buildSliverAppBar(),
@@ -47,16 +49,17 @@ class _HomePageSliverBackupState extends State<HomePageSliverBackup> {
     );
   }
 
+  // ignore: unused_element
   _buildSliverListWithBuilderDelegate() {
     return SliverList(
       delegate: SliverChildBuilderDelegate(
-            (context, index) {
+        (context, index) {
           if (index == 0) {
             return Container(
               height: 160,
               child: BannerWidget(
                 List.generate(4, (index) {
-                  return 'http://bgashare.bingoogolapple.cn/banner/imgs/${index + 1}.png';
+                  return NET_IMAGES[index];
                 }),
                 Colors.deepPurple,
               ),
@@ -104,7 +107,7 @@ class _HomePageSliverBackupState extends State<HomePageSliverBackup> {
         background: FadeInImage.memoryNetwork(
           fit: BoxFit.cover,
           placeholder: kTransparentImage,
-          image: 'http://bgashare.bingoogolapple.cn/banner/imgs/18.png',
+          image: NET_IMAGES[10],
         ),
       ),
     );
@@ -134,7 +137,7 @@ class _HomePageSliverBackupState extends State<HomePageSliverBackup> {
         height: 160,
         child: BannerWidget(
           List.generate(4, (index) {
-            return 'http://bgashare.bingoogolapple.cn/banner/imgs/${index + 1}.png';
+            return NET_IMAGES[index];
           }),
           Colors.deepPurple,
         ),

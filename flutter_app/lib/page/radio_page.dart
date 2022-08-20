@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class RadioPage extends StatefulWidget {
@@ -36,7 +35,7 @@ class _RadioPageState extends State<RadioPage> {
                   ? (newValue) {
                       print('默认 Radio 选中状态变化 $newValue');
                       setState(() {
-                        _groupValue = newValue;
+                        _groupValue = newValue as String;
                       });
                     }
                   : null,
@@ -51,7 +50,7 @@ class _RadioPageState extends State<RadioPage> {
                   ? (newValue) {
                       print('自定义 Radio 选中状态变化 $newValue');
                       setState(() {
-                        _groupValue = newValue;
+                        _groupValue = newValue as String;
                       });
                     }
                   : null,
@@ -80,7 +79,7 @@ class _RadioPageState extends State<RadioPage> {
                 onChanged: _isEnable
                     ? (newValue) {
                         setState(() {
-                          _groupValue = newValue;
+                          _groupValue = newValue as String;
                         });
                       }
                     : null,
@@ -99,7 +98,7 @@ class _RadioPageState extends State<RadioPage> {
                       ? (newValue) {
                           print('默认 Switch 选中状态变化 $newValue');
                           setState(() {
-                            _groupValue = newValue;
+                            _groupValue = newValue as String;
                           });
                         }
                       : null,
@@ -116,7 +115,7 @@ class _RadioPageState extends State<RadioPage> {
                   ? (newValue) {
                       print('默认 RadioListTile 选中状态变化 $newValue');
                       setState(() {
-                        _groupValue = newValue;
+                        _groupValue = newValue as String;
                       });
                     }
                   : null,
@@ -131,7 +130,7 @@ class _RadioPageState extends State<RadioPage> {
                   ? (newValue) {
                       print('自定义1 RadioListTile 选中状态变化 $newValue');
                       setState(() {
-                        _groupValue = newValue;
+                        _groupValue = newValue as String;
                       });
                     }
                   : null,
@@ -159,7 +158,7 @@ class _RadioPageState extends State<RadioPage> {
                   ? (newValue) {
                       print('自定义2 RadioListTile 选中状态变化 $newValue');
                       setState(() {
-                        _groupValue = newValue;
+                        _groupValue = newValue as String;
                       });
                     }
                   : null,
@@ -184,7 +183,7 @@ class _RadioPageState extends State<RadioPage> {
               onChanged: _isEnable
                   ? (newValue) {
                       setState(() {
-                        _groupValue = newValue;
+                        _groupValue = newValue as String;
                       });
                     }
                   : null,

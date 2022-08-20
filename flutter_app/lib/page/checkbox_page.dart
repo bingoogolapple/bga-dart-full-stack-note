@@ -35,7 +35,7 @@ class _CheckboxPageState extends State<CheckboxPage> {
                   ? (newValue) {
                       print('默认 Checkbox 选中状态变化 $newValue');
                       setState(() {
-                        _value = newValue;
+                        _value = newValue ?? false;
                       });
                     }
                   : null,
@@ -52,7 +52,7 @@ class _CheckboxPageState extends State<CheckboxPage> {
                   ? (newValue) {
                       print('横杠 Checkbox 选中状态变化 $newValue');
                       setState(() {
-                        _value = newValue;
+                        _value = newValue ?? false;
                       });
                     }
                   : null,
@@ -66,7 +66,7 @@ class _CheckboxPageState extends State<CheckboxPage> {
                   ? (newValue) {
                       print('自定义 Checkbox 选中状态变化 $newValue');
                       setState(() {
-                        _value = newValue;
+                        _value = newValue ?? false;
                       });
                     }
                   : null,
@@ -93,7 +93,7 @@ class _CheckboxPageState extends State<CheckboxPage> {
                   ? (newValue) {
                       print('默认 CheckboxListTile 选中状态变化 $newValue');
                       setState(() {
-                        _value = newValue;
+                        _value = newValue ?? false;
                       });
                     }
                   : null,
@@ -107,7 +107,7 @@ class _CheckboxPageState extends State<CheckboxPage> {
                   ? (newValue) {
                       print('自定义1 CheckboxListTile 选中状态变化 $newValue');
                       setState(() {
-                        _value = newValue;
+                        _value = newValue ?? false;
                       });
                     }
                   : null,
@@ -129,7 +129,7 @@ class _CheckboxPageState extends State<CheckboxPage> {
                   ? (newValue) {
                       print('自定义2 CheckboxListTile 选中状态变化 $newValue');
                       setState(() {
-                        _value = newValue;
+                        _value = newValue ?? false;
                       });
                     }
                   : null,
@@ -156,7 +156,7 @@ class _CheckboxPageState extends State<CheckboxPage> {
                   ? (newValue) {
                       print('自定义3 CheckboxListTile 选中状态变化 $newValue');
                       setState(() {
-                        _value = newValue;
+                        _value = newValue ?? false;
                       });
                     }
                   : null,
@@ -175,7 +175,7 @@ class _CheckboxPageState extends State<CheckboxPage> {
                   ? (newValue) {
                       print('自定义4 CheckboxListTile 选中状态变化 $newValue');
                       setState(() {
-                        _value = newValue;
+                        _value = newValue ?? false;
                       });
                     }
                   : null,

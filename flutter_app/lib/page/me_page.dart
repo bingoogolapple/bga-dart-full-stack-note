@@ -1,5 +1,6 @@
 import 'package:bga_flutter_package/bga_flutter_package.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_app/mock/net_images.dart';
 import 'package:flutter_app/page/animated_page.dart';
 import 'package:flutter_app/page/button_page.dart';
 import 'package:flutter_app/page/checkbox_page.dart';
@@ -18,7 +19,6 @@ class MePage extends StatefulWidget {
 }
 
 class _MePageState extends State<MePage> with AutomaticKeepAliveClientMixin {
-
   @override
   bool get wantKeepAlive {
     print('wantKeepAlive _MePageState');
@@ -49,58 +49,68 @@ class _MePageState extends State<MePage> with AutomaticKeepAliveClientMixin {
             MaterialButton(
               color: Colors.yellow,
               child: Text('RowColumn'),
-              onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => RowColumnPage())),
+              onPressed: () => Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => RowColumnPage())),
             ),
             MaterialButton(
               color: Colors.yellow,
               child: Text('Radio'),
-              onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => RadioPage())),
+              onPressed: () => Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => RadioPage())),
             ),
             MaterialButton(
               color: Colors.yellow,
               child: Text('Switch'),
-              onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => SwitchPage())),
+              onPressed: () => Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => SwitchPage())),
             ),
             MaterialButton(
               color: Colors.yellow,
               child: Text('Checkbox'),
-              onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => CheckboxPage())),
+              onPressed: () => Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => CheckboxPage())),
             ),
             MaterialButton(
               color: Colors.yellow,
               child: Text('Button'),
-              onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => ButtonPage())),
+              onPressed: () => Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => ButtonPage())),
             ),
             MaterialButton(
               color: Colors.yellow,
               child: Text('Text'),
-              onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => TextPage())),
+              onPressed: () => Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => TextPage())),
             ),
             MaterialButton(
               color: Colors.yellow,
               child: Text('手势识别'),
-              onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => GesturePage())),
+              onPressed: () => Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => GesturePage())),
             ),
             MaterialButton(
               color: Colors.yellow,
               child: Text('动画'),
-              onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => AnimatedPage())),
+              onPressed: () => Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => AnimatedPage())),
             ),
             MaterialButton(
               color: Colors.yellow,
               child: Text('表单输入'),
-              onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => InputPage())),
+              onPressed: () => Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => InputPage())),
             ),
             MaterialButton(
               color: Colors.yellow,
               child: Text('HTTP'),
-              onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => HttpPage())),
+              onPressed: () => Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => HttpPage())),
             ),
             Container(
               height: 80,
               child: BannerWidget(
                 List.generate(4, (index) {
-                  return 'http://bgashare.bingoogolapple.cn/banner/imgs/${index + 1}.png';
+                  return NET_IMAGES[index];
                 }),
                 Colors.deepOrange,
               ),
@@ -134,12 +144,20 @@ class _MePageState extends State<MePage> with AutomaticKeepAliveClientMixin {
               PopupMenuItem<String>(
                 value: '添加朋友',
                 textStyle: TextStyle(color: Colors.white),
-                child: Row(children: [Icon(Icons.person_add), SizedBox(width: 10), Text('添加朋友')]),
+                child: Row(children: [
+                  Icon(Icons.person_add),
+                  SizedBox(width: 10),
+                  Text('添加朋友')
+                ]),
               ),
               PopupMenuItem(
                 value: '扫一扫',
                 textStyle: TextStyle(color: Colors.white),
-                child: Row(children: [Icon(Icons.camera_alt), SizedBox(width: 10), Text('扫一扫')]),
+                child: Row(children: [
+                  Icon(Icons.camera_alt),
+                  SizedBox(width: 10),
+                  Text('扫一扫')
+                ]),
               )
             ];
           }),
@@ -147,7 +165,10 @@ class _MePageState extends State<MePage> with AutomaticKeepAliveClientMixin {
   }
 
   void _showSnackBar(String text) {
-    Scaffold.of(context).showSnackBar(
-        SnackBar(behavior: SnackBarBehavior.floating, duration: Duration(seconds: 2), backgroundColor: Colors.deepOrangeAccent, content: Text(text)));
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+        behavior: SnackBarBehavior.floating,
+        duration: Duration(seconds: 2),
+        backgroundColor: Colors.deepOrangeAccent,
+        content: Text(text)));
   }
 }

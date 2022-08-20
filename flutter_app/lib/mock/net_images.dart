@@ -1,0 +1,16 @@
+const NET_IMAGES = [
+  'https://media.istockphoto.com/vectors/grunge-rainbow-background-vector-id486840926?k=20&m=486840926&s=612x612&w=0&h=0bM2oG-PzYOOZ1wZDSCXFNyr_ojlSSFfrNcd0Znu91o=',
+  'https://media.istockphoto.com/vectors/grunge-rainbow-background-vector-id486840926?k=20&m=486840926&s=612x612&w=0&h=0bM2oG-PzYOOZ1wZDSCXFNyr_ojlSSFfrNcd0Znu91o=',
+  'https://media.istockphoto.com/vectors/abstract-blur-background-rainbow-mesh-gradient-color-power-pattern-vector-id1130076181?k=20&m=1130076181&s=612x612&w=0&h=hj0ajmQPUlUM0SpMcyeikUoLnwqzoKvqYZ05eNjTZac=',
+  'https://media.istockphoto.com/vectors/whirl-psychedelic-vector-background-vector-id1299003213?k=20&m=1299003213&s=612x612&w=0&h=mWe8HAroY6BAUuwpQvb6iadVpiwADryHz2fPZnCMmG4=',
+  'https://media.istockphoto.com/vectors/colorful-hand-drawn-circles-background-vector-id940549446?k=20&m=940549446&s=612x612&w=0&h=D8cOKtzlPpACGiNvXQomIamOqA0M0JB2WgklgYVl0w0=',
+  'https://media.istockphoto.com/vectors/abstract-vector-color-background-with-empty-place-for-text-vector-id1144979201?k=20&m=1144979201&s=612x612&w=0&h=hjvbzb3cvWXDS0DjnOFH1XBQvxk55nlra3kEk95GoBw=',
+  'https://media.istockphoto.com/vectors/modern-colorful-flow-poster-wave-liquid-shape-color-paint-art-design-vector-id1149235144?k=20&m=1149235144&s=612x612&w=0&h=q2RArRtlxIlOV60YopYh8zRAH2e7SI3O-lmj5PE2RzE=',
+  'https://media.istockphoto.com/vectors/rainbow-paint-splash-vector-id1159730285?k=20&m=1159730285&s=612x612&w=0&h=2AmGKcbj2fFVq9qn15AxWhmuYk74Pj5-EStyhPu5ee0=',
+  'https://media.istockphoto.com/vectors/seamless-pattern-with-rainbow-colorful-falling-decorative-sprinkles-vector-id1205262503?k=20&m=1205262503&s=612x612&w=0&h=oHgiArgXoxOZHTSXLIW9dLqlXf5PflG9wYPFx26jQfM=',
+  'https://media.istockphoto.com/vectors/colorful-bright-rainbow-colors-oval-cloud-confetti-round-papers-on-vector-id868907462?k=20&m=868907462&s=612x612&w=0&h=yeU1L3WbnEmti2OtxYb8-o_8Zhuy1LCjqwnka3Zs1nU=',
+  'https://media.istockphoto.com/vectors/empty-circular-space-spectrum-circle-on-white-background-with-copy-vector-id1292230361?k=20&m=1292230361&s=612x612&w=0&h=S9ExqrBv8tL3xu7OwW1Ljmfh5DmP4CkpeP6oEMjUAno=',
+  'https://media.istockphoto.com/vectors/abstract-background-vector-id477631284?k=20&m=477631284&s=612x612&w=0&h=KrTYmESJA6iAWB9OGNsJefZ5asjCOBuKVbQOrx37fOY=',
+  'https://media.istockphoto.com/vectors/rainbow-colors-paint-powder-and-drops-holi-festival-invitation-of-vector-id1254436482?k=20&m=1254436482&s=612x612&w=0&h=Mw_ncidBXbud1J89f5oERgd_f9N9Vxlx_zCvEd3NkXM=',
+  'https://media.istockphoto.com/vectors/rainbow-paint-splash-frame-vector-id1151259999?k=20&m=1151259999&s=612x612&w=0&h=Lsy4fUyWpF9fDB25oARsu-JeIh98vWuApJMUh3A-_ak=',
+];

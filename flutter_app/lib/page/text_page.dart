@@ -35,7 +35,10 @@ class TextPage extends StatelessWidget {
                 // 单词之间添加的空间间隔
                 wordSpacing: 8.0,
                 fontSize: 30,
-                shadows: [BoxShadow(color: Colors.grey, offset: Offset(4, 4), blurRadius: 5)],
+                shadows: [
+                  BoxShadow(
+                      color: Colors.grey, offset: Offset(4, 4), blurRadius: 5)
+                ],
                 // text 背景色
                 background: backgroundPaint,
                 // text 前景色，不能与 color 同时设置
@@ -53,9 +56,18 @@ class TextPage extends StatelessWidget {
                   text: 'Text.rich默认黑色，测试换行',
                   children: [
                     WidgetSpan(child: BGALogoWidget()),
-                    TextSpan(text: '红色', style: TextStyle(color: Colors.red, fontWeight: FontWeight.normal)),
-                    TextSpan(text: '粗体', style: TextStyle(color: Colors.green, fontWeight: FontWeight.bold)),
-                    TextSpan(text: '斜体', style: TextStyle(color: Colors.blue, fontStyle: FontStyle.italic)),
+                    TextSpan(
+                        text: '红色',
+                        style: TextStyle(
+                            color: Colors.red, fontWeight: FontWeight.normal)),
+                    TextSpan(
+                        text: '粗体',
+                        style: TextStyle(
+                            color: Colors.green, fontWeight: FontWeight.bold)),
+                    TextSpan(
+                        text: '斜体',
+                        style: TextStyle(
+                            color: Colors.blue, fontStyle: FontStyle.italic)),
                     TextSpan(
                       text: '中划线',
                       style: TextStyle(
@@ -87,9 +99,18 @@ class TextPage extends StatelessWidget {
                   text: 'RichText默认白色，测试换行',
                   children: [
                     WidgetSpan(child: BGALogoWidget()),
-                    TextSpan(text: '红色', style: TextStyle(color: Colors.red, fontWeight: FontWeight.normal)),
-                    TextSpan(text: '粗体', style: TextStyle(color: Colors.green, fontWeight: FontWeight.bold)),
-                    TextSpan(text: '斜体', style: TextStyle(color: Colors.blue, fontStyle: FontStyle.italic)),
+                    TextSpan(
+                        text: '红色',
+                        style: TextStyle(
+                            color: Colors.red, fontWeight: FontWeight.normal)),
+                    TextSpan(
+                        text: '粗体',
+                        style: TextStyle(
+                            color: Colors.green, fontWeight: FontWeight.bold)),
+                    TextSpan(
+                        text: '斜体',
+                        style: TextStyle(
+                            color: Colors.blue, fontStyle: FontStyle.italic)),
                     TextSpan(
                       text: '中划线',
                       style: TextStyle(
@@ -188,7 +209,10 @@ class TextPage extends StatelessWidget {
   }
 
   void _showSnackBar(BuildContext context, String text) {
-    Scaffold.of(context).showSnackBar(
-        SnackBar(behavior: SnackBarBehavior.floating, duration: Duration(seconds: 2), backgroundColor: Colors.deepOrangeAccent, content: Text(text)));
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+        behavior: SnackBarBehavior.floating,
+        duration: Duration(seconds: 2),
+        backgroundColor: Colors.deepOrangeAccent,
+        content: Text(text)));
   }
 }

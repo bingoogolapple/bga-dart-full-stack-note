@@ -10,20 +10,24 @@ class AnimatedPage extends StatefulWidget {
 /// 3、Listener 是 Animation 的回调函数，用来监听动画的进度变化，我们需要在这个回调函数中，根据动画的当前值重新渲染组件，实现动画的渲染。
 /// 4、在创建 AnimationController 的时候设置的 vsync 属性是用来防止出现不可见动画的，vsync 对象会把动画绑定到一个 Widget，当 Widget 不显示时，动画将会暂停（只是不会掉 listener，Animation 中的状态还是在变化），当 Widget 再次显示时，动画会重新恢复执行，这样就可以避免动画的组件不在当前屏幕时白白消耗资源。
 /// 5、在页面销毁时，要释放动画资源 AnimationController.dispose()
-class _AnimatedPageState extends State<AnimatedPage> with SingleTickerProviderStateMixin {
-  AnimationController _controller;
-  Animation _animation;
+class _AnimatedPageState extends State<AnimatedPage>
+    with SingleTickerProviderStateMixin {
+  late AnimationController _controller;
+  late Animation _animation;
 
   @override
   void initState() {
     super.initState();
     // 创建动画周期为 2 秒的 AnimationController 对象
-    _controller = AnimationController(vsync: this, duration: const Duration(milliseconds: 2000))
+    _controller = AnimationController(
+        vsync: this, duration: const Duration(milliseconds: 2000))
       ..addListener(() {
         // 监听刷新界面
         setState(() {
-          print('_controller.value：${_controller.value}'); // 默认从 0 到 1，可以通过构造方法中的 lowerBound 和 upperBound 来修改
-          print('_controller.view.value：${_controller.view.value}'); // 默认从 0 到 1，_controller.view 就是 _controller 自己
+          print(
+              '_controller.value：${_controller.value}'); // 默认从 0 到 1，可以通过构造方法中的 lowerBound 和 upperBound 来修改
+          print(
+              '_controller.view.value：${_controller.view.value}'); // 默认从 0 到 1，_controller.view 就是 _controller 自己
         });
       })
       ..addStatusListener((AnimationStatus status) {
@@ -37,11 +41,13 @@ class _AnimatedPageState extends State<AnimatedPage> with SingleTickerProviderSt
     _initCurvedAnimation();
   }
 
+  // ignore: unused_element
   void _initDefaultAnimation() {
     // _controller 默认的 Animation 是从 0 到 1 的线性变化
     _animation = _controller.view;
   }
 
+  // ignore: unused_element
   void _initTweenAnimation() {
     // 创建从 50 到 200 线性变化的 Animation 对象
     _animation = Tween(begin: 50.0, end: 200.0).animate(_controller)
@@ -58,7 +64,8 @@ class _AnimatedPageState extends State<AnimatedPage> with SingleTickerProviderSt
 
   void _initCurvedAnimation() {
     // 创建一条震荡曲线
-    final CurvedAnimation curve = CurvedAnimation(parent: _controller, curve: Curves.bounceOut);
+    final CurvedAnimation curve =
+        CurvedAnimation(parent: _controller, curve: Curves.bounceOut);
     // 创建从 50 到 200 跟随振荡曲线变化的 Animation 对象
     _animation = Tween(begin: 50.0, end: 200.0).animate(curve);
   }
@@ -81,29 +88,50 @@ class _AnimatedPageState extends State<AnimatedPage> with SingleTickerProviderSt
           Wrap(
             children: [
               // 从当前状态开始正向动画（如果已经是完成状态则不会动）
-              MaterialButton(child: Text('forward()'), onPressed: () => _controller.forward()),
+              MaterialButton(
+                  child: Text('forward()'),
+                  onPressed: () => _controller.forward()),
               // 从当前状态开始反向动画（如果已经是初始状态则不会动）
-              MaterialButton(child: Text('reverse()'), onPressed: () => _controller.reverse()),
+              MaterialButton(
+                  child: Text('reverse()'),
+                  onPressed: () => _controller.reverse()),
               // 重置到初始状态
-              MaterialButton(child: Text('reset()'), onPressed: () => _controller.reset()),
+              MaterialButton(
+                  child: Text('reset()'), onPressed: () => _controller.reset()),
               // 停止动画
-              MaterialButton(child: Text('stop()'), onPressed: () => _controller.stop()),
+              MaterialButton(
+                  child: Text('stop()'), onPressed: () => _controller.stop()),
               // 重复开始执行到结束，然后立即调到开始再执行到结束
-              MaterialButton(child: Text('repeat()'), onPressed: () => _controller.repeat()),
+              MaterialButton(
+                  child: Text('repeat()'),
+                  onPressed: () => _controller.repeat()),
               MaterialButton(
                   child: Text('repeat(reverse: true)'),
                   onPressed: () {
                     // 重复的开始->结束->开始->结束，如果正在执行反向动画时这样调用该方法的话会立即变为正向。这里指定的 period 会覆盖创建 _controller 时指定的时间
-                    _controller.repeat(reverse: true, min: 0.2, max: 0.8, period: Duration(seconds: 5));
+                    _controller.repeat(
+                        reverse: true,
+                        min: 0.2,
+                        max: 0.8,
+                        period: Duration(seconds: 5));
                   }),
               // 获取动画状态
-              MaterialButton(child: Text('getStatus'), onPressed: () => print('status：${_animation.status}')),
+              MaterialButton(
+                  child: Text('getStatus'),
+                  onPressed: () => print('status：${_animation.status}')),
               // 是否正在执行正向或反向动画
-              MaterialButton(child: Text('isAnimating'), onPressed: () => print('isAnimating：${_controller.isAnimating}')),
+              MaterialButton(
+                  child: Text('isAnimating'),
+                  onPressed: () =>
+                      print('isAnimating：${_controller.isAnimating}')),
               // 开始正向动画
-              MaterialButton(child: Text('velocity2'), onPressed: () => _controller.fling(velocity: 0.01)),
+              MaterialButton(
+                  child: Text('velocity2'),
+                  onPressed: () => _controller.fling(velocity: 0.01)),
               // 开始反向动画
-              MaterialButton(child: Text('velocity-2'), onPressed: () => _controller.fling(velocity: -0.01)),
+              MaterialButton(
+                  child: Text('velocity-2'),
+                  onPressed: () => _controller.fling(velocity: -0.01)),
             ],
           ),
           Expanded(
@@ -119,12 +147,15 @@ class _AnimatedPageState extends State<AnimatedPage> with SingleTickerProviderSt
           Expanded(
             child: Center(
               child: AnimatedBuilder(
-                // 通过 AnimatedBuilder 将动画和渲染职责分离。其实 AnimatedBuilder 是继承自 AnimatedWidget，增加了 TransitionBuilder 回调接口
+                  // 通过 AnimatedBuilder 将动画和渲染职责分离。其实 AnimatedBuilder 是继承自 AnimatedWidget，增加了 TransitionBuilder 回调接口
                   animation: _controller,
                   child: FlutterLogo(), // 只会执行一次，动画变化时不会执行
                   builder: (context, child) {
                     // 动画变化时会执行
-                    double size = Tween(begin: 50.0, end: 200.0).animate(CurvedAnimation(parent: _controller, curve: Curves.bounceIn)).value;
+                    double size = Tween(begin: 50.0, end: 200.0)
+                        .animate(CurvedAnimation(
+                            parent: _controller, curve: Curves.bounceIn))
+                        .value;
                     return Container(child: child, width: size, height: size);
                   }),
             ),
@@ -136,7 +167,8 @@ class _AnimatedPageState extends State<AnimatedPage> with SingleTickerProviderSt
                 child: Container(width: 100, height: 100, child: FlutterLogo()),
               ),
               onTap: () {
-                Navigator.of(context).push(MaterialPageRoute(builder: (_) => HeroPageTwo())); // 点击后打开第二个页面
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (_) => HeroPageTwo())); // 点击后打开第二个页面
               },
             ),
           )
@@ -150,11 +182,13 @@ class _AnimatedPageState extends State<AnimatedPage> with SingleTickerProviderSt
 /// 要避免使用进度监听器直接刷新整个页面，导致不需要做动画的组件也跟着一起销毁重建。
 class _AnimatedLogo extends AnimatedWidget {
   // AnimatedWidget 需要在初始化时传入 animation 对象
-  _AnimatedLogo({Key key, Animation<double> animation}) : super(key: key, listenable: animation);
+  _AnimatedLogo({Key? key, required Animation<double> animation})
+      : super(key: key, listenable: animation);
 
   Widget build(BuildContext context) {
     // 取出动画对象
-    Animation<double> animation = CurvedAnimation(parent: listenable, curve: const Interval(0.5, 0.8));
+    Animation<double> animation =
+        CurvedAnimation(parent: listenable as Animation<double>, curve: const Interval(0.5, 0.8));
     double size = animation.value * 50 + 50;
     return Container(
       height: size, // 根据动画对象的当前状态更新宽高

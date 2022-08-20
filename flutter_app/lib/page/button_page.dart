@@ -1,4 +1,3 @@
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 class ButtonPage extends StatefulWidget {
@@ -103,61 +102,61 @@ class _ButtonPageState extends State<ButtonPage> {
             Divider(
               height: 20,
             ),
-            RaisedButton(
+            ElevatedButton(
               onPressed: _isEnable ? () => print('手指抬起后触发：点击了 RaisedButton') : null,
               child: Text('RaisedButton'),
             ),
             // 主要是为了弄成左边一个 icon 右面一个文字，这两个都是 Wight，所以可以任意定制
-            RaisedButton.icon(
+            ElevatedButton.icon(
               onPressed: _isEnable ? () => print('手指抬起后触发：点击了 RaisedButton.icon') : null,
               icon: Icon(Icons.camera),
               label: Text('RaisedButton.icon'),
               // 可用时的文字和图标颜色
-              textColor: Colors.blue,
+              // textColor: Colors.blue,
               // 不可用时的文字和图标颜色
-              disabledTextColor: Colors.orange,
+              // disabledTextColor: Colors.orange,
             ),
             Divider(
               height: 20,
             ),
-            FlatButton(
+            TextButton(
               onPressed: _isEnable ? () => print('手指抬起后触发：点击了 FlatButton') : null,
               child: Text('FlatButton'),
             ),
             // 主要是为了弄成左边一个 icon 右面一个文字，这两个都是 Wight，所以可以任意定制
-            FlatButton.icon(
+            TextButton.icon(
               onPressed: _isEnable ? () => print('手指抬起后触发：点击了 FlatButton.icon') : null,
               icon: Icon(Icons.camera),
               label: Text('FlatButton.icon'),
               // 可用时的文字和图标颜色
-              textColor: Colors.blue,
+              // textColor: Colors.blue,
               // 不可用时的文字和图标颜色
-              disabledTextColor: Colors.orange,
+              // disabledTextColor: Colors.orange,
             ),
             Divider(
               height: 20,
             ),
-            OutlineButton(
+            OutlinedButton(
               onPressed: _isEnable ? () => print('手指抬起后触发：点击了 OutlineButton') : null,
               child: Text('OutlineButton'),
             ),
             // 主要是为了弄成左边一个 icon 右面一个文字，这两个都是 Wight，所以可以任意定制
-            OutlineButton.icon(
+            OutlinedButton.icon(
               onPressed: _isEnable ? () => print('手指抬起后触发：点击了 OutlineButton.icon') : null,
               icon: Icon(Icons.camera),
               label: Text('OutlineButton.icon'),
               // 可用时的文字和图标颜色
-              textColor: Colors.blue,
+              // textColor: Colors.blue,
               // 不可用时的文字和图标颜色
-              disabledTextColor: Colors.orange,
+              // disabledTextColor: Colors.orange,
 
               // 下面三个为特有的属性
               // 高亮时的边框颜色
-              highlightedBorderColor: Colors.green,
+              // highlightedBorderColor: Colors.green,
               // 不可用时的边框颜色
-              disabledBorderColor: Colors.deepPurple,
+              // disabledBorderColor: Colors.deepPurple,
               // 设置 shape 无效，需要通过 borderSide 来设置边框
-              borderSide: BorderSide(width: 1, color: Colors.black, style: BorderStyle.solid),
+              // borderSide: BorderSide(width: 1, color: Colors.black, style: BorderStyle.solid),
             ),
             Divider(
               height: 20,

@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_app/mock/net_images.dart';
 import 'package:flutter_app/page/row_column_page.dart';
 import 'package:flutter_app/widget/banner_widget.dart';
 
@@ -9,7 +10,8 @@ class HomePage extends StatefulWidget {
   _HomePageState createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage> with AutomaticKeepAliveClientMixin {
+class _HomePageState extends State<HomePage>
+    with AutomaticKeepAliveClientMixin {
   static const int APPBAR_MAX_SCROLL_OFFSET = 100;
   double _appBarAlpha = 0;
 
@@ -52,7 +54,8 @@ class _HomePageState extends State<HomePage> with AutomaticKeepAliveClientMixin 
       child: NotificationListener<ScrollNotification>(
         onNotification: (scrollNotification) {
           // 滚动中且为第0个子元素滚动时才处理
-          if (scrollNotification is ScrollUpdateNotification && scrollNotification.depth == 0) {
+          if (scrollNotification is ScrollUpdateNotification &&
+              scrollNotification.depth == 0) {
             print('滚动 $scrollNotification');
             _handleOnScroll(scrollNotification.metrics.pixels);
           }
@@ -64,7 +67,7 @@ class _HomePageState extends State<HomePage> with AutomaticKeepAliveClientMixin 
               height: 160,
               child: BannerWidget(
                 List.generate(4, (index) {
-                  return 'http://bgashare.bingoogolapple.cn/banner/imgs/${index + 1}.png';
+                  return NET_IMAGES[index];
                 }),
                 Colors.deepPurple,
               ),
@@ -72,7 +75,8 @@ class _HomePageState extends State<HomePage> with AutomaticKeepAliveClientMixin 
             MaterialButton(
               color: Colors.yellow,
               child: Text('RowColumn'),
-              onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => RowColumnPage())),
+              onPressed: () => Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => RowColumnPage())),
             ),
             Container(height: 150, color: Colors.green[100]),
             Container(height: 150, color: Colors.green[200]),
