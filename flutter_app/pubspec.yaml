@@ -10,6 +10,9 @@ dependencies:
   flutter:
     sdk: flutter
 
+  flutter_web_plugins:
+    sdk: flutter
+
   cupertino_icons: ^1.0.2
 
   bga_flutter_package: ^0.0.2
