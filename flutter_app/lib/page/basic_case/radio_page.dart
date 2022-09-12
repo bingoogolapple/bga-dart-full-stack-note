@@ -1,19 +1,21 @@
 import 'package:flutter/material.dart';
 
 class RadioPage extends StatefulWidget {
+  const RadioPage({super.key});
+
   @override
-  _RadioPageState createState() => _RadioPageState();
+  State<RadioPage> createState() => _RadioPageState();
 }
 
 class _RadioPageState extends State<RadioPage> {
-  bool _isEnable = false;
+  bool _isEnable = true;
   String _groupValue = 'A';
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Radio'),
+        title: const Text('Radio'),
         centerTitle: true,
         backgroundColor: Colors.deepOrange,
       ),
@@ -21,8 +23,9 @@ class _RadioPageState extends State<RadioPage> {
         return ListView(
           children: [
             SwitchListTile(
-              title: Text('是否设置 onChanged 回调'),
+              title: const Text('是否设置 onChanged 回调'),
               value: _isEnable,
+              selected: _isEnable,
               onChanged: (isEnable) {
                 setState(() {
                   _isEnable = isEnable;
@@ -33,7 +36,7 @@ class _RadioPageState extends State<RadioPage> {
             Radio(
               onChanged: _isEnable
                   ? (newValue) {
-                      print('默认 Radio 选中状态变化 $newValue');
+                      debugPrint('默认 Radio 选中状态变化 $newValue');
                       setState(() {
                         _groupValue = newValue as String;
                       });
@@ -42,13 +45,13 @@ class _RadioPageState extends State<RadioPage> {
               value: 'A',
               groupValue: _groupValue,
             ),
-            Divider(
+            const Divider(
               height: 20,
             ),
             Radio(
               onChanged: _isEnable
                   ? (newValue) {
-                      print('自定义 Radio 选中状态变化 $newValue');
+                      debugPrint('自定义 Radio 选中状态变化 $newValue');
                       setState(() {
                         _groupValue = newValue as String;
                       });
@@ -66,10 +69,10 @@ class _RadioPageState extends State<RadioPage> {
 
               // 设置最小点击区域
               materialTapTargetSize: MaterialTapTargetSize.padded,
-//              autofocus: false,
-//              focusNode: FocusNode(),
+              // autofocus: false,
+              // focusNode: FocusNode(),
             ),
-            Divider(
+            const Divider(
               height: 20,
             ),
             // 作为 Column 的条目时是正常的，作为 ListView 条目时外部套 SizedBox 和 Container 无效，只能用 Transform.scale 来调整
@@ -87,7 +90,7 @@ class _RadioPageState extends State<RadioPage> {
                 groupValue: _groupValue,
               ),
             ),
-            Divider(
+            const Divider(
               height: 20,
             ),
             // 可以套一层 Row
@@ -96,7 +99,7 @@ class _RadioPageState extends State<RadioPage> {
                 Radio(
                   onChanged: _isEnable
                       ? (newValue) {
-                          print('默认 Switch 选中状态变化 $newValue');
+                          debugPrint('默认 Switch 选中状态变化 $newValue');
                           setState(() {
                             _groupValue = newValue as String;
                           });
@@ -107,13 +110,13 @@ class _RadioPageState extends State<RadioPage> {
                 )
               ],
             ),
-            Divider(
+            const Divider(
               height: 20,
             ),
             RadioListTile(
               onChanged: _isEnable
                   ? (newValue) {
-                      print('默认 RadioListTile 选中状态变化 $newValue');
+                      debugPrint('默认 RadioListTile 选中状态变化 $newValue');
                       setState(() {
                         _groupValue = newValue as String;
                       });
@@ -122,13 +125,13 @@ class _RadioPageState extends State<RadioPage> {
               value: 'A',
               groupValue: _groupValue,
             ),
-            Divider(
+            const Divider(
               height: 20,
             ),
-            RadioListTile(
+            RadioListTile<String>(
               onChanged: _isEnable
                   ? (newValue) {
-                      print('自定义1 RadioListTile 选中状态变化 $newValue');
+                      debugPrint('自定义1 RadioListTile 选中状态变化 $newValue');
                       setState(() {
                         _groupValue = newValue as String;
                       });
@@ -140,23 +143,23 @@ class _RadioPageState extends State<RadioPage> {
               // 可用 && 选中时圆圈颜色
               activeColor: Colors.green,
 
-              title: Text('标题'),
-              subtitle: Text('子标题'),
+              title: const Text('标题'),
+              subtitle: const Text('子标题'),
               // title 和 subtitle 为 text 时的颜色是否是 activeColor
               // secondary 为 icon 时的颜色是否是 activeColor
               selected: true,
               // 右边的控件
-              secondary: Text('右边控件'),
+              secondary: const Text('右边控件'),
               // 是否展示的密集一些，为 true 时标题文字会变小，触摸区域也会变小
               dense: true,
             ),
-            Divider(
+            const Divider(
               height: 20,
             ),
             RadioListTile(
               onChanged: _isEnable
                   ? (newValue) {
-                      print('自定义2 RadioListTile 选中状态变化 $newValue');
+                      debugPrint('自定义2 RadioListTile 选中状态变化 $newValue');
                       setState(() {
                         _groupValue = newValue as String;
                       });
@@ -168,15 +171,15 @@ class _RadioPageState extends State<RadioPage> {
               // 可用 && 选中时圆圈颜色
               activeColor: Colors.green,
 
-              title: Icon(Icons.camera),
-              subtitle: Icon(Icons.camera),
+              title: const Icon(Icons.camera),
+              subtitle: const Icon(Icons.camera),
               // title 和 subtitle 为 text 时的颜色是否是 activeColor
               // secondary 为 icon 时的颜色是否是 activeColor
               selected: true,
               // 右边的控件
-              secondary: Icon(Icons.camera),
+              secondary: const Icon(Icons.camera),
             ),
-            Divider(
+            const Divider(
               height: 20,
             ),
             RadioListTile(
@@ -190,18 +193,18 @@ class _RadioPageState extends State<RadioPage> {
               value: 'D',
               groupValue: _groupValue,
 
-              title: Text('标题'),
-              subtitle: Text('子标题'),
+              title: const Text('标题'),
+              subtitle: const Text('子标题'),
 
               // 为 true 时 title 和 subtitle 向上偏移，subtitle 不能为 null
               isThreeLine: true,
 
               // 右边的控件
-              secondary: Icon(Icons.camera),
-
+              secondary: const Icon(Icons.camera),
+              // trailing 表示将复选按钮放到后面，将 secondary 放到前面
               controlAffinity: ListTileControlAffinity.trailing,
             ),
-            Divider(
+            const Divider(
               height: 20,
             ),
           ],

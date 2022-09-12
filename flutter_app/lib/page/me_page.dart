@@ -1,16 +1,16 @@
 import 'package:bga_flutter_package/bga_flutter_package.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app/mock/net_images.dart';
+import 'package:flutter_app/page/basic_case/button_page.dart';
+import 'package:flutter_app/page/basic_case/checkbox_page.dart';
+import 'package:flutter_app/page/basic_case/form_page.dart';
+import 'package:flutter_app/page/basic_case/radio_page.dart';
+import 'package:flutter_app/page/basic_case/switch_page.dart';
+import 'package:flutter_app/page/basic_case/text_page.dart';
 import 'package:flutter_app/page/animated_page.dart';
-import 'package:flutter_app/page/button_page.dart';
-import 'package:flutter_app/page/checkbox_page.dart';
 import 'package:flutter_app/page/gesture_page.dart';
 import 'package:flutter_app/page/http_page.dart';
-import 'package:flutter_app/page/input_page.dart';
-import 'package:flutter_app/page/radio_page.dart';
 import 'package:flutter_app/page/row_column_page.dart';
-import 'package:flutter_app/page/switch_page.dart';
-import 'package:flutter_app/page/text_page.dart';
 import 'package:flutter_app/widget/banner_widget.dart';
 
 class MePage extends StatefulWidget {
@@ -97,8 +97,8 @@ class _MePageState extends State<MePage> with AutomaticKeepAliveClientMixin {
             MaterialButton(
               color: Colors.yellow,
               child: Text('表单输入'),
-              onPressed: () => Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => InputPage())),
+              onPressed: () => Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => FormPage())),
             ),
             MaterialButton(
               color: Colors.yellow,

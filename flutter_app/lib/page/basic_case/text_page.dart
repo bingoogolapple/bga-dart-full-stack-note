@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 
 /// Text.rich 和 Text 源码都是通过 RichText 实现的
 class TextPage extends StatelessWidget {
+  const TextPage({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     Paint backgroundPaint = Paint();
@@ -16,15 +18,51 @@ class TextPage extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Text'),
+        title: const Text('Text'),
         centerTitle: true,
         backgroundColor: Colors.deepOrange,
       ),
       body: Builder(builder: (context) {
         return ListView(
           children: [
-            Text('测试TextStyle默认 hello world'),
-            Divider(
+            const TextSelectionTheme(
+              // TextSelectionTheme 支持 TextField，不支持 Text
+              data: TextSelectionThemeData(
+                selectionColor: Colors.red, // 选中文字背景颜色
+                selectionHandleColor: Colors.purple,
+                cursorColor: Colors.blue, // 光标颜色
+              ),
+              child: TextField(),
+            ),
+            const Divider(
+              height: 20,
+            ),
+            const SelectableText('我是SelectableText'),
+            const Divider(
+              height: 20,
+            ),
+            const SelectableText.rich(TextSpan(text: '我是SelectableText.rich')),
+            const Divider(
+              height: 20,
+            ),
+            const SelectionArea(
+                child:
+                    TextField()), // SelectionArea 支持 TextField 和 Text，也可以直接包裹到 Scaffold 外部
+            const Divider(
+              height: 20,
+            ),
+            const SelectionArea(
+                child: Text(
+              '我是SelectionArea包裹的Text',
+            )),
+            const Divider(
+              height: 20,
+            ),
+            const Text(
+              '测试TextStyle默认 hello world',
+              textAlign: TextAlign.center,
+            ),
+            const Divider(
               height: 20,
             ),
             Text(
@@ -35,9 +73,9 @@ class TextPage extends StatelessWidget {
                 // 单词之间添加的空间间隔
                 wordSpacing: 8.0,
                 fontSize: 30,
-                shadows: [
+                shadows: const [
                   BoxShadow(
-                      color: Colors.grey, offset: Offset(4, 4), blurRadius: 5)
+                      color: Colors.purple, offset: Offset(4, 4), blurRadius: 5)
                 ],
                 // text 背景色
                 background: backgroundPaint,
@@ -45,7 +83,7 @@ class TextPage extends StatelessWidget {
                 foreground: foregroundPaint,
               ),
             ),
-            Divider(
+            const Divider(
               height: 20,
             ),
             Container(
@@ -55,22 +93,22 @@ class TextPage extends StatelessWidget {
                 TextSpan(
                   text: 'Text.rich默认黑色，测试换行',
                   children: [
-                    WidgetSpan(child: BGALogoWidget()),
-                    TextSpan(
+                    const WidgetSpan(child: BGALogoWidget()),
+                    const TextSpan(
                         text: '红色',
                         style: TextStyle(
                             color: Colors.red, fontWeight: FontWeight.normal)),
-                    TextSpan(
+                    const TextSpan(
                         text: '粗体',
                         style: TextStyle(
                             color: Colors.green, fontWeight: FontWeight.bold)),
-                    TextSpan(
+                    const TextSpan(
                         text: '斜体',
                         style: TextStyle(
                             color: Colors.blue, fontStyle: FontStyle.italic)),
                     TextSpan(
                       text: '中划线',
-                      style: TextStyle(
+                      style: const TextStyle(
                         decoration: TextDecoration.lineThrough,
                         decorationStyle: TextDecorationStyle.wavy,
                         decorationColor: Colors.red,
@@ -88,7 +126,7 @@ class TextPage extends StatelessWidget {
                 ),
               ),
             ),
-            Divider(
+            const Divider(
               height: 20,
             ),
             Container(
@@ -96,24 +134,24 @@ class TextPage extends StatelessWidget {
               color: Colors.deepPurple[200],
               child: RichText(
                 text: TextSpan(
-                  text: 'RichText默认白色，测试换行',
+                  text: 'RichText默认白色，测试换行', // 手机和 Mac 默认是白色，在 web 上默认是黑色
                   children: [
-                    WidgetSpan(child: BGALogoWidget()),
-                    TextSpan(
+                    const WidgetSpan(child: BGALogoWidget()),
+                    const TextSpan(
                         text: '红色',
                         style: TextStyle(
                             color: Colors.red, fontWeight: FontWeight.normal)),
-                    TextSpan(
+                    const TextSpan(
                         text: '粗体',
                         style: TextStyle(
                             color: Colors.green, fontWeight: FontWeight.bold)),
-                    TextSpan(
+                    const TextSpan(
                         text: '斜体',
                         style: TextStyle(
                             color: Colors.blue, fontStyle: FontStyle.italic)),
                     TextSpan(
                       text: '中划线',
-                      style: TextStyle(
+                      style: const TextStyle(
                         decoration: TextDecoration.lineThrough,
                         decorationStyle: TextDecorationStyle.wavy,
                         decorationColor: Colors.red,
@@ -130,7 +168,7 @@ class TextPage extends StatelessWidget {
                 ),
               ),
             ),
-            Divider(
+            const Divider(
               height: 20,
             ),
             Container(
@@ -143,7 +181,7 @@ class TextPage extends StatelessWidget {
                 softWrap: false,
               ),
             ),
-            Divider(
+            const Divider(
               height: 20,
             ),
             Container(
@@ -155,7 +193,7 @@ class TextPage extends StatelessWidget {
                 maxLines: 2,
               ),
             ),
-            Divider(
+            const Divider(
               height: 20,
             ),
             Container(
@@ -166,7 +204,7 @@ class TextPage extends StatelessWidget {
                 overflow: TextOverflow.clip,
               ),
             ),
-            Divider(
+            const Divider(
               height: 20,
             ),
             Container(
@@ -177,7 +215,7 @@ class TextPage extends StatelessWidget {
                 overflow: TextOverflow.fade,
               ),
             ),
-            Divider(
+            const Divider(
               height: 20,
             ),
             Container(
@@ -188,7 +226,7 @@ class TextPage extends StatelessWidget {
                 overflow: TextOverflow.visible,
               ),
             ),
-            Divider(
+            const Divider(
               height: 20,
             ),
             Container(
@@ -199,7 +237,7 @@ class TextPage extends StatelessWidget {
                 overflow: TextOverflow.ellipsis,
               ),
             ),
-            Divider(
+            const Divider(
               height: 20,
             ),
           ],
@@ -211,7 +249,7 @@ class TextPage extends StatelessWidget {
   void _showSnackBar(BuildContext context, String text) {
     ScaffoldMessenger.of(context).showSnackBar(SnackBar(
         behavior: SnackBarBehavior.floating,
-        duration: Duration(seconds: 2),
+        duration: const Duration(seconds: 2),
         backgroundColor: Colors.deepOrangeAccent,
         content: Text(text)));
   }

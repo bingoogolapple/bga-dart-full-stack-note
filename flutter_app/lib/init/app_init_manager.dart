@@ -5,7 +5,7 @@ class AppInitManager {
   AppInitManager._();
 
   // 保存单例
-  static AppInitManager _instance = new AppInitManager._();
+  static final AppInitManager _instance = AppInitManager._();
 
   // 获取单例
   static AppInitManager get instance => _instance;
@@ -20,14 +20,14 @@ class AppInitManager {
 
   void _initErrorPage() {
     ErrorWidget.builder = (FlutterErrorDetails flutterErrorDetails) {
-      print(flutterErrorDetails.toString());
-      return Scaffold(
-        body: Center(child: Text("flutter_app 开小差了,请重启 App！", style: TextStyle(fontSize: 20))),
+      debugPrint(flutterErrorDetails.toString());
+      return const Scaffold(
+        body: Center(
+            child: Text("flutter_app 开小差了,请重启 App！",
+                style: TextStyle(fontSize: 20))),
       );
     };
   }
 
-  void _initTargetPlatform() {
-
-  }
+  void _initTargetPlatform() {}
 }

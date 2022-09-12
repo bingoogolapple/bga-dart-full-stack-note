@@ -1,6 +1,5 @@
 const NET_IMAGES = [
   'https://media.istockphoto.com/vectors/grunge-rainbow-background-vector-id486840926?k=20&m=486840926&s=612x612&w=0&h=0bM2oG-PzYOOZ1wZDSCXFNyr_ojlSSFfrNcd0Znu91o=',
-  'https://media.istockphoto.com/vectors/grunge-rainbow-background-vector-id486840926?k=20&m=486840926&s=612x612&w=0&h=0bM2oG-PzYOOZ1wZDSCXFNyr_ojlSSFfrNcd0Znu91o=',
   'https://media.istockphoto.com/vectors/abstract-blur-background-rainbow-mesh-gradient-color-power-pattern-vector-id1130076181?k=20&m=1130076181&s=612x612&w=0&h=hj0ajmQPUlUM0SpMcyeikUoLnwqzoKvqYZ05eNjTZac=',
   'https://media.istockphoto.com/vectors/whirl-psychedelic-vector-background-vector-id1299003213?k=20&m=1299003213&s=612x612&w=0&h=mWe8HAroY6BAUuwpQvb6iadVpiwADryHz2fPZnCMmG4=',
   'https://media.istockphoto.com/vectors/colorful-hand-drawn-circles-background-vector-id940549446?k=20&m=940549446&s=612x612&w=0&h=D8cOKtzlPpACGiNvXQomIamOqA0M0JB2WgklgYVl0w0=',

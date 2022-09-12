@@ -1,19 +1,23 @@
 import 'package:flutter/material.dart';
 
+// 如何实现 Checkbox Group？如何结合 Form 使用 实现 validator？
+
 class CheckboxPage extends StatefulWidget {
+  const CheckboxPage({super.key});
+
   @override
-  _CheckboxPageState createState() => _CheckboxPageState();
+  State<CheckboxPage> createState() => _CheckboxPageState();
 }
 
 class _CheckboxPageState extends State<CheckboxPage> {
-  bool _isEnable = false;
+  bool _isEnable = true;
   bool _value = false;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Checkbox'),
+        title: const Text('Checkbox'),
         centerTitle: true,
         backgroundColor: Colors.deepOrange,
       ),
@@ -21,7 +25,8 @@ class _CheckboxPageState extends State<CheckboxPage> {
         return ListView(
           children: [
             SwitchListTile(
-              title: Text('是否设置 onChanged 回调'),
+              title: const Text('是否设置 onChanged 回调'),
+              selected: _isEnable,
               value: _isEnable,
               onChanged: (isEnable) {
                 setState(() {
@@ -33,7 +38,7 @@ class _CheckboxPageState extends State<CheckboxPage> {
             Checkbox(
               onChanged: _isEnable
                   ? (newValue) {
-                      print('默认 Checkbox 选中状态变化 $newValue');
+                      debugPrint('默认 Checkbox 选中状态变化 $newValue');
                       setState(() {
                         _value = newValue ?? false;
                       });
@@ -41,7 +46,7 @@ class _CheckboxPageState extends State<CheckboxPage> {
                   : null,
               value: _value,
             ),
-            Divider(
+            const Divider(
               height: 20,
             ),
             Checkbox(
@@ -50,21 +55,21 @@ class _CheckboxPageState extends State<CheckboxPage> {
               tristate: true,
               onChanged: _isEnable
                   ? (newValue) {
-                      print('横杠 Checkbox 选中状态变化 $newValue');
+                      debugPrint('横杠 Checkbox 选中状态变化 $newValue');
                       setState(() {
                         _value = newValue ?? false;
                       });
                     }
                   : null,
-              value: null,
+              value: _value,
             ),
-            Divider(
+            const Divider(
               height: 20,
             ),
             Checkbox(
               onChanged: _isEnable
                   ? (newValue) {
-                      print('自定义 Checkbox 选中状态变化 $newValue');
+                      debugPrint('自定义 Checkbox 选中状态变化 $newValue');
                       setState(() {
                         _value = newValue ?? false;
                       });
@@ -81,17 +86,17 @@ class _CheckboxPageState extends State<CheckboxPage> {
               focusColor: Colors.red,
               // 设置最小点击区域
               materialTapTargetSize: MaterialTapTargetSize.padded,
-//              autofocus: false,
-//              focusNode: FocusNode(),
+              // autofocus: false,
+              // focusNode: FocusNode(),
             ),
-            Divider(
+            const Divider(
               height: 20,
             ),
             // onChanged 为空时为不可用状态，不为空时为可用状态
             CheckboxListTile(
               onChanged: _isEnable
                   ? (newValue) {
-                      print('默认 CheckboxListTile 选中状态变化 $newValue');
+                      debugPrint('默认 CheckboxListTile 选中状态变化 $newValue');
                       setState(() {
                         _value = newValue ?? false;
                       });
@@ -99,13 +104,13 @@ class _CheckboxPageState extends State<CheckboxPage> {
                   : null,
               value: _value,
             ),
-            Divider(
+            const Divider(
               height: 20,
             ),
             CheckboxListTile(
               onChanged: _isEnable
                   ? (newValue) {
-                      print('自定义1 CheckboxListTile 选中状态变化 $newValue');
+                      debugPrint('自定义1 CheckboxListTile 选中状态变化 $newValue');
                       setState(() {
                         _value = newValue ?? false;
                       });
@@ -114,20 +119,20 @@ class _CheckboxPageState extends State<CheckboxPage> {
               value: _value,
               // 没有 autofocus、focusNode、hoverColor、focusColor、materialTapTargetSize
 
-              title: Text('标题'),
-              subtitle: Text('子标题'),
+              title: const Text('标题'),
+              subtitle: const Text('子标题'),
               // text 和 icon 的颜色是否是 activeColor
               selected: true,
               // 左边的控件
-              secondary: Icon(Icons.camera),
+              secondary: const Icon(Icons.camera),
             ),
-            Divider(
+            const Divider(
               height: 20,
             ),
             CheckboxListTile(
               onChanged: _isEnable
                   ? (newValue) {
-                      print('自定义2 CheckboxListTile 选中状态变化 $newValue');
+                      debugPrint('自定义2 CheckboxListTile 选中状态变化 $newValue');
                       setState(() {
                         _value = newValue ?? false;
                       });
@@ -140,52 +145,51 @@ class _CheckboxPageState extends State<CheckboxPage> {
               checkColor: Colors.cyanAccent,
               // 是否展示的密集一些，为 true 时标题文字会变小，触摸区域也会变小
               dense: true,
-              title: Text('标题'),
-              subtitle: Text('子标题'),
+              title: const Text('标题'),
+              subtitle: const Text('子标题'),
               selected: _value,
               // 为 true 时 title 和 subtitle 向上偏移，subtitle 不能为 null
               isThreeLine: true,
               // 左边的控件
-              secondary: Icon(Icons.camera),
+              secondary: const Icon(Icons.camera),
             ),
-            Divider(
+            const Divider(
               height: 20,
             ),
             CheckboxListTile(
               onChanged: _isEnable
                   ? (newValue) {
-                      print('自定义3 CheckboxListTile 选中状态变化 $newValue');
+                      debugPrint('自定义3 CheckboxListTile 选中状态变化 $newValue');
                       setState(() {
                         _value = newValue ?? false;
                       });
                     }
                   : null,
               value: _value,
-              title: Text('可以\n显示\n多行'),
-              subtitle: Text('controlAffinity\nleading:勾勾在左边\ntrailing:勾勾在右边\nplatform:根据不同平台来显示勾勾位置'),
-              secondary: Icon(Icons.camera),
-              // 试了下，Android、iOS、Web 都是 trailing
+              title: const Text('可以\n显示\n多行'),
+              subtitle: const Text(
+                  'controlAffinity\nleading:勾勾在左边\ntrailing:勾勾在右边\nplatform:根据不同平台来显示勾勾位置'),
+              secondary: const Icon(Icons.camera),
+              // leading 表示将复选按钮放到前面，将 secondary 放到后面；试了下，Android、iOS、Web 都是 trailing
               controlAffinity: ListTileControlAffinity.leading,
             ),
-            Divider(
+            const Divider(
               height: 20,
             ),
             CheckboxListTile(
               onChanged: _isEnable
                   ? (newValue) {
-                      print('自定义4 CheckboxListTile 选中状态变化 $newValue');
+                      debugPrint('自定义4 CheckboxListTile 选中状态变化 $newValue');
                       setState(() {
                         _value = newValue ?? false;
                       });
                     }
                   : null,
               value: _value,
-              title: Icon(Icons.phone),
-              subtitle: Icon(Icons.mail),
-              secondary: Text('title 或 subtitle 为 Icon 时会显示到中间'),
-            ),
-            Divider(
-              height: 20,
+              title: const Icon(Icons.phone),
+              subtitle: const Icon(Icons.mail),
+              secondary:
+                  const Text('title 或 subtitle 为 Icon 时，secondary 会显示到中间'),
             ),
           ],
         );
