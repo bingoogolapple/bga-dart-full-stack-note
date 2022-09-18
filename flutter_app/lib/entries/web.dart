@@ -2,20 +2,27 @@ import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_app/mock/net_images.dart';
+import 'package:flutter_app/page/basic_case/bottom_sheet_page.dart';
 import 'package:flutter_app/page/basic_case/button_page.dart';
 import 'package:flutter_app/page/basic_case/checkbox_page.dart';
 import 'package:flutter_app/page/basic_case/container_page.dart';
+import 'package:flutter_app/page/basic_case/dialog_page.dart';
+import 'package:flutter_app/page/basic_case/expansion_panel_page.dart';
 import 'package:flutter_app/page/basic_case/form_page.dart';
 import 'package:flutter_app/page/basic_case/grid_view_page.dart';
 import 'package:flutter_app/page/basic_case/page_view_page.dart';
+import 'package:flutter_app/page/basic_case/picker_page.dart';
 import 'package:flutter_app/page/basic_case/radio_page.dart';
+import 'package:flutter_app/page/basic_case/slider_page.dart';
 import 'package:flutter_app/page/basic_case/sliver_grid_page.dart';
 import 'package:flutter_app/page/basic_case/sliver_list_page.dart';
+import 'package:flutter_app/page/basic_case/snack_bar_page.dart';
 import 'package:flutter_app/page/basic_case/stack_page.dart';
 import 'package:flutter_app/page/basic_case/switch_page.dart';
 import 'package:flutter_app/page/basic_case/text_field_page.dart';
 import 'package:flutter_app/page/basic_case/text_page.dart';
 import 'package:flutter_app/platform/url_strategy/url_strategy.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
 void main() {
   // 根组件为 MaterialApp 时才会生效，需要引入 rendering 包
@@ -45,6 +52,12 @@ final Map<String, WidgetBuilder> routes = {
   '/checkboxPage': (BuildContext context) => const CheckboxPage(),
   '/radioPage': (BuildContext context) => const RadioPage(),
   '/switchPage': (BuildContext context) => const SwitchPage(),
+  '/sliderPage': (BuildContext context) => const SliderPage(),
+  '/showPickerPage': (BuildContext context) => const ShowPickerPage(),
+  '/dialogPage': (BuildContext context) => const DialogPage(),
+  '/bottomSheetPage': (BuildContext context) => const BottomSheetPage(),
+  '/snackBarPage': (BuildContext context) => const SnackBarPage(),
+  '/expansionPanelPage': (BuildContext context) => const ExpansionPanelPage(),
 };
 
 class App extends StatelessWidget {
@@ -61,6 +74,15 @@ class App extends StatelessWidget {
           highlightColor: Colors.amber,
           splashColor: Colors.blue),
       title: 'MaterialAppTitle',
+      // 当前运行环境配置
+      locale: const Locale("zh", "CH"),
+      // 程序支持的语言环境配置
+      supportedLocales: const [Locale("zh", "CH")],
+      // Material 风格代理配置
+      localizationsDelegates: const [
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+      ],
       home: const Scaffold(body: HomePage()),
       // initialRoute: '/pageTwo',
       routes: routes,
@@ -159,11 +181,22 @@ class _HomePageState extends State<HomePage> {
                         // 通过 arguments 传递路由参数
                         Navigator.pushNamed(context, '/pageOne',
                                 arguments: {'title': '我是参数'})
-                            .then((value) => debugPrint('结果为: $value'));
+                            .then((value) => debugPrint('then 方式结果为: $value'));
                       } else {
                         Navigator.pushNamed(context, routeName);
                       }
                     },
+                    // onTap: () async {
+                    //   if (routeName == '/pageOne') {
+                    //     // 通过 arguments 传递路由参数
+                    //     var result = await Navigator.pushNamed(
+                    //         context, '/pageOne',
+                    //         arguments: {'title': '我是参数'});
+                    //     debugPrint('await 方式结果为: $result');
+                    //   } else {
+                    //     Navigator.pushNamed(context, routeName);
+                    //   }
+                    // },
                   )),
             ],
           ),
@@ -182,12 +215,23 @@ class _HomePageState extends State<HomePage> {
                   child: const Text('打开 PageThree')),
               ...routes.keys.map((routeName) => ListTile(
                     title: Text('打开 $routeName'),
-                    onTap: () {
+                    // onTap: () {
+                    //   if (routeName == '/pageOne') {
+                    //     // 通过 arguments 传递路由参数
+                    //     Navigator.pushNamed(context, '/pageOne',
+                    //             arguments: {'title': '我是参数'})
+                    //         .then((value) => debugPrint('then 方式结果为: $value'));
+                    //   } else {
+                    //     Navigator.pushNamed(context, routeName);
+                    //   }
+                    // },
+                    onTap: () async {
                       if (routeName == '/pageOne') {
                         // 通过 arguments 传递路由参数
-                        Navigator.pushNamed(context, '/pageOne',
-                                arguments: {'title': '我是参数'})
-                            .then((value) => debugPrint('结果为: $value'));
+                        var result = await Navigator.pushNamed(
+                            context, '/pageOne',
+                            arguments: {'title': '我是参数'});
+                        debugPrint('await 方式结果为: $result');
                       } else {
                         Navigator.pushNamed(context, routeName);
                       }
