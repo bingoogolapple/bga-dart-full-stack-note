@@ -4,13 +4,17 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter_app/mock/net_images.dart';
 import 'package:flutter_app/page/basic_case/bottom_sheet_page.dart';
 import 'package:flutter_app/page/basic_case/button_page.dart';
+import 'package:flutter_app/page/basic_case/card_page.dart';
 import 'package:flutter_app/page/basic_case/checkbox_page.dart';
+import 'package:flutter_app/page/basic_case/chip_page.dart';
 import 'package:flutter_app/page/basic_case/container_page.dart';
+import 'package:flutter_app/page/basic_case/data_table_page.dart';
 import 'package:flutter_app/page/basic_case/dialog_page.dart';
 import 'package:flutter_app/page/basic_case/expansion_panel_page.dart';
 import 'package:flutter_app/page/basic_case/form_page.dart';
 import 'package:flutter_app/page/basic_case/grid_view_page.dart';
 import 'package:flutter_app/page/basic_case/page_view_page.dart';
+import 'package:flutter_app/page/basic_case/paginated_data_table_page.dart';
 import 'package:flutter_app/page/basic_case/picker_page.dart';
 import 'package:flutter_app/page/basic_case/radio_page.dart';
 import 'package:flutter_app/page/basic_case/slider_page.dart';
@@ -18,6 +22,7 @@ import 'package:flutter_app/page/basic_case/sliver_grid_page.dart';
 import 'package:flutter_app/page/basic_case/sliver_list_page.dart';
 import 'package:flutter_app/page/basic_case/snack_bar_page.dart';
 import 'package:flutter_app/page/basic_case/stack_page.dart';
+import 'package:flutter_app/page/basic_case/stepper_page.dart';
 import 'package:flutter_app/page/basic_case/switch_page.dart';
 import 'package:flutter_app/page/basic_case/text_field_page.dart';
 import 'package:flutter_app/page/basic_case/text_page.dart';
@@ -58,6 +63,12 @@ final Map<String, WidgetBuilder> routes = {
   '/bottomSheetPage': (BuildContext context) => const BottomSheetPage(),
   '/snackBarPage': (BuildContext context) => const SnackBarPage(),
   '/expansionPanelPage': (BuildContext context) => const ExpansionPanelPage(),
+  '/cardPage': (BuildContext context) => const CardPage(),
+  '/chipPage': (BuildContext context) => const ChipPage(),
+  '/stepperPage': (BuildContext context) => const StepperPage(),
+  '/dataTablePage': (BuildContext context) => const DataTablePage(),
+  '/paginatedDataTablePage': (BuildContext context) =>
+      const PaginatedDataTablePage(),
 };
 
 class App extends StatelessWidget {
