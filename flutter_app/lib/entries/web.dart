@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_app/mock/net_images.dart';
+import 'package:flutter_app/page/basic_case/bloc_page.dart';
 import 'package:flutter_app/page/basic_case/bottom_sheet_page.dart';
 import 'package:flutter_app/page/basic_case/button_page.dart';
 import 'package:flutter_app/page/basic_case/card_page.dart';
@@ -13,6 +14,7 @@ import 'package:flutter_app/page/basic_case/dialog_page.dart';
 import 'package:flutter_app/page/basic_case/expansion_panel_page.dart';
 import 'package:flutter_app/page/basic_case/form_page.dart';
 import 'package:flutter_app/page/basic_case/grid_view_page.dart';
+import 'package:flutter_app/page/basic_case/inherited_widget_page.dart';
 import 'package:flutter_app/page/basic_case/page_view_page.dart';
 import 'package:flutter_app/page/basic_case/paginated_data_table_page.dart';
 import 'package:flutter_app/page/basic_case/picker_page.dart';
@@ -69,6 +71,8 @@ final Map<String, WidgetBuilder> routes = {
   '/dataTablePage': (BuildContext context) => const DataTablePage(),
   '/paginatedDataTablePage': (BuildContext context) =>
       const PaginatedDataTablePage(),
+  '/inheritedWidgetPage': (BuildContext context) => const InheritedWidgetPage(),
+  '/blocPage': (BuildContext context) => const BlocPage(),
 };
 
 class App extends StatelessWidget {
@@ -90,10 +94,7 @@ class App extends StatelessWidget {
       // 程序支持的语言环境配置
       supportedLocales: const [Locale("zh", "CH")],
       // Material 风格代理配置
-      localizationsDelegates: const [
-        GlobalMaterialLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
-      ],
+      localizationsDelegates: GlobalMaterialLocalizations.delegates,
       home: const Scaffold(body: HomePage()),
       // initialRoute: '/pageTwo',
       routes: routes,
