@@ -2,12 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:dio/dio.dart';
 
 class HttpClientWidget extends StatefulWidget {
+  const HttpClientWidget({super.key});
+
   @override
-  _HttpClientWidgetState createState() => _HttpClientWidgetState();
+  State<HttpClientWidget> createState() => _HttpClientWidgetState();
 }
 
 class _HttpClientWidgetState extends State<HttpClientWidget> {
-  StringBuffer _logSb = StringBuffer();
+  final StringBuffer _logSb = StringBuffer();
   Dio? _dio;
   String? _csrfToken;
 
@@ -28,30 +30,34 @@ class _HttpClientWidgetState extends State<HttpClientWidget> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
+        const SizedBox(height: 8),
         MaterialButton(
           color: Colors.green,
-          child: Text('多个请求'),
+          child: const Text('多个请求'),
           onPressed: () {
             _multipleRequest();
           },
         ),
+        const SizedBox(height: 8),
         MaterialButton(
           color: Colors.green,
-          child: Text('单个请求'),
+          child: const Text('单个请求'),
           onPressed: () {
             _singleRequest();
           },
         ),
+        const SizedBox(height: 8),
         MaterialButton(
           color: Colors.blue,
-          child: Text('清空 Token'),
+          child: const Text('清空 Token'),
           onPressed: () {
             _csrfToken = null;
           },
         ),
+        const SizedBox(height: 8),
         MaterialButton(
           color: Colors.orange,
-          child: Text('清空日志'),
+          child: const Text('清空日志'),
           onPressed: () {
             setState(() {
               _logSb.clear();
@@ -61,7 +67,7 @@ class _HttpClientWidgetState extends State<HttpClientWidget> {
         Expanded(
           child: SingleChildScrollView(
             child: Padding(
-              padding: EdgeInsets.all(8),
+              padding: const EdgeInsets.all(8),
               child: Text(_logSb.toString()),
             ),
           ),

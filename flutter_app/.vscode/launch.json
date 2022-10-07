@@ -5,12 +5,6 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "web",
-      "type": "dart",
-      "request": "launch",
-      "program": "lib/entries/web.dart"
-    },
-    {
       "name": "flutter_app",
       "request": "launch",
       "type": "dart"
@@ -26,6 +20,12 @@
       "request": "launch",
       "type": "dart",
       "flutterMode": "release"
+    },
+    {
+      "name": "web",
+      "type": "dart",
+      "request": "launch",
+      "program": "lib/entries/web.dart"
     }
   ]
 }

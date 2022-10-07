@@ -19,9 +19,7 @@ class EventBus {
 
   static EventBus _getInstance(
       {bool sync = false, StreamController? controller}) {
-    if (_instance == null) {
-      _instance = new EventBus._(sync: sync, controller: controller);
-    }
+    _instance ??= EventBus._(sync: sync, controller: controller);
     return _instance!;
   }
 

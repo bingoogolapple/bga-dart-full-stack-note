@@ -23,8 +23,11 @@ class AppInitManager {
       debugPrint(flutterErrorDetails.toString());
       return const Scaffold(
         body: Center(
-            child: Text("flutter_app 开小差了,请重启 App！",
-                style: TextStyle(fontSize: 20))),
+          child: Text(
+            "flutter_app 开小差了,请重启 App！",
+            style: TextStyle(fontSize: 20),
+          ),
+        ),
       );
     };
   }

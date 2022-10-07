@@ -3,71 +3,31 @@ import 'package:flutter_app/mock/net_images.dart';
 import 'package:flutter_app/widget/banner_widget.dart';
 import 'package:transparent_image/transparent_image.dart';
 
-class HomePageSliverBackup extends StatefulWidget {
+class SliverNestedScrollViewPage extends StatefulWidget {
+  const SliverNestedScrollViewPage({super.key});
+
   @override
-  _HomePageSliverBackupState createState() => _HomePageSliverBackupState();
+  State<SliverNestedScrollViewPage> createState() =>
+      _SliverNestedScrollViewPageState();
 }
 
-class _HomePageSliverBackupState extends State<HomePageSliverBackup> {
-  @override
-  void initState() {
-    super.initState();
-    print('initState => _HomePageState');
-  }
-
+class _SliverNestedScrollViewPageState
+    extends State<SliverNestedScrollViewPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: _buildNestedScrollViewSliver(),
-//      body: _buildCustomScrollViewSliver(),
-    );
-  }
-
-  _buildNestedScrollViewSliver() {
-    return Scaffold(
       body: NestedScrollView(
-          // innerBoxIsScrolled 内部嵌套的可滚动列表是否在滚动
-          headerSliverBuilder: (context, innerBoxIsScrolled) {
-            return <Widget>[_buildSliverAppBar()];
-          },
-          body: _buildListView()),
-    );
-  }
-
-  // ignore: unused_element
-  _buildCustomScrollViewSliver() {
-    return CustomScrollView(slivers: <Widget>[
-      _buildSliverAppBar(),
-//      _buildSliverListWithBuilderDelegate(),
-      _buildSliverListWithListDelegate(),
-    ]);
-  }
-
-  _buildSliverListWithListDelegate() {
-    return SliverList(
-      delegate: SliverChildListDelegate(_buildContentList()),
-    );
-  }
-
-  // ignore: unused_element
-  _buildSliverListWithBuilderDelegate() {
-    return SliverList(
-      delegate: SliverChildBuilderDelegate(
-        (context, index) {
-          if (index == 0) {
-            return Container(
-              height: 160,
-              child: BannerWidget(
-                List.generate(4, (index) {
-                  return NET_IMAGES[index];
-                }),
-                Colors.deepPurple,
-              ),
-            );
-          }
-          return Container(height: 150, color: Colors.green[100 * index]);
+        // innerBoxIsScrolled 内部嵌套的可滚动列表是否在滚动
+        headerSliverBuilder: (context, innerBoxIsScrolled) {
+          return <Widget>[_buildSliverAppBar()];
         },
-        childCount: 10,
+        body: MediaQuery.removePadding(
+          removeTop: true, // 移除顶部状态栏 padding
+          context: context,
+          child: ListView(
+            children: _buildContentList(),
+          ),
+        ),
       ),
     );
   }
@@ -77,13 +37,13 @@ class _HomePageSliverBackupState extends State<HomePageSliverBackup> {
       backgroundColor: Colors.deepPurple,
       actions: [
         IconButton(
-          icon: Icon(Icons.camera_alt),
+          icon: const Icon(Icons.camera_alt),
           onPressed: () {},
         ),
       ],
       // 展开 flexibleSpace 之后是否显示阴影
       forceElevated: true,
-      leading: Icon(Icons.add),
+      leading: const Icon(Icons.add),
 
       /// 如果有 leading 这个不会管用，相当于忽略这个参数
       /// 如果没有 leading，当有侧边栏的时候，false 表示不会显示默认的图片，true 表示会显示默认图片并响应打开侧边栏的事件
@@ -107,37 +67,29 @@ class _HomePageSliverBackupState extends State<HomePageSliverBackup> {
         background: FadeInImage.memoryNetwork(
           fit: BoxFit.cover,
           placeholder: kTransparentImage,
-          image: NET_IMAGES[10],
+          image: netImages[10],
         ),
       ),
     );
   }
 
-  Widget _buildTitle() {
-    return Text("首页",
-        style: TextStyle(
-          color: Colors.white,
-          fontSize: 20,
-        ));
-  }
-
-  Widget _buildListView() {
-    return MediaQuery.removePadding(
-      removeTop: true, // 移除顶部状态栏 padding
-      context: context,
-      child: ListView(
-        children: _buildContentList(),
+  _buildTitle() {
+    return const Text(
+      "首页",
+      style: TextStyle(
+        color: Colors.white,
+        fontSize: 20,
       ),
     );
   }
 
   _buildContentList() {
     return [
-      Container(
+      SizedBox(
         height: 160,
         child: BannerWidget(
           List.generate(4, (index) {
-            return NET_IMAGES[index];
+            return netImages[index];
           }),
           Colors.deepPurple,
         ),

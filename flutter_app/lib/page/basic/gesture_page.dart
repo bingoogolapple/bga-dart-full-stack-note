@@ -179,6 +179,7 @@ class _GestureDetectorWidgetState extends State<GestureDetectorWidget> {
   double _originTop = 20;
   double _originLeft = 20;
   bool _longPressed = false;
+  // ignore: prefer_final_fields
   bool _pan = false;
   double _width = 200;
   double _height = 50;

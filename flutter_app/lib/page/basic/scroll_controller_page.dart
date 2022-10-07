@@ -4,34 +4,26 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app/mock/net_images.dart';
 import 'package:transparent_image/transparent_image.dart';
 
-class CategoryPage extends StatefulWidget {
+class ScrollControllerPage extends StatefulWidget {
+  const ScrollControllerPage({super.key});
+
   @override
-  _CategoryPageState createState() => _CategoryPageState();
+  State<ScrollControllerPage> createState() => _ScrollControllerPageState();
 }
 
-class _CategoryPageState extends State<CategoryPage>
-    with AutomaticKeepAliveClientMixin {
+class _ScrollControllerPageState extends State<ScrollControllerPage> {
   static const _categoryItemHeight = 50.0;
-  List<CategoryItem> _categoryItemList =
-      List.generate(18, (index) => CategoryItem(index, '分类$index'));
+  final ScrollController _categoryScrollController = ScrollController();
+  final ScrollController _categoryDetailScrollController = ScrollController();
+  final List<CategoryItem> _categoryItemList =
+      List.generate(30, (index) => CategoryItem(index, '分类$index'));
   late CategoryItem _currentCategoryItem;
   int _currentCategoryIndex = 0;
-  late ScrollController _categoryScrollController;
-  late ScrollController _categoryDetailScrollController;
-
-  @override
-  bool get wantKeepAlive {
-    print('wantKeepAlive _CategoryPageState');
-    return true;
-  }
 
   @override
   void initState() {
     super.initState();
-    print('initState => _CategoryPageState');
     _currentCategoryItem = _categoryItemList[_currentCategoryIndex];
-    _categoryScrollController = ScrollController();
-    _categoryDetailScrollController = ScrollController();
   }
 
   @override
@@ -43,12 +35,11 @@ class _CategoryPageState extends State<CategoryPage>
 
   @override
   Widget build(BuildContext context) {
-    super.build(context);
     return Scaffold(
       appBar: AppBar(
-        title: Text('分类'),
+        title: const Text('分类'),
         centerTitle: true,
-        backgroundColor: Colors.teal,
+        backgroundColor: Colors.purple,
       ),
       body: Row(
         children: [
@@ -73,7 +64,7 @@ class _CategoryPageState extends State<CategoryPage>
         ListItem listItem = _currentCategoryItem.dataList[position];
         if (listItem is BannerItem) {
           return Container(
-            margin: EdgeInsets.all(10),
+            margin: const EdgeInsets.all(10),
             child: ClipRRect(
               borderRadius: BorderRadius.circular(10),
               child: FadeInImage.memoryNetwork(
@@ -88,15 +79,15 @@ class _CategoryPageState extends State<CategoryPage>
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               Padding(
+                padding: const EdgeInsets.all(10),
                 child: Text(listItem.title),
-                padding: EdgeInsets.all(10),
               ),
               GridView.builder(
                 // 处理滚动嵌套报错
                 shrinkWrap: true,
                 // 禁止滚动
-                physics: NeverScrollableScrollPhysics(),
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                physics: const NeverScrollableScrollPhysics(),
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                   // 设置列数
                   crossAxisCount: 3,
                   // 设置宽高比
@@ -106,8 +97,8 @@ class _CategoryPageState extends State<CategoryPage>
                 itemBuilder: (context, goodsPosition) {
                   return Column(
                     children: [
-                      Icon(Icons.filter),
-                      SizedBox(height: 5),
+                      const Icon(Icons.filter),
+                      const SizedBox(height: 5),
                       Text(listItem.goodsItemList[goodsPosition].title)
                     ],
                   );
@@ -116,7 +107,7 @@ class _CategoryPageState extends State<CategoryPage>
             ],
           );
         } else {
-          return Text('未知类型');
+          return const Text('未知类型');
         }
       },
     );
@@ -148,11 +139,16 @@ class _CategoryPageState extends State<CategoryPage>
               _currentCategoryItem = _categoryItemList[_currentCategoryIndex];
 
               _categoryScrollController.animateTo(
-                  _categoryItemHeight * max(0, _currentCategoryIndex - 5),
-                  duration: Duration(milliseconds: 300),
-                  curve: Curves.ease);
+                _categoryItemHeight * max(0, _currentCategoryIndex - 5),
+                duration: const Duration(milliseconds: 300),
+                curve: Curves.ease,
+              );
 
-              // _categoryDetailScrollController.animateTo(0, duration: Duration(milliseconds: 200), curve: Curves.ease);
+              // _categoryDetailScrollController.animateTo(
+              //   0,
+              //   duration: const Duration(milliseconds: 200),
+              //   curve: Curves.ease,
+              // );
               _categoryDetailScrollController.jumpTo(0);
             });
           },
@@ -171,7 +167,7 @@ class CategoryItem implements ListItem {
   CategoryItem(categoryIndex, this.name)
       : dataList = List.generate(10, (index) {
           if (index == 0) {
-            return BannerItem(NET_IMAGES[categoryIndex % 10]);
+            return BannerItem(netImages[categoryIndex % 10]);
           } else {
             return ChildCategoryItem('子分类${categoryIndex + 1}-${index + 1}');
           }

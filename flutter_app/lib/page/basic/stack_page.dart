@@ -44,7 +44,11 @@ class StackPage extends StatelessWidget {
             ),
             ConstrainedBox(
               constraints: const BoxConstraints(
-                  minHeight: 10, maxHeight: 40, minWidth: 10, maxWidth: 40),
+                minHeight: 10,
+                maxHeight: 40,
+                minWidth: 10,
+                maxWidth: 40,
+              ),
               child: Container(color: Colors.purple),
             )
           ],

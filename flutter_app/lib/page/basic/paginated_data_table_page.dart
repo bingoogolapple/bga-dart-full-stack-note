@@ -16,7 +16,7 @@ class Post {
   });
 }
 
-final List<Post> posts = NET_IMAGES
+final List<Post> posts = netImages
     .map((imgUrl) => Post(
           title: '标题',
           author: '作者',
@@ -27,6 +27,7 @@ final List<Post> posts = NET_IMAGES
 
 class PostDataSource extends DataTableSource {
   final List<Post> _posts = posts;
+  // ignore: prefer_final_fields
   int _selectedCount = 0;
 
   @override
@@ -58,7 +59,8 @@ class PostDataSource extends DataTableSource {
     );
   }
 
-  void _sort(getField(post), bool ascending) {
+  // void _sort(dynamic Function(Post post) getField, bool ascending) {
+  void _sort(GetField getField, bool ascending) {
     _posts.sort((a, b) {
       if (!ascending) {
         final c = a;
@@ -74,6 +76,8 @@ class PostDataSource extends DataTableSource {
     notifyListeners();
   }
 }
+
+typedef GetField = dynamic Function(Post post);
 
 class PaginatedDataTablePage extends StatefulWidget {
   const PaginatedDataTablePage({super.key});

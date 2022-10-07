@@ -8,6 +8,7 @@ class SnackBarPage extends StatefulWidget {
 }
 
 class _SnackBarPageState extends State<SnackBarPage> {
+  // ignore: unused_element
   void _showSnackBar(String text) {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(

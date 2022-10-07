@@ -16,7 +16,7 @@ class Post {
   });
 }
 
-final List<Post> posts = NET_IMAGES
+final List<Post> posts = netImages
     .map((imgUrl) => Post(
           title: '标题',
           author: '作者',

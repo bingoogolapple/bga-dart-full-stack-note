@@ -8,13 +8,15 @@ import 'package:shelf/shelf_io.dart' as shelf_io;
 import 'package:shelf_router/shelf_router.dart' as shelf_router;
 
 class HttpServerWidget extends StatefulWidget {
+  const HttpServerWidget({super.key});
+
   @override
-  _HttpServerWidgetState createState() => _HttpServerWidgetState();
+  State<HttpServerWidget> createState() => _HttpServerWidgetState();
 }
 
 class _HttpServerWidgetState extends State<HttpServerWidget> {
-  Map _blogMap = Map<String, Map<String, dynamic>>();
-  StringBuffer _logSb = StringBuffer();
+  final Map _blogMap = <String, Map<String, dynamic>>{};
+  final StringBuffer _logSb = StringBuffer();
   int _currentMaxId = 1;
 
   HttpServer? _httpServer;
@@ -38,23 +40,26 @@ class _HttpServerWidgetState extends State<HttpServerWidget> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
+        const SizedBox(height: 8),
         MaterialButton(
           color: Colors.green,
-          child: Text('启动服务'),
+          child: const Text('启动服务'),
           onPressed: () {
             _startServer();
           },
         ),
+        const SizedBox(height: 8),
         MaterialButton(
           color: Colors.grey,
-          child: Text('停止服务'),
+          child: const Text('停止服务'),
           onPressed: () {
             _stopServer();
           },
         ),
+        const SizedBox(height: 8),
         MaterialButton(
           color: Colors.orange,
-          child: Text('清空日志'),
+          child: const Text('清空日志'),
           onPressed: () {
             setState(() {
               _logSb.clear();
@@ -64,7 +69,7 @@ class _HttpServerWidgetState extends State<HttpServerWidget> {
         Expanded(
           child: SingleChildScrollView(
             child: Padding(
-              padding: EdgeInsets.all(8),
+              padding: const EdgeInsets.all(8),
               child: Text(_logSb.toString()),
             ),
           ),
@@ -91,8 +96,9 @@ class _HttpServerWidgetState extends State<HttpServerWidget> {
     shelf_router.Router router = shelf_router.Router();
     _initAuthHandler(router);
     _initBlogHandler(router);
-    _handler =
-        shelf.Pipeline().addMiddleware(shelf.logRequests()).addHandler(router);
+    _handler = const shelf.Pipeline()
+        .addMiddleware(shelf.logRequests())
+        .addHandler(router);
   }
 
   _initAuthHandler(shelf_router.Router router) {
@@ -126,10 +132,10 @@ class _HttpServerWidgetState extends State<HttpServerWidget> {
         appendLog('请求了 put /blogs/$blogId');
         try {
           final body = await request.readAsString();
-          if (_blogMap.containsKey('$blogId')) {
+          if (_blogMap.containsKey(blogId)) {
             final blog = json.decode(body);
             blog['id'] = blogId;
-            _blogMap['$blogId'] = blog;
+            _blogMap[blogId] = blog;
             return responseJson({'code': 0, 'msg': '更新$blogId成功'});
           } else {
             return responseJson({'code': 1, 'msg': '更新失败，不存在id为$blogId的博客'});
@@ -140,15 +146,15 @@ class _HttpServerWidgetState extends State<HttpServerWidget> {
         }
       })
       ..delete('/blogs/<blogId>', (shelf.Request request, String blogId) {
-        _blogMap.remove('$blogId');
+        _blogMap.remove(blogId);
         appendLog('请求了 remove /blogs/$blogId');
         return responseJson({'code': 0, 'msg': '删除$blogId成功'});
       })
       ..get('/blogs/<blogId>', (shelf.Request request, String blogId) {
         appendLog('请求了 get /blogs/$blogId');
-        if (_blogMap.containsKey('$blogId')) {
+        if (_blogMap.containsKey(blogId)) {
           return responseJson(
-              {'code': 0, 'msg': '获取博客成功', 'data': _blogMap['$blogId']});
+              {'code': 0, 'msg': '获取博客成功', 'data': _blogMap[blogId]});
         } else {
           return responseJson({'code': 1, 'msg': '不存在id为$blogId的博客'});
         }
@@ -170,9 +176,6 @@ class _HttpServerWidgetState extends State<HttpServerWidget> {
   }
 
   _stopServer() {
-    if (_httpServer == null) {
-      return;
-    }
     _httpServer?.close(force: true).then((serverSocket) {
       appendLog('停止服务成功：$serverSocket');
       _httpServer = null;

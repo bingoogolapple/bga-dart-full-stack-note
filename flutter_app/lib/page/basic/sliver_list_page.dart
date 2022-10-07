@@ -30,12 +30,12 @@ class SliverListPage extends StatelessWidget {
             return SizedBox(
               height: 150,
               child: Image.network(
-                NET_IMAGES[index],
+                netImages[index],
                 fit: BoxFit.cover,
               ),
             );
           },
-          childCount: NET_IMAGES.length,
+          childCount: netImages.length,
         ),
       ),
     );
@@ -48,7 +48,7 @@ class SliverListPage extends StatelessWidget {
       sliver: SliverList(
         delegate: SliverChildListDelegate(
           List.generate(
-            NET_IMAGES.length,
+            netImages.length,
             (index) => Padding(
               padding: const EdgeInsets.all(8),
               child: Material(
@@ -58,7 +58,7 @@ class SliverListPage extends StatelessWidget {
                 child: AspectRatio(
                   aspectRatio: 4 / 1,
                   child: Image.network(
-                    NET_IMAGES[index],
+                    netImages[index],
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -103,18 +103,20 @@ class SliverListPage extends StatelessWidget {
         centerTitle: true,
         title: _buildTitle(),
         background: Image.network(
-          NET_IMAGES[NET_IMAGES.length - 2],
+          netImages[netImages.length - 2],
           fit: BoxFit.cover,
         ),
       ),
     );
   }
 
-  Widget _buildTitle() {
-    return const Text("SliverList",
-        style: TextStyle(
-          color: Colors.white,
-          fontSize: 20,
-        ));
+  _buildTitle() {
+    return const Text(
+      "SliverList",
+      style: TextStyle(
+        color: Colors.white,
+        fontSize: 20,
+      ),
+    );
   }
 }

@@ -39,6 +39,10 @@ class _ButtonPageState extends State<ButtonPage> {
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: BottomAppBar(
         shape: const CircularNotchedRectangle(),
+        // 和 BottomNavigationBar 结合使用时需要指定 clipBehavior 为 Clip.antiAlias
+        clipBehavior: Clip.antiAlias,
+        // FloatingActionButton 和凹槽的间距
+        notchMargin: 4,
         child: Container(
           height: 80,
           // color: Colors.pinkAccent,

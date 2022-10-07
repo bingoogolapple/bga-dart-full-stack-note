@@ -5,5 +5,5 @@ void setPathUrlStrategy() {
 }
 
 void setHashUrlStrategy() {
-  setUrlStrategy(HashUrlStrategy());
+  setUrlStrategy(const HashUrlStrategy());
 }

@@ -22,6 +22,7 @@ class _BlocPageState extends State<BlocPage> {
           child: Padding(
             padding: const EdgeInsets.all(8),
             child: Column(
+              // ignore: prefer_const_literals_to_create_immutables
               children: [
                 // Builder(
                 //   builder: (context) {

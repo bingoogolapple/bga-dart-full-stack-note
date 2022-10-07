@@ -46,11 +46,13 @@ class _AnimatedPageState extends State<AnimatedPage>
     _initCurvedAnimation();
   }
 
+  // ignore: unused_element
   void _initDefaultAnimation() {
     // _controller 默认的 Animation 是从 0 到 1 的线性变化
     _animation = _controller.view;
   }
 
+  // ignore: unused_element
   void _initTweenAnimation() {
     // 创建从 50 到 200 线性变化的 Animation 对象
     _animation = Tween(begin: 50.0, end: 200.0).animate(_controller)

@@ -18,7 +18,7 @@ class _CardPageState extends State<CardPage> {
         backgroundColor: Colors.deepOrange,
       ),
       body: ListView(
-        children: NET_IMAGES.map(
+        children: netImages.map(
           (imageUrl) {
             return Card(
               child: Column(

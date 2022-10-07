@@ -36,11 +36,11 @@ class SliverGridPage extends StatelessWidget {
         delegate: SliverChildBuilderDelegate(
           (context, index) {
             return Image.network(
-              NET_IMAGES[index],
+              netImages[index],
               fit: BoxFit.cover,
             );
           },
-          childCount: NET_IMAGES.length,
+          childCount: netImages.length,
         ),
       ),
     );
@@ -62,11 +62,11 @@ class SliverGridPage extends StatelessWidget {
         delegate: SliverChildBuilderDelegate(
           (context, index) {
             return Image.network(
-              NET_IMAGES[index],
+              netImages[index],
               fit: BoxFit.cover,
             );
           },
-          childCount: NET_IMAGES.length,
+          childCount: netImages.length,
         ),
       ),
     );
@@ -81,9 +81,9 @@ class SliverGridPage extends StatelessWidget {
         crossAxisSpacing: 16,
         mainAxisSpacing: 8,
         children: List.generate(
-          NET_IMAGES.length,
+          netImages.length,
           (index) => Image.network(
-            NET_IMAGES[index],
+            netImages[index],
             fit: BoxFit.cover,
           ),
         ),
@@ -102,9 +102,9 @@ class SliverGridPage extends StatelessWidget {
         childAspectRatio: 2 / 1, // 条目的交叉轴尺寸与主轴尺寸比，不指定的话就是正方形
         // scrollDirection: Axis.horizontal,
         children: List.generate(
-          NET_IMAGES.length,
+          netImages.length,
           (index) => Image.network(
-            NET_IMAGES[index],
+            netImages[index],
             fit: BoxFit.cover,
           ),
         ),
@@ -145,18 +145,20 @@ class SliverGridPage extends StatelessWidget {
         centerTitle: true,
         title: _buildTitle(),
         background: Image.network(
-          NET_IMAGES[NET_IMAGES.length - 2],
+          netImages[netImages.length - 2],
           fit: BoxFit.cover,
         ),
       ),
     );
   }
 
-  Widget _buildTitle() {
-    return const Text("SliverGrid",
-        style: TextStyle(
-          color: Colors.white,
-          fontSize: 20,
-        ));
+  _buildTitle() {
+    return const Text(
+      "SliverGrid",
+      style: TextStyle(
+        color: Colors.white,
+        fontSize: 20,
+      ),
+    );
   }
 }
