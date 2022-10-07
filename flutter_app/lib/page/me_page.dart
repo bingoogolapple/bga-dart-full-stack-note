@@ -7,7 +7,7 @@ import 'package:flutter_app/page/basic_case/form_page.dart';
 import 'package:flutter_app/page/basic_case/radio_page.dart';
 import 'package:flutter_app/page/basic_case/switch_page.dart';
 import 'package:flutter_app/page/basic_case/text_page.dart';
-import 'package:flutter_app/page/animated_page.dart';
+import 'package:flutter_app/page/basic_case/animated_page.dart';
 import 'package:flutter_app/page/gesture_page.dart';
 import 'package:flutter_app/page/http_page.dart';
 import 'package:flutter_app/page/row_column_page.dart';

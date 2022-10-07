@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_app/mock/net_images.dart';
+import 'package:flutter_app/page/basic_case/animated_page.dart';
 import 'package:flutter_app/page/basic_case/bloc_page.dart';
 import 'package:flutter_app/page/basic_case/bottom_sheet_page.dart';
 import 'package:flutter_app/page/basic_case/button_page.dart';
@@ -75,6 +76,7 @@ final Map<String, WidgetBuilder> routes = {
   '/inheritedWidgetPage': (BuildContext context) => const InheritedWidgetPage(),
   '/blocPage': (BuildContext context) => const BlocPage(),
   '/streamPage': (BuildContext context) => const StreamPage(),
+  '/animatedPage': (BuildContext context) => const AnimatedPage(),
 };
 
 class App extends StatelessWidget {
