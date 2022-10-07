@@ -25,6 +25,7 @@ import 'package:flutter_app/page/basic_case/sliver_list_page.dart';
 import 'package:flutter_app/page/basic_case/snack_bar_page.dart';
 import 'package:flutter_app/page/basic_case/stack_page.dart';
 import 'package:flutter_app/page/basic_case/stepper_page.dart';
+import 'package:flutter_app/page/basic_case/stream_page.dart';
 import 'package:flutter_app/page/basic_case/switch_page.dart';
 import 'package:flutter_app/page/basic_case/text_field_page.dart';
 import 'package:flutter_app/page/basic_case/text_page.dart';
@@ -73,6 +74,7 @@ final Map<String, WidgetBuilder> routes = {
       const PaginatedDataTablePage(),
   '/inheritedWidgetPage': (BuildContext context) => const InheritedWidgetPage(),
   '/blocPage': (BuildContext context) => const BlocPage(),
+  '/streamPage': (BuildContext context) => const StreamPage(),
 };
 
 class App extends StatelessWidget {
