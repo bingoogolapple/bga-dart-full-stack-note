@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 
 class RowColumnPage extends StatefulWidget {
+  const RowColumnPage({super.key});
+
   @override
-  _RowColumnPageState createState() => _RowColumnPageState();
+  State<RowColumnPage> createState() => _RowColumnPageState();
 }
 
 class _RowColumnPageState extends State<RowColumnPage> {
-  /// Column 和 Row 都继承自 Row
+  /// Column 和 Row 都继承自 Flex
 
   /// 主轴对准方式，把 children 放到主轴的哪个位置。对于 Row 来说，水平是主轴，垂直是交叉轴。对于 Column 来说，垂直是主轴，水平是交叉轴
   /// MainAxisAlignment.start（默认值）把 children 放到主轴的头部
@@ -51,7 +53,7 @@ class _RowColumnPageState extends State<RowColumnPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('RowColumn'),
+        title: const Text('RowColumn'),
         centerTitle: true,
         backgroundColor: Colors.deepOrange,
       ),
@@ -64,43 +66,79 @@ class _RowColumnPageState extends State<RowColumnPage> {
                   children: [
                     PopupMenuButton<MainAxisAlignment>(
                       initialValue: _mainAxisAlignment,
-                      child: Padding(padding: EdgeInsets.all(10), child: Text(_mainAxisAlignment.toString())),
-                      onSelected: (item) => setState(() => _mainAxisAlignment = item),
-                      itemBuilder: (context) => MainAxisAlignment.values.map((item) => PopupMenuItem(value: item, child: Text(item.toString()))).toList(),
+                      child: Padding(
+                          padding: const EdgeInsets.all(10),
+                          child: Text(_mainAxisAlignment.toString())),
+                      onSelected: (item) =>
+                          setState(() => _mainAxisAlignment = item),
+                      itemBuilder: (context) => MainAxisAlignment.values
+                          .map((item) => PopupMenuItem(
+                              value: item, child: Text(item.toString())))
+                          .toList(),
                     ),
                     PopupMenuButton<MainAxisSize>(
                       initialValue: _mainAxisSize,
-                      child: Padding(padding: EdgeInsets.all(10), child: Text(_mainAxisSize.toString())),
-                      onSelected: (item) => setState(() => _mainAxisSize = item),
-                      itemBuilder: (context) => MainAxisSize.values.map((item) => PopupMenuItem(value: item, child: Text(item.toString()))).toList(),
+                      child: Padding(
+                          padding: const EdgeInsets.all(10),
+                          child: Text(_mainAxisSize.toString())),
+                      onSelected: (item) =>
+                          setState(() => _mainAxisSize = item),
+                      itemBuilder: (context) => MainAxisSize.values
+                          .map((item) => PopupMenuItem(
+                              value: item, child: Text(item.toString())))
+                          .toList(),
                     ),
                     PopupMenuButton<CrossAxisAlignment>(
                       initialValue: _crossAxisAlignment,
-                      child: Padding(padding: EdgeInsets.all(10), child: Text(_crossAxisAlignment.toString())),
-                      onSelected: (item) => setState(() => _crossAxisAlignment = item),
-                      itemBuilder: (context) => CrossAxisAlignment.values.map((item) => PopupMenuItem(value: item, child: Text(item.toString()))).toList(),
+                      child: Padding(
+                          padding: const EdgeInsets.all(10),
+                          child: Text(_crossAxisAlignment.toString())),
+                      onSelected: (item) =>
+                          setState(() => _crossAxisAlignment = item),
+                      itemBuilder: (context) => CrossAxisAlignment.values
+                          .map((item) => PopupMenuItem(
+                              value: item, child: Text(item.toString())))
+                          .toList(),
                     ),
                     PopupMenuButton<VerticalDirection>(
                       initialValue: _verticalDirection,
-                      child: Padding(padding: EdgeInsets.all(10), child: Text(_verticalDirection.toString())),
-                      onSelected: (item) => setState(() => _verticalDirection = item),
-                      itemBuilder: (context) => VerticalDirection.values.map((item) => PopupMenuItem(value: item, child: Text(item.toString()))).toList(),
+                      child: Padding(
+                          padding: const EdgeInsets.all(10),
+                          child: Text(_verticalDirection.toString())),
+                      onSelected: (item) =>
+                          setState(() => _verticalDirection = item),
+                      itemBuilder: (context) => VerticalDirection.values
+                          .map((item) => PopupMenuItem(
+                              value: item, child: Text(item.toString())))
+                          .toList(),
                     ),
                     PopupMenuButton<TextDirection>(
                       initialValue: _textDirection,
-                      child: Padding(padding: EdgeInsets.all(10), child: Text(_textDirection.toString())),
-                      onSelected: (item) => setState(() => _textDirection = item),
-                      itemBuilder: (context) => TextDirection.values.map((item) => PopupMenuItem(value: item, child: Text(item.toString()))).toList(),
+                      child: Padding(
+                          padding: const EdgeInsets.all(10),
+                          child: Text(_textDirection.toString())),
+                      onSelected: (item) =>
+                          setState(() => _textDirection = item),
+                      itemBuilder: (context) => TextDirection.values
+                          .map((item) => PopupMenuItem(
+                              value: item, child: Text(item.toString())))
+                          .toList(),
                     ),
                     PopupMenuButton<TextBaseline>(
                       initialValue: _textBaseline,
-                      child: Padding(padding: EdgeInsets.all(10), child: Text(_textBaseline.toString())),
-                      onSelected: (item) => setState(() => _textBaseline = item),
-                      itemBuilder: (context) => TextBaseline.values.map((item) => PopupMenuItem(value: item, child: Text(item.toString()))).toList(),
+                      child: Padding(
+                          padding: const EdgeInsets.all(10),
+                          child: Text(_textBaseline.toString())),
+                      onSelected: (item) =>
+                          setState(() => _textBaseline = item),
+                      itemBuilder: (context) => TextBaseline.values
+                          .map((item) => PopupMenuItem(
+                              value: item, child: Text(item.toString())))
+                          .toList(),
                     ),
                   ],
                 ),
-                Divider(
+                const Divider(
                   height: 20,
                 ),
                 Container(
@@ -112,7 +150,7 @@ class _RowColumnPageState extends State<RowColumnPage> {
                     verticalDirection: _verticalDirection,
                     textDirection: _textDirection,
                     textBaseline: _textBaseline,
-                    children: [
+                    children: const [
                       Text('yAja啊'),
                       Text('yBjb吧', style: TextStyle(fontSize: 30)),
                       Text('yCjc从', style: TextStyle(fontSize: 10)),
@@ -120,7 +158,7 @@ class _RowColumnPageState extends State<RowColumnPage> {
                     ],
                   ),
                 ),
-                Divider(
+                const Divider(
                   height: 20,
                 ),
                 Container(
@@ -134,7 +172,7 @@ class _RowColumnPageState extends State<RowColumnPage> {
                     verticalDirection: _verticalDirection,
                     textDirection: _textDirection,
                     textBaseline: _textBaseline,
-                    children: [
+                    children: const [
                       Text('yAja啊'),
                       Text('yBjb吧', style: TextStyle(fontSize: 30)),
                       Text('yCjc从', style: TextStyle(fontSize: 10)),
@@ -142,7 +180,7 @@ class _RowColumnPageState extends State<RowColumnPage> {
                     ],
                   ),
                 ),
-                Divider(
+                const Divider(
                   height: 20,
                 ),
                 Container(
@@ -156,7 +194,7 @@ class _RowColumnPageState extends State<RowColumnPage> {
                     verticalDirection: _verticalDirection,
                     textDirection: _textDirection,
                     textBaseline: _textBaseline,
-                    children: [
+                    children: const [
                       Text('yAja啊'),
                       Text('yBjb吧', style: TextStyle(fontSize: 30)),
                       Text('yCjc从', style: TextStyle(fontSize: 10)),
@@ -164,7 +202,7 @@ class _RowColumnPageState extends State<RowColumnPage> {
                     ],
                   ),
                 ),
-                Divider(
+                const Divider(
                   height: 20,
                 ),
               ],

@@ -20,6 +20,7 @@ import 'package:flutter_app/page/basic_case/page_view_page.dart';
 import 'package:flutter_app/page/basic_case/paginated_data_table_page.dart';
 import 'package:flutter_app/page/basic_case/picker_page.dart';
 import 'package:flutter_app/page/basic_case/radio_page.dart';
+import 'package:flutter_app/page/basic_case/row_column_page.dart';
 import 'package:flutter_app/page/basic_case/slider_page.dart';
 import 'package:flutter_app/page/basic_case/sliver_grid_page.dart';
 import 'package:flutter_app/page/basic_case/sliver_list_page.dart';
@@ -77,6 +78,7 @@ final Map<String, WidgetBuilder> routes = {
   '/blocPage': (BuildContext context) => const BlocPage(),
   '/streamPage': (BuildContext context) => const StreamPage(),
   '/animatedPage': (BuildContext context) => const AnimatedPage(),
+  '/rowColumnPage': (BuildContext context) => const RowColumnPage(),
 };
 
 class App extends StatelessWidget {
