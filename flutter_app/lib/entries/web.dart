@@ -12,8 +12,10 @@ import 'package:flutter_app/page/basic_case/chip_page.dart';
 import 'package:flutter_app/page/basic_case/container_page.dart';
 import 'package:flutter_app/page/basic_case/data_table_page.dart';
 import 'package:flutter_app/page/basic_case/dialog_page.dart';
+import 'package:flutter_app/page/basic_case/dismissable_page.dart';
 import 'package:flutter_app/page/basic_case/expansion_panel_page.dart';
 import 'package:flutter_app/page/basic_case/form_page.dart';
+import 'package:flutter_app/page/basic_case/gesture_page.dart';
 import 'package:flutter_app/page/basic_case/grid_view_page.dart';
 import 'package:flutter_app/page/basic_case/inherited_widget_page.dart';
 import 'package:flutter_app/page/basic_case/page_view_page.dart';
@@ -79,6 +81,8 @@ final Map<String, WidgetBuilder> routes = {
   '/streamPage': (BuildContext context) => const StreamPage(),
   '/animatedPage': (BuildContext context) => const AnimatedPage(),
   '/rowColumnPage': (BuildContext context) => const RowColumnPage(),
+  '/dismissiblePage': (BuildContext context) => const DismissiblePage(),
+  '/gesturePage': (BuildContext context) => const GesturePage(),
 };
 
 class App extends StatelessWidget {

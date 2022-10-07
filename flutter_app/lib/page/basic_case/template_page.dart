@@ -6,11 +6,12 @@ class TemplatePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: const Text(''),
-          centerTitle: true,
-          backgroundColor: Colors.deepOrange,
-        ),
-        body: const Text(''));
+      appBar: AppBar(
+        title: Text(runtimeType.toString().replaceAll('Page', '')),
+        centerTitle: true,
+        backgroundColor: Colors.deepOrange,
+      ),
+      body: const Text(''),
+    );
   }
 }

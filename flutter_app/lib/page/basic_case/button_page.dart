@@ -60,6 +60,21 @@ class _ButtonPageState extends State<ButtonPage> {
                   });
                 },
               ),
+              InkWell(
+                onTap: () {
+                  debugPrint('点击了 InkWellButton');
+                },
+                onLongPress: () {
+                  debugPrint('长按了 InkWellButton');
+                },
+                onDoubleTap: () {
+                  debugPrint('双击了 InkWellButton');
+                },
+                child: Container(
+                  padding: const EdgeInsets.all(12.0),
+                  child: const Text('InkWellButton'),
+                ),
+              ),
               // 内部包裹的是 RawMaterialButton，MaterialButton 从 ButtonTheme 中获取默认配置
               MaterialButton(
                 onPressed: _isEnable

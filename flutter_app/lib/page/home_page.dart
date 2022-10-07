@@ -2,7 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_app/mock/net_images.dart';
-import 'package:flutter_app/page/row_column_page.dart';
+import 'package:flutter_app/page/basic_case/row_column_page.dart';
 import 'package:flutter_app/widget/banner_widget.dart';
 
 class HomePage extends StatefulWidget {

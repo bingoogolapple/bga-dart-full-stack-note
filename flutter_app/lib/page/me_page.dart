@@ -8,9 +8,9 @@ import 'package:flutter_app/page/basic_case/radio_page.dart';
 import 'package:flutter_app/page/basic_case/switch_page.dart';
 import 'package:flutter_app/page/basic_case/text_page.dart';
 import 'package:flutter_app/page/basic_case/animated_page.dart';
-import 'package:flutter_app/page/gesture_page.dart';
+import 'package:flutter_app/page/basic_case/gesture_page.dart';
 import 'package:flutter_app/page/http_page.dart';
-import 'package:flutter_app/page/row_column_page.dart';
+import 'package:flutter_app/page/basic_case/row_column_page.dart';
 import 'package:flutter_app/widget/banner_widget.dart';
 
 class MePage extends StatefulWidget {
